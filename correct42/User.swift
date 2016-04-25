@@ -7,6 +7,8 @@
 //
 import SwiftyJSON
 
+
+//TODO: implement titles ([Title]), partnerships, patroned, patroning ([User])
 class User : SuperModel, IdDelegate {
 	
 	// MARK: - Uncomputed (alias) proprieties

@@ -8,13 +8,13 @@
 
 class Skill: SuperModel, IdDelegate {
 	var id:Int {
-		get{ return (jsonData["cursus"]["id"].intValue) }
-		set{ jsonData["cursus"]["id"].int = newValue }
+		get{ return (jsonData["id"].intValue) }
+		set{ jsonData["id"].int = newValue }
 	}
 	
 	var name:String{
-		get{ return (jsonData["cursus"]["name"].stringValue) }
-		set{ jsonData["cursus"]["name"].string = newValue }
+		get{ return (jsonData["name"].stringValue) }
+		set{ jsonData["name"].string = newValue }
 	}
 	
 	var level:Int{
