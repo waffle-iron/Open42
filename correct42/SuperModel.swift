@@ -6,4 +6,13 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
+
+class SuperModel {
+	
+	var jsonData:JSON = JSON("")
+	
+	required init(jsonFetch:JSON){
+		jsonData = jsonFetch
+	}
+}

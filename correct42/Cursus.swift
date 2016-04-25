@@ -7,17 +7,12 @@
 //
 import SwiftyJSON
 
-class Cursus {
-	var jsonData:JSON = JSON("")
+class Cursus : SuperModel {
 	
 	// MARK: - Uncomputed (alias) proprieties
 	var id:Int {
-		get{
-			return (jsonData["cursus"]["id"].intValue)
-		}
-		set{
-			jsonData["cursus"]["id"].int = newValue
-		}
+		get{ return (jsonData["cursus"]["id"].intValue) }
+		set{ jsonData["cursus"]["id"].int = newValue }
 	}
 	
 	var name:String{
@@ -26,72 +21,42 @@ class Cursus {
 	}
 	
 	var createAt:String{
-		get{
-			return (jsonData["cursus"]["create_at"].stringValue)
-		}
-		set{
-			jsonData["cursus"]["create_at"].string = newValue
-		}
+		get{ return (jsonData["cursus"]["create_at"].stringValue) }
+		set{ jsonData["cursus"]["create_at"].string = newValue }
 	}
 	
 	var updatedAt:String{
-		get{
-			return (jsonData["cursus"]["update_at"].stringValue)
-		}
-		set{
-			jsonData["cursus"]["update_at"].string = newValue
-		}
+		get{ return (jsonData["cursus"]["update_at"].stringValue) }
+		set{ jsonData["cursus"]["update_at"].string = newValue }
 	}
 	
 	var slug:String{
-		get{
-			return (jsonData["cursus"]["slug"].stringValue)
-		}
-		set{
-			jsonData["cursus"]["slug"].string = newValue
-		}
+		get{ return (jsonData["cursus"]["slug"].stringValue) }
+		set{ jsonData["cursus"]["slug"].string = newValue }
 	}
 	
 	var endAt:String{
-		get{
-			return (jsonData["end_at"].stringValue)
-		}
-		set{
-			jsonData["end_at"].string = newValue
-		}
+		get{ return (jsonData["end_at"].stringValue) }
+		set{ jsonData["end_at"].string = newValue }
 	}
 	
 	var level:Int{
-		get{
-			return (jsonData["level"].intValue)
-		}
-		set{
-			jsonData["level"].int = newValue
-		}
+		get{ return (jsonData["level"].intValue) }
+		set{ jsonData["level"].int = newValue }
 	}
 	
 	var grade:String{
-		get{
-			return (jsonData["grade"].stringValue)
-		}
-		set{
-			jsonData["grade"].string = newValue
-		}
+		get{ return (jsonData["grade"].stringValue) }
+		set{ jsonData["grade"].string = newValue }
 	}
 	
 	var projects:[Project]{
 		get{
 			var projectGet = [Project]()
 			for project in jsonData["Projects"].arrayValue{
-				projectGet.append(project)
+				projectGet.append(Project(project))
 			}
 			return (projectGet)
 		}
-	}
-	
-	
-	// MARK: - Contructors
-	init(jsonFetch:JSON){
-		jsonData = jsonFetch
 	}
 }

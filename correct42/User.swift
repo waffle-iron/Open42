@@ -7,110 +7,72 @@
 //
 import SwiftyJSON
 
-class User{
-	var jsonData:JSON = JSON("")
+class User : SuperModel {
 	
 	// MARK: - Uncomputed (alias) proprieties
 	var id:Int {
-		get{
-			return (jsonData["id"].intValue)
-		}
-		set{
-			jsonData["id"].int = newValue
-		}
+		get{ return (jsonData["id"].intValue) }
+		set{ jsonData["id"].int = newValue }
 	}
 	
 	var email:String {
-		get{
-			return (jsonData["email"].stringValue)
-		}
-		set{
-			jsonData["email"].string = newValue
-		}
+		get{ return (jsonData["email"].stringValue) }
+		set{ jsonData["email"].string = newValue }
 	}
 	
 	var login:String {
-		get{
-			return (jsonData["login"].stringValue)
-		}
-		set{
-			jsonData["login"].string = newValue
-		}
+		get{ return (jsonData["login"].stringValue) }
+		set{ jsonData["login"].string = newValue }
 	}
 	
 	var url:String {
-		get{
-			return (jsonData["url"].stringValue)
-		}
-		set{
-			jsonData["url"].string = newValue
-		}
+		get{ return (jsonData["url"].stringValue) }
+		set{ jsonData["url"].string = newValue }
 	}
 	
 	var phone:String {
-		get{
-			return (jsonData["phone"].stringValue)
-		}
-		set{
-			
-		}
+		get{ return (jsonData["phone"].stringValue) }
+		set{ jsonData["phone"].string = newValue }
 	}
 	
 	var displayName:String {
-		get{
-			return (jsonData["displayname"].stringValue)
-		}
-		set{
-			
-		}
+		get{ return (jsonData["displayname"].stringValue) }
+		set{ jsonData["displayname"].string = newValue }
 	}
 	
 	var imageUrl:String {
-		get{
-			return (jsonData["image_url"].stringValue)
-		}
-		set{
-			
-		}
+		get{ return (jsonData["image_url"].stringValue) }
+		set{ jsonData["image_url"].string = newValue }
 	}
 	
 	var staff:Bool {
-		get{
-			return (jsonData["email"].boolValue)
-		}
-		set{
-			
-		}
+		get{ return (jsonData["email"].boolValue) }
+		set{ jsonData["email"].bool = newValue }
 	}
 	
 	var correctionPoint:Int {
-		get{
-			return (jsonData["correction_point"].intValue)
-		}
+		get{ return (jsonData["correction_point"].intValue) }
+		set{ jsonData["correction_point"].int = newValue }
 	}
 
 	var poolMonth:String {
-		get{
-			return (jsonData["pool_month"].stringValue)
-		}
+		get{ return (jsonData["pool_month"].stringValue) }
+		set{ jsonData["pool_month"].string = newValue }
 	}
 
 	var poolYear:String {
-		get{
-			return (jsonData["pool_year"].stringValue)
-		}
+		get{ return (jsonData["pool_year"].stringValue) }
+		set{ jsonData["pool_year"].string = newValue }
 	}
 
 	var location:String {
-		get{
-			return (jsonData["location"].stringValue)
-		}
+		get{ return (jsonData["location"].stringValue) }
+		set{ jsonData["location"].string = newValue }
 	}
 
 	var wallet:Int {
-		get{
-			return (jsonData["wallet"].intValue)
-		}
+		get{ return (jsonData["wallet"].intValue) }
+		set{ jsonData["wallet"].int = newValue }
 	}
 	
 	// TODO: Finish implement of Cursus
@@ -163,9 +125,4 @@ class User{
 			return (campusGet)
 		}
 	}
-	
-	init(jsonFetch:JSON){
-		jsonData = jsonFetch
-	}
-
 }
