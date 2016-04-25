@@ -46,8 +46,8 @@ class User : SuperModel {
 	}
 	
 	var staff:Bool {
-		get{ return (jsonData["email"].boolValue) }
-		set{ jsonData["email"].bool = newValue }
+		get{ return (jsonData["staff?"].boolValue) }
+		set{ jsonData["staff?"].bool = newValue }
 	}
 	
 	var correctionPoint:Int {
