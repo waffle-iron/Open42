@@ -24,6 +24,7 @@
 		4658A4941CCE9640001C0968 /* TeamUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4931CCE9640001C0968 /* TeamUpload.swift */; };
 		4658A4961CCE9C86001C0968 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4951CCE9C86001C0968 /* Scale.swift */; };
 		4658A4981CCEA5A9001C0968 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4971CCEA5A9001C0968 /* Flag.swift */; };
+		4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4991CCEAA9C001C0968 /* Upload.swift */; };
 		4683B4671CC26999005DBAA6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4683B4661CC26999005DBAA6 /* LoginViewController.swift */; };
 		4683B46A1CC26999005DBAA6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683B4681CC26999005DBAA6 /* Login.storyboard */; };
 		4683B46C1CC26999005DBAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4683B46B1CC26999005DBAA6 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		4658A4931CCE9640001C0968 /* TeamUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamUpload.swift; sourceTree = "<group>"; };
 		4658A4951CCE9C86001C0968 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		4658A4971CCEA5A9001C0968 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		4658A4991CCEAA9C001C0968 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		4683B4611CC26999005DBAA6 /* correct42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = correct42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B4661CC26999005DBAA6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4683B4691CC26999005DBAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				4658A4931CCE9640001C0968 /* TeamUpload.swift */,
 				4658A4951CCE9C86001C0968 /* Scale.swift */,
 				4658A4971CCEA5A9001C0968 /* Flag.swift */,
+				4658A4991CCEAA9C001C0968 /* Upload.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				4683B4671CC26999005DBAA6 /* LoginViewController.swift in Sources */,
 				4658A48C1CCE785F001C0968 /* Team.swift in Sources */,
 				4648C9A51CC6E29D00E82D68 /* Project.swift in Sources */,
+				4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */,
 				4648C9A71CC6E2AD00E82D68 /* User.swift in Sources */,
 				4658A4881CCE6240001C0968 /* Campus.swift in Sources */,
 				4658A4801CCE54D7001C0968 /* Achievement.swift in Sources */,
