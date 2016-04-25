@@ -116,9 +116,9 @@ class User{
 	// TODO: Finish implement of Cursus
 	var cursus:[Cursus] {
 		get {
-			let cursusGet = [Cursus]()
+			var cursusGet = [Cursus]()
 			for cursus in jsonData["cursus"].arrayValue {
-				cursusGet.
+				cursusGet.append(Cursus(jsonFetch: cursus))
 			}
 			return (cursusGet)
 		}
@@ -157,10 +157,10 @@ class User{
 	// TODO: Finish implement of Campus
 	var achievements:[Campus] {
 		get {
-			var achievementGet = [Campus]()
-			for achievement in jsonData["Campus"].arrayValue{
+			var campusGet = [Campus]()
+			for campus in jsonData["Campus"].arrayValue{
 			}
-			return (achievementGet)
+			return (campusGet)
 		}
 	}
 	

@@ -11,18 +11,81 @@ class Cursus {
 	var jsonData:JSON = JSON("")
 	
 	// MARK: - Uncomputed (alias) proprieties
-	var id
-	var name
-	var createAt
-	var updatedAt
-	var slug
-	var endAt
-	var level
-	var grade
+	var id:Int {
+		get{
+			return (jsonData["cursus"]["id"].intValue)
+		}
+		set{
+			jsonData["cursus"]["id"].int = newValue
+		}
+	}
+	
+	var name:String{
+		get{ return (jsonData["cursus"]["name"].stringValue) }
+		set{ jsonData["cursus"]["name"].string = newValue }
+	}
+	
+	var createAt:String{
+		get{
+			return (jsonData["cursus"]["create_at"].stringValue)
+		}
+		set{
+			jsonData["cursus"]["create_at"].string = newValue
+		}
+	}
+	
+	var updatedAt:String{
+		get{
+			return (jsonData["cursus"]["update_at"].stringValue)
+		}
+		set{
+			jsonData["cursus"]["update_at"].string = newValue
+		}
+	}
+	
+	var slug:String{
+		get{
+			return (jsonData["cursus"]["slug"].stringValue)
+		}
+		set{
+			jsonData["cursus"]["slug"].string = newValue
+		}
+	}
+	
+	var endAt:String{
+		get{
+			return (jsonData["end_at"].stringValue)
+		}
+		set{
+			jsonData["end_at"].string = newValue
+		}
+	}
+	
+	var level:Int{
+		get{
+			return (jsonData["level"].intValue)
+		}
+		set{
+			jsonData["level"].int = newValue
+		}
+	}
+	
+	var grade:String{
+		get{
+			return (jsonData["grade"].stringValue)
+		}
+		set{
+			jsonData["grade"].string = newValue
+		}
+	}
 	
 	var projects:[Project]{
 		get{
-			
+			var projectGet = [Project]()
+			for project in jsonData["Projects"].arrayValue{
+				projectGet.append(project)
+			}
+			return (projectGet)
 		}
 	}
 	
