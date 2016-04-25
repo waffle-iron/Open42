@@ -7,8 +7,6 @@
 //
 import SwiftyJSON
 
-
-//TODO: implement patroned, patroning ([User])
 class User : SuperModel, IdDelegate {
 	
 	// MARK: - Uncomputed (alias) proprieties
@@ -82,7 +80,6 @@ class User : SuperModel, IdDelegate {
 		set{ jsonData["wallet"].int = newValue }
 	}
 	
-	// TODO: Finish implement of Cursus
 	var cursus:[Cursus] {
 		get {
 			var cursusGet = [Cursus]()
@@ -93,7 +90,6 @@ class User : SuperModel, IdDelegate {
 		}
 	}
 	
-	// TODO: Finish implement of Skills
 	var skills:[Skill] {
 		get {
 			var skillsGet = [Skill]()
@@ -104,7 +100,6 @@ class User : SuperModel, IdDelegate {
 		}
 	}
 	
-	// TODO: Finish implement of Achievement
 	var achievements:[Achievement] {
 		get {
 			var achievementGet = [Achievement]()
@@ -145,8 +140,6 @@ class User : SuperModel, IdDelegate {
 		}
 	}
 
-	
-	// TODO: Finish implement of Campus
 	var campus:[Campus] {
 		get {
 			var campusGet = [Campus]()
