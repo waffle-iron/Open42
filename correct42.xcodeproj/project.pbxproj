@@ -20,6 +20,14 @@
 		4658A48A1CCE762F001C0968 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4891CCE762F001C0968 /* Language.swift */; };
 		4658A48C1CCE785F001C0968 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A48B1CCE785F001C0968 /* Team.swift */; };
 		4658A4901CCE81A3001C0968 /* SuperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A48F1CCE81A3001C0968 /* SuperModel.swift */; };
+		4658A4921CCE962C001C0968 /* ScaleTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4911CCE962C001C0968 /* ScaleTeam.swift */; };
+		4658A4941CCE9640001C0968 /* TeamUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4931CCE9640001C0968 /* TeamUpload.swift */; };
+		4658A4961CCE9C86001C0968 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4951CCE9C86001C0968 /* Scale.swift */; };
+		4658A4981CCEA5A9001C0968 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4971CCEA5A9001C0968 /* Flag.swift */; };
+		4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4991CCEAA9C001C0968 /* Upload.swift */; };
+		4658A4A11CCECDD7001C0968 /* IdDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A01CCECDD7001C0968 /* IdDelegate.swift */; };
+		4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A31CCECEF9001C0968 /* DateDelegate.swift */; };
+		4658A4A61CCEDB87001C0968 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A51CCEDB87001C0968 /* Title.swift */; };
 		4683B4671CC26999005DBAA6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4683B4661CC26999005DBAA6 /* LoginViewController.swift */; };
 		4683B46A1CC26999005DBAA6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683B4681CC26999005DBAA6 /* Login.storyboard */; };
 		4683B46C1CC26999005DBAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4683B46B1CC26999005DBAA6 /* Assets.xcassets */; };
@@ -76,6 +84,14 @@
 		4658A4891CCE762F001C0968 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		4658A48B1CCE785F001C0968 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4658A48F1CCE81A3001C0968 /* SuperModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperModel.swift; sourceTree = "<group>"; };
+		4658A4911CCE962C001C0968 /* ScaleTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTeam.swift; sourceTree = "<group>"; };
+		4658A4931CCE9640001C0968 /* TeamUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamUpload.swift; sourceTree = "<group>"; };
+		4658A4951CCE9C86001C0968 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
+		4658A4971CCEA5A9001C0968 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		4658A4991CCEAA9C001C0968 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		4658A4A01CCECDD7001C0968 /* IdDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdDelegate.swift; sourceTree = "<group>"; };
+		4658A4A31CCECEF9001C0968 /* DateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDelegate.swift; sourceTree = "<group>"; };
+		4658A4A51CCEDB87001C0968 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		4683B4611CC26999005DBAA6 /* correct42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = correct42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B4661CC26999005DBAA6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4683B4691CC26999005DBAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -142,6 +158,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		4658A4A21CCECDE3001C0968 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4658A4A01CCECDD7001C0968 /* IdDelegate.swift */,
+				4658A4A31CCECEF9001C0968 /* DateDelegate.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		4683B4581CC26999005DBAA6 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +222,8 @@
 		4683B4921CC27336005DBAA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4658A4A21CCECDE3001C0968 /* Protocols */,
+				4658A48F1CCE81A3001C0968 /* SuperModel.swift */,
 				4648C9A41CC6E29D00E82D68 /* Project.swift */,
 				4648C9A61CC6E2AD00E82D68 /* User.swift */,
 				4658A47F1CCE54D7001C0968 /* Achievement.swift */,
@@ -205,7 +232,12 @@
 				4658A4871CCE6240001C0968 /* Campus.swift */,
 				4658A4891CCE762F001C0968 /* Language.swift */,
 				4658A48B1CCE785F001C0968 /* Team.swift */,
-				4658A48F1CCE81A3001C0968 /* SuperModel.swift */,
+				4658A4911CCE962C001C0968 /* ScaleTeam.swift */,
+				4658A4931CCE9640001C0968 /* TeamUpload.swift */,
+				4658A4951CCE9C86001C0968 /* Scale.swift */,
+				4658A4971CCEA5A9001C0968 /* Flag.swift */,
+				4658A4991CCEAA9C001C0968 /* Upload.swift */,
+				4658A4A51CCEDB87001C0968 /* Title.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -494,20 +526,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4658A4961CCE9C86001C0968 /* Scale.swift in Sources */,
 				46C773711CC94718005E8654 /* ProjectManager.swift in Sources */,
+				4658A4A61CCEDB87001C0968 /* Title.swift in Sources */,
 				4683B4671CC26999005DBAA6 /* LoginViewController.swift in Sources */,
 				4658A48C1CCE785F001C0968 /* Team.swift in Sources */,
 				4648C9A51CC6E29D00E82D68 /* Project.swift in Sources */,
+				4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */,
 				4648C9A71CC6E2AD00E82D68 /* User.swift in Sources */,
 				4658A4881CCE6240001C0968 /* Campus.swift in Sources */,
 				4658A4801CCE54D7001C0968 /* Achievement.swift in Sources */,
+				4658A4941CCE9640001C0968 /* TeamUpload.swift in Sources */,
 				4658A4821CCE5555001C0968 /* Skill.swift in Sources */,
 				4658A4841CCE5C28001C0968 /* UserSession.swift in Sources */,
 				4648C9A91CC6E2D500E82D68 /* UserManager.swift in Sources */,
+				4658A4A11CCECDD7001C0968 /* IdDelegate.swift in Sources */,
 				4658A48A1CCE762F001C0968 /* Language.swift in Sources */,
+				4658A4981CCEA5A9001C0968 /* Flag.swift in Sources */,
+				4658A4921CCE962C001C0968 /* ScaleTeam.swift in Sources */,
 				4658A4861CCE61EC001C0968 /* Cursus.swift in Sources */,
 				4648C9A31CC6A9F700E82D68 /* AppDelegate.swift in Sources */,
 				4658A4901CCE81A3001C0968 /* SuperModel.swift in Sources */,
+				4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

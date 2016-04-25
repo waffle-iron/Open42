@@ -7,12 +7,19 @@
 //
 import SwiftyJSON
 
-class User : SuperModel {
+
+//TODO: implement patroned, patroning ([User])
+class User : SuperModel, IdDelegate {
 	
 	// MARK: - Uncomputed (alias) proprieties
 	var id:Int {
 		get{ return (jsonData["id"].intValue) }
 		set{ jsonData["id"].int = newValue }
+	}
+	
+	var name:String {
+		get{ return (displayName) }
+		set{ displayName = newValue }
 	}
 	
 	var email:String {
@@ -46,8 +53,8 @@ class User : SuperModel {
 	}
 	
 	var staff:Bool {
-		get{ return (jsonData["email"].boolValue) }
-		set{ jsonData["email"].bool = newValue }
+		get{ return (jsonData["staff?"].boolValue) }
+		set{ jsonData["staff?"].bool = newValue }
 	}
 	
 	var correctionPoint:Int {
@@ -91,6 +98,7 @@ class User : SuperModel {
 		get {
 			var skillsGet = [Skill]()
 			for skill in jsonData["skills"].arrayValue{
+				skillsGet.append(Skill(jsonFetch: skill))
 			}
 			return (skillsGet)
 		}
@@ -101,26 +109,49 @@ class User : SuperModel {
 		get {
 			var achievementGet = [Achievement]()
 			for achievement in jsonData["achievements"].arrayValue{
+				achievementGet.append(Achievement(jsonFetch: achievement))
 			}
 			return (achievementGet)
 		}
 	}
 	
-	var titles:[String] {
+	var titles:[Title] {
 		get {
-			var titlesGet = [String]()
+			var titlesGet = [Title]()
 			for title in jsonData["titles"].arrayValue{
-				titlesGet.append(title.stringValue)
+				titlesGet.append(Title(jsonFetch: title))
 			}
 			return (titlesGet)
 		}
 	}
 	
+	var patroned:[User]{
+		get {
+			var userGet = [User]()
+			for user in jsonData["patroned"].arrayValue{
+				userGet.append(User(jsonFetch: user))
+			}
+			return (userGet)
+		}
+	}
+	
+	var patroning:[User]{
+		get {
+			var userGet = [User]()
+			for user in jsonData["patroning"].arrayValue{
+				userGet.append(User(jsonFetch: user))
+			}
+			return (userGet)
+		}
+	}
+
+	
 	// TODO: Finish implement of Campus
-	var achievements:[Campus] {
+	var campus:[Campus] {
 		get {
 			var campusGet = [Campus]()
 			for campus in jsonData["Campus"].arrayValue{
+				campusGet.append(Campus(jsonFetch: campus))
 			}
 			return (campusGet)
 		}
