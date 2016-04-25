@@ -98,7 +98,7 @@ class User : SuperModel, IdDelegate {
 		get {
 			var skillsGet = [Skill]()
 			for skill in jsonData["skills"].arrayValue{
-				skillsGet.append(Skill(jsonFetch: title))
+				skillsGet.append(Skill(jsonFetch: skill))
 			}
 			return (skillsGet)
 		}

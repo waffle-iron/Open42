@@ -7,7 +7,7 @@
 //
 import SwiftyJSON
 
-class Cursus : SuperModel, IdDelegate, DateDelegate {
+class Cursus : SuperModel, IdDelegate{
 	
 	// MARK: - Uncomputed (alias) proprieties
 	var id:Int {
@@ -54,7 +54,7 @@ class Cursus : SuperModel, IdDelegate, DateDelegate {
 		get{
 			var projectGet = [Project]()
 			for project in jsonData["Projects"].arrayValue{
-				projectGet.append(Project(project))
+				projectGet.append(Project(jsonFetch: project))
 			}
 			return (projectGet)
 		}

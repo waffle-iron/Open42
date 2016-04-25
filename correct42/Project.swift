@@ -59,6 +59,6 @@ class Project : SuperModel, IdDelegate {
 	}
 	
 	var currentTeam:Team{
-		get{ return (Team(jsonData["current_team"])) }
+		get{ return (Team(jsonFetch: jsonData["current_team"])) }
 	}
 }
