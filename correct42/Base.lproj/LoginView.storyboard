@@ -58,9 +58,6 @@
                             <constraint firstItem="9uZ-cx-zfC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3H-jo-FCl"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="Ml6-zw-AxZ" kind="presentation" identifier="login" id="46J-JU-Z0a"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +105,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1258" y="303"/>
+            <point key="canvasLocation" x="998" y="303"/>
         </scene>
     </scenes>
     <resources>
