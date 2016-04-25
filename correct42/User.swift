@@ -7,12 +7,17 @@
 //
 import SwiftyJSON
 
-class User : SuperModel {
+class User : SuperModel, IdDelegate {
 	
 	// MARK: - Uncomputed (alias) proprieties
 	var id:Int {
 		get{ return (jsonData["id"].intValue) }
 		set{ jsonData["id"].int = newValue }
+	}
+	
+	var name:String {
+		get{ return (displayName) }
+		set{ displayName = newValue }
 	}
 	
 	var email:String {

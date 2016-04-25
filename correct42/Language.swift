@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Language : SuperModel {
+class Language : SuperModel, IdDelegate, DateDelegate {
 	var id:Int{
 		get{ return (jsonData["id"].intValue) }
 		set{ jsonData["id"].int = newValue }

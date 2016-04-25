@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Upload : SuperModel {
+class Upload : SuperModel, IdDelegate, DateDelegate {
 	var id:Int{
 		get{ return (jsonData["id"].intValue) }
 		set{ jsonData["id"].int = newValue }

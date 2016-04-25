@@ -6,22 +6,21 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Scale: SuperModel {
+class Scale: SuperModel, IdDelegate{
 	
 	var id:Int{
 		get{ return (jsonData["id"].intValue) }
 		set{ jsonData["id"].int = newValue }
 	}
 	
-	var evaluationId:Int{
-		get{ return (jsonData["evaluation_id"].intValue) }
-		set{ jsonData["evaluation_id"].int = newValue }
-	}
-	
-	
 	var name:String{
 		get{ return (jsonData["name"].stringValue) }
 		set{ jsonData["name"].string = newValue }
+	}
+	
+	var evaluationId:Int{
+		get{ return (jsonData["evaluation_id"].intValue) }
+		set{ jsonData["evaluation_id"].int = newValue }
 	}
 
 	

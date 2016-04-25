@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Flag : SuperModel{
+class Flag : SuperModel, IdDelegate, DateDelegate{
 	
 	var id:Int{
 		get{ return (jsonData["id"].intValue) }

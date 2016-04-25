@@ -6,18 +6,21 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class TeamUpload : SuperModel {
+class TeamUpload : SuperModel, IdDelegate {
 	var id:Int{
 		get{ return (jsonData["id"].intValue) }
 		set{ jsonData["id"].int = newValue }
+	}
+	
+	var name:String{
+		get{ return (jsonData["name"].stringValue) }
+		set{ jsonData["name"].string = newValue }
 	}
 
 	var finalMark:Int{
 		get{ return (jsonData["final_mark"].intValue) }
 		set{ jsonData["final_mark"].int = newValue }
 	}
-
-	
 	
 	var comment:String{
 		get{ return (jsonData["comment"].stringValue) }

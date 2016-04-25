@@ -6,10 +6,15 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class ScaleTeam : SuperModel {
+class ScaleTeam : SuperModel, IdDelegate {
 	var id:Int{
 		get{ return (jsonData["id"].intValue) }
 		set{ jsonData["id"].int = newValue }
+	}
+	
+	var name:String{
+		get{ return (jsonData["name"].stringValue) }
+		set{ jsonData["name"].string = newValue }
 	}
 
 	var scaleId:Int{

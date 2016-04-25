@@ -7,7 +7,7 @@
 //
 import SwiftyJSON
 
-class Cursus : SuperModel {
+class Cursus : SuperModel, IdDelegate, DateDelegate {
 	
 	// MARK: - Uncomputed (alias) proprieties
 	var id:Int {
