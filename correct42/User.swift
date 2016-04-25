@@ -8,7 +8,7 @@
 import SwiftyJSON
 
 
-//TODO: implement titles ([Title]), partnerships, patroned, patroning ([User])
+//TODO: implement patroned, patroning ([User])
 class User : SuperModel, IdDelegate {
 	
 	// MARK: - Uncomputed (alias) proprieties
@@ -98,6 +98,7 @@ class User : SuperModel, IdDelegate {
 		get {
 			var skillsGet = [Skill]()
 			for skill in jsonData["skills"].arrayValue{
+				skillsGet.append(Skill(jsonFetch: title))
 			}
 			return (skillsGet)
 		}
@@ -108,26 +109,49 @@ class User : SuperModel, IdDelegate {
 		get {
 			var achievementGet = [Achievement]()
 			for achievement in jsonData["achievements"].arrayValue{
+				achievementGet.append(Achievement(jsonFetch: achievement))
 			}
 			return (achievementGet)
 		}
 	}
 	
-	var titles:[String] {
+	var titles:[Title] {
 		get {
-			var titlesGet = [String]()
+			var titlesGet = [Title]()
 			for title in jsonData["titles"].arrayValue{
-				titlesGet.append(title.stringValue)
+				titlesGet.append(Title(jsonFetch: title))
 			}
 			return (titlesGet)
 		}
 	}
 	
+	var patroned:[User]{
+		get {
+			var userGet = [User]()
+			for user in jsonData["patroned"].arrayValue{
+				userGet.append(User(jsonFetch: user))
+			}
+			return (userGet)
+		}
+	}
+	
+	var patroning:[User]{
+		get {
+			var userGet = [User]()
+			for user in jsonData["patroning"].arrayValue{
+				userGet.append(User(jsonFetch: user))
+			}
+			return (userGet)
+		}
+	}
+
+	
 	// TODO: Finish implement of Campus
-	var achievements:[Campus] {
+	var campus:[Campus] {
 		get {
 			var campusGet = [Campus]()
 			for campus in jsonData["Campus"].arrayValue{
+				campusGet.append(Campus(jsonFetch: campus))
 			}
 			return (campusGet)
 		}
