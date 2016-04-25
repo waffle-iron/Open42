@@ -207,6 +207,7 @@
 		4683B4921CC27336005DBAA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4658A48F1CCE81A3001C0968 /* SuperModel.swift */,
 				4648C9A41CC6E29D00E82D68 /* Project.swift */,
 				4648C9A61CC6E2AD00E82D68 /* User.swift */,
 				4658A47F1CCE54D7001C0968 /* Achievement.swift */,
@@ -215,7 +216,6 @@
 				4658A4871CCE6240001C0968 /* Campus.swift */,
 				4658A4891CCE762F001C0968 /* Language.swift */,
 				4658A48B1CCE785F001C0968 /* Team.swift */,
-				4658A48F1CCE81A3001C0968 /* SuperModel.swift */,
 				4658A4911CCE962C001C0968 /* ScaleTeam.swift */,
 				4658A4931CCE9640001C0968 /* TeamUpload.swift */,
 				4658A4951CCE9C86001C0968 /* Scale.swift */,
