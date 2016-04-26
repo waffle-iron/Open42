@@ -7,18 +7,15 @@
 //
 
 class Skill: SuperModel, IdDelegate {
-	var id:Int {
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int  = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var level:Int{
-		get{ return (jsonData["level"].intValue) }
-		set{ jsonData["level"].int = newValue }
-	}
+	lazy var level:Int = {
+		return (self.jsonData["level"].intValue)
+	}()
 }

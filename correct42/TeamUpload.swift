@@ -7,39 +7,32 @@
 //
 
 class TeamUpload : SuperModel, IdDelegate {
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
-
-	var finalMark:Int{
-		get{ return (jsonData["final_mark"].intValue) }
-		set{ jsonData["final_mark"].int = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var comment:String{
-		get{ return (jsonData["comment"].stringValue) }
-		set{ jsonData["comment"].string = newValue }
-	}
-
-	var createdAt:String{
-		get{ return (jsonData["created_at"].stringValue) }
-		set{ jsonData["created_at"].string = newValue }
-	}
-
+	lazy var finalMark:Int = {
+		return (self.jsonData["final_mark"].intValue)
+	}()
 	
-	var uploadId:Int{
-		get{ return (jsonData["upload_id"].intValue) }
-		set{ jsonData["upload_id"].int = newValue }
-	}
-
-	var upload:Upload{
-		get{ return (Upload(jsonFetch: jsonData["upload"])) }
-	}
-
+	lazy var comment:String = {
+		return (self.jsonData["comment"].stringValue)
+	}()
+	
+	lazy var createdAt:String = {
+		return (self.jsonData["created_at"].stringValue)
+	}()
+	
+	
+	lazy var uploadId:Int = {
+		return (self.jsonData["upload_id"].intValue)
+	}()
+	
+	lazy var upload:Upload = {
+		return (Upload(jsonFetch: self.jsonData["upload"]))
+	}()
 }

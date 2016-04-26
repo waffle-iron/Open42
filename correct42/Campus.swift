@@ -9,27 +9,23 @@
 import SwiftyJSON
 
 class Campus: SuperModel, IdDelegate {
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var timeZone:String{
-		get{ return (jsonData["time_zone"].stringValue) }
-		set{ jsonData["time_zone"].string = newValue }
-	}
-
-	var language:Language{
-		get{ return (Language(jsonFetch: jsonData["language"])) }
-	}
-
-	var usersCount:Int{
-		get{ return (jsonData["users_count"].intValue) }
-		set{ jsonData["users_count"].int = newValue }
-	}
+	lazy var timeZone:String = {
+		return (self.jsonData["time_zone"].stringValue)
+	}()
+	
+	lazy var language:Language = {
+		return (Language(jsonFetch: self.jsonData["language"]))
+	}()
+	
+	lazy var usersCount:Int = {
+		return (self.jsonData["users_count"].intValue)
+	}()
 }

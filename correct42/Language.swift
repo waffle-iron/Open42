@@ -7,29 +7,23 @@
 //
 
 class Language : SuperModel, IdDelegate, DateDelegate {
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var identifier:String{
-		get{ return (jsonData["identifier"].stringValue) }
-		set{ jsonData["identifier"].string = newValue }
-	}
-
-	var createdAt:String{
-		get{ return (jsonData["created_at"].stringValue) }
-		set{ jsonData["created_at"].string = newValue }
-	}
+	lazy var identifier:String = {
+		return (self.jsonData["identifier"].stringValue)
+	}()
 	
-	var updatedAt:String{
-		get{ return (jsonData["updated_at"].stringValue) }
-		set{ jsonData["updated_at"].string = newValue }
-	}
+	lazy var createdAt:String = {
+		return (self.jsonData["created_at"].stringValue)
+	}()
 	
+	lazy var updatedAt:String = {
+		return (self.jsonData["updated_at"].stringValue)
+	}()	
 }

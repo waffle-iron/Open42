@@ -8,74 +8,61 @@
 
 class Scale: SuperModel, IdDelegate{
 	
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var evaluationId:Int{
-		get{ return (jsonData["evaluation_id"].intValue) }
-		set{ jsonData["evaluation_id"].int = newValue }
-	}
-
-	
-	var isPrimary:Bool{
-		get{ return (jsonData["is_primary"].boolValue) }
-		set{ jsonData["is_primary"].bool = newValue }
-	}
-
+	lazy var evaluationId:Int = {
+		return (self.jsonData["evaluation_id"].intValue)
+	}()
 	
 	
-	var comment:String{
-		get{ return (jsonData["comment"].stringValue) }
-		set{ jsonData["comment"].string = newValue }
-	}
-
-	var introductionMd:String{
-		get{ return (jsonData["introduction_md"].stringValue) }
-		set{ jsonData["introduction_md"].string = newValue }
-	}
-
-	var disclamerMd:String{
-		get{ return (jsonData["disclamer_md"].stringValue) }
-		set{ jsonData["disclamer_md"].string = newValue }
-	}
-
-	var guidelineMd:String{
-		get{ return (jsonData["guideline_md"].stringValue) }
-		set{ jsonData["guideline_md"].string = newValue }
-	}
-
-	var createdAt:String{
-		get{ return (jsonData["created_at"].stringValue) }
-		set{ jsonData["created_at"].string = newValue }
-	}
-
+	lazy var isPrimary:Bool = {
+		return (self.jsonData["is_primary"].boolValue)
+	}()
 	
-	var correctionNumber:Int{
-		get{ return (jsonData["correction_number"].intValue) }
-		set{ jsonData["evaluation_id"].int = newValue }
-	}
-
-	var duration:Int{
-		get{ return (jsonData["duration"].intValue) }
-		set{ jsonData["duration"].int = newValue }
-	}
-
 	
-	var manualSubscription:Bool{
-		get{ return (jsonData["staff?"].boolValue) }
-		set{ jsonData["staff?"].bool = newValue }
-	}
-
 	
-	var language:Language{
-		get{ return (Language(jsonFetch: jsonData["language"])) }
-	}
-
+	lazy var comment:String = {
+		return (self.jsonData["comment"].stringValue)
+	}()
+	
+	lazy var introductionMd:String = {
+		return (self.jsonData["introduction_md"].stringValue)
+	}()
+	
+	lazy var disclamerMd:String = {
+		return (self.jsonData["disclamer_md"].stringValue)
+	}()
+	
+	lazy var guidelineMd:String = {
+		return (self.jsonData["guideline_md"].stringValue)
+	}()
+	
+	lazy var createdAt:String = {
+		return (self.jsonData["created_at"].stringValue)
+	}()
+	
+	
+	lazy var correctionNumber:Int = {
+		return (self.jsonData["correction_number"].intValue)
+	}()
+	
+	lazy var duration:Int = {
+		return (self.jsonData["duration"].intValue)
+	}()
+	
+	
+	lazy var manualSubscription:Bool = {
+		return (self.jsonData["staff?"].boolValue)
+	}()
+	
+	
+	lazy var language:Language = {
+		return (Language(jsonFetch: self.jsonData["language"]))
+	}()
 }

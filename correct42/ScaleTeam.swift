@@ -7,91 +7,77 @@
 //
 
 class ScaleTeam : SuperModel, IdDelegate {
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
-
-	var scaleId:Int{
-		get{ return (jsonData["scale_id"].intValue) }
-		set{ jsonData["scale_id"].int = newValue }
-	}
-
-	var team:Int{
-		get{ return (jsonData["team"].intValue) }
-		set{ jsonData["team"].int = newValue }
-	}
-
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var comment:String{
-		get{ return (jsonData["comment"].stringValue) }
-		set{ jsonData["comment"].string = newValue }
-	}
-
-	var createdAt:String{
-		get{ return (jsonData["created_at"].stringValue) }
-		set{ jsonData["created_at"].string = newValue }
-	}
-
-	var updatedAt:String{
-		get{ return (jsonData["updated_at"].stringValue) }
-		set{ jsonData["updated_at"].string = newValue }
-	}
-
-	var feedback:String{
-		get{ return (jsonData["feedback"].stringValue) }
-		set{ jsonData["feedback"].string = newValue }
-	}
-
+	lazy var scaleId:Int = {
+		return (self.jsonData["scale_id"].intValue)
+	}()
 	
-	var feedBackRating:Int{
-		get{ return (jsonData["feedBack_rating"].intValue) }
-		set{ jsonData["feedBack_rating"].int = newValue }
-	}
-	var finalMark:Int{
-		get{ return (jsonData["final_mark"].intValue) }
-		set{ jsonData["final_mark"].int = newValue }
-	}
-
+	lazy var team:Int = {
+		return (self.jsonData["team"].intValue)
+	}()
 	
-	var flag:Flag{
-		get{ return (Flag(jsonFetch: jsonData["flag"])) }
-	}
-
 	
-	var beginAt:String{
-		get{ return (jsonData["begin_at"].stringValue) }
-		set{ jsonData["begin_at"].string = newValue }
-	}
-
+	lazy var comment:String = {
+		return (self.jsonData["comment"].stringValue)
+	}()
 	
-	var correcteds:[User]{
-		get {
-			var userGet = [User]()
-			for user in jsonData["correcteds"].arrayValue {
-				userGet.append(User(jsonFetch: user))
-			}
-			return (userGet)
+	lazy var createdAt:String = {
+		return (self.jsonData["created_at"].stringValue)
+	}()
+	
+	lazy var updatedAt:String = {
+		return (self.jsonData["updated_at"].stringValue)
+	}()
+	
+	lazy var feedback:String = {
+		return (self.jsonData["feedback"].stringValue)
+	}()
+	
+	
+	lazy var feedBackRating:Int = {
+		return (self.jsonData["feedBack_rating"].intValue)
+	}()
+	
+	lazy var finalMark:Int = {
+		return (self.jsonData["final_mark"].intValue)
+	}()
+	
+	
+	lazy var flag:Flag = {
+		return (Flag(jsonFetch: self.jsonData["flag"]))
+	}()
+	
+	
+	lazy var beginAt:String = {
+		return (self.jsonData["begin_at"].stringValue)
+	}()
+	
+	
+	lazy var correcteds:[User] = {
+		var userGet = [User]()
+		for user in self.jsonData["correcteds"].arrayValue {
+			userGet.append(User(jsonFetch: user))
 		}
-	}
+		return (userGet)
+	}()
 	
-	var corrector:[User]{
-		get {
-			var userGet = [User]()
-			for user in jsonData["corrector"].arrayValue {
-				userGet.append(User(jsonFetch: user))
-			}
-			return (userGet)
+	lazy var corrector:[User] = {
+		var userGet = [User]()
+		for user in self.jsonData["corrector"].arrayValue {
+			userGet.append(User(jsonFetch: user))
 		}
-	}
+		return (userGet)
+	}()
 	
-	var scale:Scale{
-		get{ return (Scale(jsonFetch: jsonData["scale"])) }
-	}
+	lazy var scale:Scale = {
+		return (Scale(jsonFetch: self.jsonData["scale"]))
+	}()
 
 }

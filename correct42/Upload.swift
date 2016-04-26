@@ -7,35 +7,29 @@
 //
 
 class Upload : SuperModel, IdDelegate, DateDelegate {
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var evaluationId:Int{
-		get{ return (jsonData["evaluation_id"].intValue) }
-		set{ jsonData["evaluation_id"].int = newValue }
-	}
+	lazy var evaluationId:Int = {
+		return (self.jsonData["evaluation_id"].intValue)
+	}()
 	
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 
-	var description:String{
-		get{ return (jsonData["description"].stringValue) }
-		set{ jsonData["description"].string = newValue }
-	}
+	lazy var description:String = {
+		return (self.jsonData["description"].stringValue)
+	}()
 
-	var createdAt:String{
-		get{ return (jsonData["created_at"].stringValue) }
-		set{ jsonData["created_at"].string = newValue }
-	}
+	lazy var createdAt:String = {
+		return (self.jsonData["created_at"].stringValue)
+	}()
 
-	var updatedAt:String{
-		get{ return (jsonData["updated_at"].stringValue) }
-		set{ jsonData["updated_at"].string = newValue }
-	}
+	lazy var updatedAt:String = {
+		return (self.jsonData["updated_at"].stringValue)
+	}()
 
 }
