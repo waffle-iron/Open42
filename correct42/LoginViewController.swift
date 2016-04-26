@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
 			scope: "public", state:"INTRA",
 			success: { credential, response, parameters in
 				print(credential.oauth_token)
+				self.performSegueWithIdentifier("connectSegue", sender: self)
 			},
 			failure: { error in
 				print(error.localizedDescription)
