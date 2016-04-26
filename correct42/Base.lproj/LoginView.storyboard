@@ -40,13 +40,22 @@
                                             <action selector="connect42:" destination="BYZ-38-t0r" eventType="touchUpInside" id="92I-ne-gqO"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-tq-8PA">
+                                        <rect key="frame" x="290" y="164" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="2bB-fh-9DQ"/>
+                                            <constraint firstAttribute="height" constant="20" id="VeJ-lh-6KZ"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Kan-CK-uRh" firstAttribute="centerY" secondItem="9uZ-cx-zfC" secondAttribute="centerY" constant="79.5" id="4sW-k3-gaJ"/>
+                                    <constraint firstItem="bjT-tq-8PA" firstAttribute="centerX" secondItem="9uZ-cx-zfC" secondAttribute="centerX" id="6Sh-ID-Iwk"/>
                                     <constraint firstItem="HpR-7G-0qN" firstAttribute="centerX" secondItem="9uZ-cx-zfC" secondAttribute="centerX" id="Qwd-NA-XP3"/>
                                     <constraint firstAttribute="height" constant="326" id="WZB-T4-2sD"/>
                                     <constraint firstItem="HpR-7G-0qN" firstAttribute="centerX" secondItem="Kan-CK-uRh" secondAttribute="centerX" id="ppe-aN-Zb3"/>
+                                    <constraint firstItem="bjT-tq-8PA" firstAttribute="top" secondItem="HpR-7G-0qN" secondAttribute="bottom" constant="20" id="sYb-EU-bZT"/>
                                     <constraint firstItem="HpR-7G-0qN" firstAttribute="top" secondItem="9uZ-cx-zfC" secondAttribute="top" constant="31" id="sod-yB-hYB"/>
                                 </constraints>
                             </view>
@@ -58,54 +67,13 @@
                             <constraint firstItem="9uZ-cx-zfC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3H-jo-FCl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AILogin" destination="bjT-tq-8PA" id="CV4-lJ-seV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="280" y="303"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="cAB-Ng-hQ3">
-            <objects>
-                <viewController id="Ml6-zw-AxZ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OFi-Xm-7uB"/>
-                        <viewControllerLayoutGuide type="bottom" id="oax-7z-tr3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wSQ-Wf-3xR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZq-Ha-uu6">
-                                <rect key="frame" x="0.0" y="17" width="600" height="583"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableFooterView" contentMode="redraw" barStyle="black" searchBarStyle="prominent" placeholder="Search" showsCancelButton="YES" id="6uO-Ao-ahK">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="Ml6-zw-AxZ" id="SFw-a4-Pyf"/>
-                                    </connections>
-                                </searchBar>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.12941176470588237" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="Avs-kc-lFB" id="K27-14-iYQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3RO-Mz-hNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Avs-kc-lFB">
-                    <connections>
-                        <outlet property="delegate" destination="Ml6-zw-AxZ" id="Bbv-Hh-mvX"/>
-                        <outlet property="searchBar" destination="6uO-Ao-ahK" id="y5r-zy-dDF"/>
-                        <outlet property="searchContentsController" destination="Ml6-zw-AxZ" id="6iS-2x-Gfq"/>
-                        <outlet property="searchResultsDataSource" destination="Ml6-zw-AxZ" id="6sS-dx-vyZ"/>
-                        <outlet property="searchResultsDelegate" destination="Ml6-zw-AxZ" id="aqe-jE-gKA"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="998" y="303"/>
         </scene>
     </scenes>
     <resources>
