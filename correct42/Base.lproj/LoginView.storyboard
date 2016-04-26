@@ -67,10 +67,21 @@
                             <constraint firstItem="9uZ-cx-zfC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3H-jo-FCl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="oEa-0U-i76" kind="show" identifier="connectSegue" id="M9j-y5-sQJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280" y="303"/>
+            <point key="canvasLocation" x="256" y="295"/>
+        </scene>
+        <!--TabBarVC-->
+        <scene sceneID="9tY-aL-8dw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBarView" referencedIdentifier="TabBarVC" id="oEa-0U-i76" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pI-Mh-kTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="295"/>
         </scene>
     </scenes>
     <resources>
