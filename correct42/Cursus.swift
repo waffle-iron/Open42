@@ -10,53 +10,43 @@ import SwiftyJSON
 class Cursus : SuperModel, IdDelegate{
 	
 	// MARK: - Uncomputed (alias) proprieties
-	var id:Int {
-		get{ return (jsonData["cursus"]["id"].intValue) }
-		set{ jsonData["cursus"]["id"].int = newValue }
-	}
+	lazy var id:Int  = {
+		return (self.jsonData["cursus"]["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["cursus"]["name"].stringValue) }
-		set{ jsonData["cursus"]["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["cursus"]["name"].stringValue)
+	}()
 	
-	var createAt:String{
-		get{ return (jsonData["cursus"]["create_at"].stringValue) }
-		set{ jsonData["cursus"]["create_at"].string = newValue }
-	}
+	lazy var createAt:String = {
+		return (self.jsonData["cursus"]["create_at"].stringValue)
+	}()
 	
-	var updatedAt:String{
-		get{ return (jsonData["cursus"]["update_at"].stringValue) }
-		set{ jsonData["cursus"]["update_at"].string = newValue }
-	}
+	lazy var updatedAt:String = {
+		return (self.jsonData["cursus"]["update_at"].stringValue)
+	}()
 	
-	var slug:String{
-		get{ return (jsonData["cursus"]["slug"].stringValue) }
-		set{ jsonData["cursus"]["slug"].string = newValue }
-	}
+	lazy var slug:String = {
+		return (self.jsonData["cursus"]["slug"].stringValue)
+	}()
 	
-	var endAt:String{
-		get{ return (jsonData["end_at"].stringValue) }
-		set{ jsonData["end_at"].string = newValue }
-	}
+	lazy var endAt:String = {
+		return (self.jsonData["end_at"].stringValue)
+	}()
 	
-	var level:Int{
-		get{ return (jsonData["level"].intValue) }
-		set{ jsonData["level"].int = newValue }
-	}
+	lazy var level:Int = {
+		return (self.jsonData["level"].intValue)
+	}()
 	
-	var grade:String{
-		get{ return (jsonData["grade"].stringValue) }
-		set{ jsonData["grade"].string = newValue }
-	}
+	lazy var grade:String = {
+		return (self.jsonData["grade"].stringValue)
+	}()
 	
-	var projects:[Project]{
-		get{
+	lazy var projects:[Project] = {
 			var projectGet = [Project]()
-			for project in jsonData["Projects"].arrayValue{
+			for project in self.jsonData["Projects"].arrayValue{
 				projectGet.append(Project(jsonFetch: project))
 			}
 			return (projectGet)
-		}
-	}
+	}()
 }

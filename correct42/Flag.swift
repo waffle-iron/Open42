@@ -8,33 +8,27 @@
 
 class Flag : SuperModel, IdDelegate, DateDelegate{
 	
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var positive:Bool{
-		get{ return (jsonData["positive"].boolValue) }
-		set{ jsonData["positive"].bool = newValue }
-	}
+	lazy var positive:Bool = {
+		return (self.jsonData["positive"].boolValue)
+	}()
 	
-	var icon:String{
-		get{ return (jsonData["icon"].stringValue) }
-		set{ jsonData["icon"].string = newValue }
-	}
+	lazy var icon:String = {
+		return (self.jsonData["icon"].stringValue)
+	}()
 	
-	var createdAt:String{
-		get{ return (jsonData["created_at"].stringValue) }
-		set{ jsonData["created_at"].string = newValue }
-	}
+	lazy var createdAt:String = {
+		return (self.jsonData["created_at"].stringValue)
+	}()
 	
-	var updatedAt:String{
-		get{ return (jsonData["updated_at"].stringValue) }
-		set{ jsonData["updated_at"].string = newValue }
-	}
+	lazy var updatedAt:String = {
+		return (self.jsonData["updated_at"].stringValue)
+	}()
 }

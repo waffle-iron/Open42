@@ -67,9 +67,6 @@
                             <constraint firstItem="9uZ-cx-zfC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q3H-jo-FCl"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="AILogin" destination="bjT-tq-8PA" id="CV4-lJ-seV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

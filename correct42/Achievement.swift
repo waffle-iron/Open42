@@ -8,68 +8,57 @@
 //
 
 class Achievement: SuperModel, IdDelegate {
-	var id:Int {
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int  = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var description:String{
-		get{ return (jsonData["description"].stringValue) }
-		set{ jsonData["description"].string = newValue }
-	}
-
-	var tier:String{
-		get{ return (jsonData["tier"].stringValue) }
-		set{ jsonData["tier"].string = newValue }
-	}
-
-	var kind:String{
-		get{ return (jsonData["kind"].stringValue) }
-		set{ jsonData["kind"].string = newValue }
-	}
-
-	var visible:Bool{
-		get{ return (jsonData["visible"].boolValue) }
-		set{ jsonData["visible"].bool = newValue }
-	}
-
-	var image:String{
-		get{ return (jsonData["image"].stringValue) }
-		set{ jsonData["image"].string = newValue }
-	}
-
-	var nbrOfSuccess:Int{
-		get{ return (jsonData["nbr_of_success"].intValue) }
-		set{ jsonData["nbr_of_success"].int = newValue }
-	}
+	lazy var description:String = {
+		return (self.jsonData["description"].stringValue)
+	}()
 	
-	var usersUrl:String{
-		get{ return (jsonData["users_url"].stringValue) }
-		set{ jsonData["users_url"].string = newValue }
-	}
-
+	lazy var tier:String = {
+		return (self.jsonData["tier"].stringValue)
+	}()
 	
-	var achievements:[Achievement]{
-		get {
-			var achievementsGet = [Achievement]()
-			for achievement in jsonData["achievements"].arrayValue {
-				achievementsGet.append(Achievement(jsonFetch: achievement))
-			}
-			return (achievementsGet)
+	lazy var kind:String = {
+		return (self.jsonData["kind"].stringValue)
+	}()
+	
+	lazy var visible:Bool = {
+		return (self.jsonData["visible"].boolValue)
+	}()
+	
+	lazy var image:String = {
+		return (self.jsonData["image"].stringValue)
+	}()
+	
+	lazy var nbrOfSuccess:Int = {
+		return (self.jsonData["nbr_of_success"].intValue)
+	}()
+	
+	lazy var usersUrl:String = {
+		return (self.jsonData["users_url"].stringValue)
+	}()
+	
+	
+	lazy var achievements:[Achievement] = {
+		var achievementsGet = [Achievement]()
+		for achievement in self.jsonData["achievements"].arrayValue {
+			achievementsGet.append(Achievement(jsonFetch: achievement))
 		}
-	}
-
-	var parent:Achievement{
-		get{ return (Achievement(jsonFetch: jsonData["parent"])) }
-	}
+		return (achievementsGet)
+	}()
 	
-	var title:Title{
-		get{ return (Title(jsonFetch: jsonData["title"])) }
-	}
+	lazy var parent:Achievement = {
+		return (Achievement(jsonFetch: self.jsonData["parent"]))
+	}()
+	
+	lazy var title:Title = {
+		return (Title(jsonFetch: self.jsonData["title"]))
+	}()
 
 }

@@ -8,57 +8,47 @@
 
 class Project : SuperModel, IdDelegate {
 	
-	var id:Int{
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String{
-		get{ return (jsonData["name"].stringValue) }
-		set{ jsonData["name"].string = newValue }
-	}
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
-	var registeredAt:String{
-		get{ return (jsonData["registred_at"].stringValue) }
-		set{ jsonData["registred_at"].string = newValue }
-	}
+	lazy var registeredAt:String = {
+		return (self.jsonData["registred_at"].stringValue)
+	}()
 	
-	var slug:String{
-		get{ return (jsonData["slug"].stringValue) }
-		set{ jsonData["slug"].string = newValue }
-	}
+	lazy var slug:String = {
+		return (self.jsonData["slug"].stringValue)
+	}()
 	
-	var finalMark:Int{
-		get{ return (jsonData["final_mark"].intValue) }
-		set{ jsonData["final_mark"].int = newValue }
-	}
+	lazy var finalMark:Int = {
+		return (self.jsonData["final_mark"].intValue)
+	}()
 	
-	var occurence:Int{
-		get{ return (jsonData["occurence"].intValue) }
-		set{ jsonData["occurence"].int = newValue }
-	}
+	lazy var occurence:Int = {
+		return (self.jsonData["occurence"].intValue)
+	}()
 	
-	var projectUserId:Int{
-		get{ return (jsonData["project_user_id"].intValue) }
-		set{ jsonData["project_user_id"].int = newValue }
-	}
+	lazy var projectUserId:Int = {
+		return (self.jsonData["project_user_id"].intValue)
+	}()
 	
-	var retriableAt:String{
-		get{ return (jsonData["retriable_at"].stringValue) }
-		set{ jsonData["retriable_at"].string = newValue }
-	}
+	lazy var retriableAt:String = {
+		return (self.jsonData["retriable_at"].stringValue)
+	}()
 	
-	var teamsIds:[Int]{
-		get{
-			var teamsIdsGet = [Int]()
-			for teamId in jsonData["teams_id"].arrayValue{
-				teamsIdsGet.append(teamId.intValue)
-			}
-			return (teamsIdsGet)
+	lazy var teamsIds:[Int] = {
+		var teamsIdsGet = [Int]()
+		for teamId in self.jsonData["teams_id"].arrayValue{
+			teamsIdsGet.append(teamId.intValue)
 		}
-	}
+		return (teamsIdsGet)
+	}()
 	
-	var currentTeam:Team{
-		get{ return (Team(jsonFetch: jsonData["current_team"])) }
-	}
+	lazy var currentTeam:Team = {
+		return (Team(jsonFetch: self.jsonData["current_team"]))
+	}()
 }

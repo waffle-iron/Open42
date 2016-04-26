@@ -9,144 +9,114 @@ import SwiftyJSON
 
 class User : SuperModel, IdDelegate {
 	
-	// MARK: - Uncomputed (alias) proprieties
-	var id:Int {
-		get{ return (jsonData["id"].intValue) }
-		set{ jsonData["id"].int = newValue }
-	}
+	lazy var id:Int = {
+		return (self.jsonData["id"].intValue)
+	}()
 	
-	var name:String {
-		get{ return (displayName) }
-		set{ displayName = newValue }
-	}
+	lazy var name:String = {
+		return (self.displayName)
+	}()
 	
-	var email:String {
-		get{ return (jsonData["email"].stringValue) }
-		set{ jsonData["email"].string = newValue }
-	}
+	lazy var email:String = {
+		return (self.jsonData["email"].stringValue)
+	}()
 	
-	var login:String {
-		get{ return (jsonData["login"].stringValue) }
-		set{ jsonData["login"].string = newValue }
-	}
+	lazy var login:String = {
+		return (self.jsonData["login"].stringValue)
+	}()
 	
-	var url:String {
-		get{ return (jsonData["url"].stringValue) }
-		set{ jsonData["url"].string = newValue }
-	}
+	lazy var url:String = {
+		return (self.jsonData["url"].stringValue)
+	}()
 	
-	var phone:String {
-		get{ return (jsonData["phone"].stringValue) }
-		set{ jsonData["phone"].string = newValue }
-	}
+	lazy var phone:String = {
+		return (self.jsonData["phone"].stringValue)
+	}()
 	
-	var displayName:String {
-		get{ return (jsonData["displayname"].stringValue) }
-		set{ jsonData["displayname"].string = newValue }
-	}
+	lazy var displayName:String = {
+		return (self.jsonData["displayname"].stringValue)
+	}()
 	
-	var imageUrl:String {
-		get{ return (jsonData["image_url"].stringValue) }
-		set{ jsonData["image_url"].string = newValue }
-	}
+	lazy var imageUrl:String = {
+		return (self.jsonData["image_url"].stringValue)
+	}()
 	
-	var staff:Bool {
-		get{ return (jsonData["staff?"].boolValue) }
-		set{ jsonData["staff?"].bool = newValue }
-	}
+	lazy var staff:Bool = {
+		return (self.jsonData["staff?"].boolValue)
+	}()
 	
-	var correctionPoint:Int {
-		get{ return (jsonData["correction_point"].intValue) }
-		set{ jsonData["correction_point"].int = newValue }
-	}
-
-	var poolMonth:String {
-		get{ return (jsonData["pool_month"].stringValue) }
-		set{ jsonData["pool_month"].string = newValue }
-	}
-
-	var poolYear:String {
-		get{ return (jsonData["pool_year"].stringValue) }
-		set{ jsonData["pool_year"].string = newValue }
-	}
-
-	var location:String {
-		get{ return (jsonData["location"].stringValue) }
-		set{ jsonData["location"].string = newValue }
-	}
-
-	var wallet:Int {
-		get{ return (jsonData["wallet"].intValue) }
-		set{ jsonData["wallet"].int = newValue }
-	}
+	lazy var correctionPoint:Int = {
+		return (self.jsonData["correction_point"].intValue)
+	}()
 	
-	var cursus:[Cursus] {
-		get {
-			var cursusGet = [Cursus]()
-			for cursus in jsonData["cursus"].arrayValue {
-				cursusGet.append(Cursus(jsonFetch: cursus))
-			}
-			return (cursusGet)
+	lazy var poolMonth:String = {
+		return (self.jsonData["pool_month"].stringValue)
+	}()
+	
+	lazy var poolYear:String = {
+		return (self.jsonData["pool_year"].stringValue)
+	}()
+	
+	lazy var location:String = {
+		return (self.jsonData["location"].stringValue)
+	}()
+	
+	lazy var wallet:Int = {
+		return (self.jsonData["wallet"].intValue)
+	}()
+	
+	lazy var cursus:[Cursus] = {
+		var cursusGet = [Cursus]()
+		for cursus in self.jsonData["cursus"].arrayValue {
+			cursusGet.append(Cursus(jsonFetch: cursus))
 		}
-	}
+		return (cursusGet)
+	}()
 	
-	var skills:[Skill] {
-		get {
-			var skillsGet = [Skill]()
-			for skill in jsonData["skills"].arrayValue{
-				skillsGet.append(Skill(jsonFetch: skill))
-			}
-			return (skillsGet)
+	lazy var skills:[Skill] = {
+		var skillsGet = [Skill]()
+		for skill in self.jsonData["skills"].arrayValue{
+			skillsGet.append(Skill(jsonFetch: skill))
 		}
-	}
+		return (skillsGet)
+	}()
 	
-	var achievements:[Achievement] {
-		get {
-			var achievementGet = [Achievement]()
-			for achievement in jsonData["achievements"].arrayValue{
-				achievementGet.append(Achievement(jsonFetch: achievement))
-			}
-			return (achievementGet)
+	lazy var achievements:[Achievement] = {
+		var achievementGet = [Achievement]()
+		for achievement in self.jsonData["achievements"].arrayValue{
+			achievementGet.append(Achievement(jsonFetch: achievement))
 		}
-	}
+		return (achievementGet)
+	}()
 	
-	var titles:[Title] {
-		get {
-			var titlesGet = [Title]()
-			for title in jsonData["titles"].arrayValue{
-				titlesGet.append(Title(jsonFetch: title))
-			}
-			return (titlesGet)
+	lazy var titles:[Title] = {
+		var titlesGet = [Title]()
+		for title in self.jsonData["titles"].arrayValue{
+			titlesGet.append(Title(jsonFetch: title))
 		}
-	}
+		return (titlesGet)
+	}()
 	
-	var patroned:[User]{
-		get {
-			var userGet = [User]()
-			for user in jsonData["patroned"].arrayValue{
-				userGet.append(User(jsonFetch: user))
-			}
-			return (userGet)
+	lazy var patroned:[User] = {
+		var userGet = [User]()
+		for user in self.jsonData["patroned"].arrayValue{
+			userGet.append(User(jsonFetch: user))
 		}
-	}
+		return (userGet)
+	}()
 	
-	var patroning:[User]{
-		get {
-			var userGet = [User]()
-			for user in jsonData["patroning"].arrayValue{
-				userGet.append(User(jsonFetch: user))
-			}
-			return (userGet)
+	lazy var patroning:[User] = {
+		var userGet = [User]()
+		for user in self.jsonData["patroning"].arrayValue{
+			userGet.append(User(jsonFetch: user))
 		}
-	}
-
-	var campus:[Campus] {
-		get {
-			var campusGet = [Campus]()
-			for campus in jsonData["Campus"].arrayValue{
-				campusGet.append(Campus(jsonFetch: campus))
-			}
-			return (campusGet)
+		return (userGet)
+	}()
+	
+	lazy var campus:[Campus] = {
+		var campusGet = [Campus]()
+		for campus in self.jsonData["Campus"].arrayValue{
+			campusGet.append(Campus(jsonFetch: campus))
 		}
-	}
-}
+		return (campusGet)
+	}()}
