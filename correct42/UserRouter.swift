@@ -8,12 +8,11 @@
 
 import Alamofire
 
-enum UserRouter: URLRequestConvertible {
-	static let baseURLString = "https://api.intra.42.fr/v2"
-	static var OAuthToken: String?
-	
+enum UserRouter: ApiRouter {
+
 	case ReadUser(String)
 	
+	// MARK: Depend on Case proprieties
 	var method: Alamofire.Method {
 		switch self {
 		case .ReadUser:
@@ -28,16 +27,13 @@ enum UserRouter: URLRequestConvertible {
 		}
 	}
 	
-	// MARK: URLRequestConvertible
 	
-	var URLRequest: NSMutableURLRequest {
-		let URL = NSURL(string: UserRouter.baseURLString)!
-		let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
-		mutableURLRequest.HTTPMethod = method.rawValue
-		
-		if let token = UserRouter.OAuthToken {
-			mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-		}
-		return mutableURLRequest
+	// MARK: - ApiRouter methods
+	/*
+	** return complete path of api
+	*/
+	func route() -> (Method, String)
+	{
+		return (method, path)
 	}
 }
