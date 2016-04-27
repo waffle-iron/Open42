@@ -7,34 +7,33 @@
 //
 
 import UIKit
+import SafariServices
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController, SFSafariViewControllerDelegate{
 
-	let apiRequester = APIRequester.Shared()
+	let apiRequester = ApiRequester.Shared()
 	
 	@IBOutlet weak var LoginLoading: UIActivityIndicatorView!
 	
-	override func viewDidLoad() {
-		
-	}
-	
 	@IBAction func connect42(sender: UIButton) {
 		LoginLoading.startAnimating()
-		apiRequester.connectApi(self, success: { () in
+		apiRequester.connectApi(self, delegateSafari: self, success: { () in
+				self.LoginLoading.startAnimating()
 				self.performSegueWithIdentifier("connectSegue", sender: self)
 				self.LoginLoading.stopAnimating()
 			}) { (error) in
 				print("Error code : \(error.code)")
-				self.LoginLoading.stopAnimating()
 			}
 	}
-	
-
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
 
+	func safariViewControllerDidFinish(controller: SFSafariViewController) {
+		self.LoginLoading.stopAnimating()
+	}
+	
 }
 

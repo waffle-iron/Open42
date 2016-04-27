@@ -7,6 +7,10 @@
 //
 import Alamofire
 
+/*
+** Allow ApiRequester to use route to know path and method of the request 
+*/
+
 protocol ApiRouter {
 	func route() -> (Method, String)
 	var method:Method{get}

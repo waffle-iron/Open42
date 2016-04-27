@@ -8,13 +8,14 @@
 import Alamofire
 import OAuthSwift
 import SwiftyJSON
+import SafariServices
 
-class APIRequester {
+class ApiRequester {
 	
 	//MARK: - Singleton
-	static let sharedInstance = APIRequester()
+	static let sharedInstance = ApiRequester()
 	
-	static func Shared() -> APIRequester
+	static func Shared() -> ApiRequester
 	{
 		return (self.sharedInstance)
 	}
@@ -45,7 +46,7 @@ class APIRequester {
 	** Fetch api Token by asking it to the user with webview his ids and execute
 	** corresponding callback.
 	*/
-	func connectApi(viewController:UIViewController, success:(Void)->Void, failure:(NSError)->Void)
+	func connectApi(viewController:UIViewController, delegateSafari:SFSafariViewControllerDelegate, success:(Void)->Void, failure:(NSError)->Void)
 	{
 		let oauthswift = OAuth2Swift(
 			consumerKey:    "a94a2723cbc81403ded70bb83444030dd15f47f3c0469bfe9b576cf648739291",
@@ -54,7 +55,10 @@ class APIRequester {
 			accessTokenUrl: "https://api.intra.42.fr/oauth/token",
 			responseType:   "code"
 		)
-		oauthswift.authorize_url_handler = SafariURLHandler(viewController: viewController)
+		let safariView = SafariURLHandler(viewController: viewController)
+		safariView.delegate = delegateSafari
+		oauthswift.authorize_url_handler = safariView
+		
 		oauthswift.authorizeWithCallbackURL(
 			NSURL(string: "correct42://oauth-callback/intra")!,
 			scope: "public", state:"INTRA",

@@ -29,7 +29,7 @@
 		4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A31CCECEF9001C0968 /* DateDelegate.swift */; };
 		4658A4A61CCEDB87001C0968 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A51CCEDB87001C0968 /* Title.swift */; };
 		4658A4A81CCEE0AC001C0968 /* TabBarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4658A4A71CCEE0AC001C0968 /* TabBarView.storyboard */; };
-		4658A4EB1CCFBE50001C0968 /* APIRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4EA1CCFBE50001C0968 /* APIRequester.swift */; };
+		4658A4EB1CCFBE50001C0968 /* ApiRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4EA1CCFBE50001C0968 /* ApiRequester.swift */; };
 		4658A4F01CCFC163001C0968 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4EF1CCFC163001C0968 /* UserRouter.swift */; };
 		4658A4F61CD0F807001C0968 /* ApiCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4F51CD0F807001C0968 /* ApiCredential.swift */; };
 		4658A4F71CD0FAE5001C0968 /* ApiCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4F51CD0F807001C0968 /* ApiCredential.swift */; };
@@ -100,7 +100,7 @@
 		4658A4A31CCECEF9001C0968 /* DateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDelegate.swift; sourceTree = "<group>"; };
 		4658A4A51CCEDB87001C0968 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		4658A4A71CCEE0AC001C0968 /* TabBarView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarView.storyboard; sourceTree = "<group>"; };
-		4658A4EA1CCFBE50001C0968 /* APIRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequester.swift; sourceTree = "<group>"; };
+		4658A4EA1CCFBE50001C0968 /* ApiRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequester.swift; sourceTree = "<group>"; };
 		4658A4EF1CCFC163001C0968 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		4658A4F51CD0F807001C0968 /* ApiCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCredential.swift; sourceTree = "<group>"; };
 		4658A4FA1CD0FDFB001C0968 /* ApiCredentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiCredentialTests.swift; path = Library/ApiCredentialTests.swift; sourceTree = "<group>"; };
@@ -184,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				4658A4ED1CCFC12A001C0968 /* Api */,
-				4658A4F51CD0F807001C0968 /* ApiCredential.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -192,19 +191,20 @@
 		4658A4ED1CCFC12A001C0968 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				4658A4EE1CCFC147001C0968 /* Router */,
-				4658A4EA1CCFBE50001C0968 /* APIRequester.swift */,
+				4658A4F51CD0F807001C0968 /* ApiCredential.swift */,
+				4658A4EE1CCFC147001C0968 /* Routers */,
+				4658A4EA1CCFBE50001C0968 /* ApiRequester.swift */,
 			);
 			name = Api;
 			sourceTree = "<group>";
 		};
-		4658A4EE1CCFC147001C0968 /* Router */ = {
+		4658A4EE1CCFC147001C0968 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
+				4658A4FE1CD10971001C0968 /* Protocols */,
 				4658A4EF1CCFC163001C0968 /* UserRouter.swift */,
-				4658A4FC1CD102D8001C0968 /* ApiRouter.swift */,
 			);
-			name = Router;
+			name = Routers;
 			sourceTree = "<group>";
 		};
 		4658A4F81CD0FDA0001C0968 /* Api */ = {
@@ -221,6 +221,14 @@
 				4658A4FA1CD0FDFB001C0968 /* ApiCredentialTests.swift */,
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		4658A4FE1CD10971001C0968 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4658A4FC1CD102D8001C0968 /* ApiRouter.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		4683B4581CC26999005DBAA6 = {
@@ -609,7 +617,7 @@
 				4658A4921CCE962C001C0968 /* ScaleTeam.swift in Sources */,
 				4658A4861CCE61EC001C0968 /* Cursus.swift in Sources */,
 				4648C9A31CC6A9F700E82D68 /* AppDelegate.swift in Sources */,
-				4658A4EB1CCFBE50001C0968 /* APIRequester.swift in Sources */,
+				4658A4EB1CCFBE50001C0968 /* ApiRequester.swift in Sources */,
 				4658A4901CCE81A3001C0968 /* SuperModel.swift in Sources */,
 				4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */,
 			);

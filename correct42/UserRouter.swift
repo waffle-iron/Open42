@@ -12,6 +12,7 @@ enum UserRouter: ApiRouter {
 
 	case ReadUser(String)
 	
+	// MARK: Depend on Case proprieties
 	var method: Alamofire.Method {
 		switch self {
 		case .ReadUser:
@@ -26,6 +27,8 @@ enum UserRouter: ApiRouter {
 		}
 	}
 	
+	
+	// MARK: - ApiRouter methods
 	/*
 	** return complete path of api
 	*/
