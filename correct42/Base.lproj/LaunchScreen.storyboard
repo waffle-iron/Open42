@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Bdb-FY-X2j">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="42logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bdb-FY-X2j">
                                 <rect key="frame" x="177" y="149" width="246" height="302"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="246" id="o4c-Th-phk"/>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="1280" height="2160"/>
+        <image name="42logo" width="1280" height="2160"/>
     </resources>
 </document>

@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Item 2-->
@@ -34,7 +36,69 @@
                     <view key="view" contentMode="scaleToFill" id="Gps-RS-TEo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ed3-2N-amg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="zqO-jZ-FUH">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                                    </imageView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65W-au-x93">
+                                        <rect key="frame" x="40" y="13" width="516" height="407"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZRt-e0-57b">
+                                                <rect key="frame" x="181" y="45" width="154" height="133"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="133" id="KWw-pi-PQM"/>
+                                                    <constraint firstAttribute="width" secondItem="ZRt-e0-57b" secondAttribute="height" multiplier="22:19" id="tqB-uP-Rdj"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ZRt-e0-57b" firstAttribute="centerX" secondItem="65W-au-x93" secondAttribute="centerX" id="Irq-7g-TtO"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZRt-e0-57b" secondAttribute="bottom" constant="215" id="ea4-uB-7dQ"/>
+                                            <constraint firstItem="ZRt-e0-57b" firstAttribute="top" secondItem="65W-au-x93" secondAttribute="top" constant="45" id="jvJ-eK-EqD"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZRt-e0-57b" secondAttribute="trailing" constant="181" id="yHw-UI-UrX"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="zqO-jZ-FUH" firstAttribute="leading" secondItem="ed3-2N-amg" secondAttribute="leading" id="212-xc-5X2"/>
+                                    <constraint firstAttribute="bottom" secondItem="65W-au-x93" secondAttribute="bottom" id="3sk-bX-Pwt"/>
+                                    <constraint firstItem="65W-au-x93" firstAttribute="leading" secondItem="ed3-2N-amg" secondAttribute="leading" constant="40" id="BTB-Ys-2kS"/>
+                                    <constraint firstItem="65W-au-x93" firstAttribute="top" secondItem="ed3-2N-amg" secondAttribute="top" constant="13" id="CXJ-Xi-bQO"/>
+                                    <constraint firstItem="zqO-jZ-FUH" firstAttribute="top" secondItem="ed3-2N-amg" secondAttribute="top" id="W1y-Ch-aUW"/>
+                                    <constraint firstAttribute="trailing" secondItem="zqO-jZ-FUH" secondAttribute="trailing" id="WRX-95-4ZP"/>
+                                    <constraint firstAttribute="trailing" secondItem="65W-au-x93" secondAttribute="trailing" constant="44" id="fFj-tc-TRf"/>
+                                    <constraint firstAttribute="bottom" secondItem="zqO-jZ-FUH" secondAttribute="bottom" id="p76-zG-6cM"/>
+                                    <constraint firstAttribute="bottom" secondItem="zqO-jZ-FUH" secondAttribute="bottom" id="vwS-P1-6jc"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-X7-hfG">
+                                <rect key="frame" x="0.0" y="421" width="600" height="130"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="QFK-tb-5VT"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pc5-X7-hfG" firstAttribute="top" secondItem="ed3-2N-amg" secondAttribute="bottom" id="49e-zn-WMW"/>
+                            <constraint firstItem="yoh-8P-Kf7" firstAttribute="top" secondItem="pc5-X7-hfG" secondAttribute="bottom" id="6DB-Fk-idJ"/>
+                            <constraint firstItem="pc5-X7-hfG" firstAttribute="top" secondItem="ed3-2N-amg" secondAttribute="bottom" constant="1" id="Isa-vh-Nm9"/>
+                            <constraint firstItem="ed3-2N-amg" firstAttribute="top" secondItem="Gps-RS-TEo" secondAttribute="topMargin" id="Y4t-Mc-hAb"/>
+                            <constraint firstItem="pc5-X7-hfG" firstAttribute="leading" secondItem="Gps-RS-TEo" secondAttribute="leading" id="cuc-vl-Lrk"/>
+                            <constraint firstAttribute="trailing" secondItem="pc5-X7-hfG" secondAttribute="trailing" id="u8B-Qm-zbu"/>
+                            <constraint firstItem="pc5-X7-hfG" firstAttribute="trailing" secondItem="ed3-2N-amg" secondAttribute="trailing" id="xNm-fY-GtJ"/>
+                            <constraint firstItem="pc5-X7-hfG" firstAttribute="leading" secondItem="ed3-2N-amg" secondAttribute="leading" id="zOl-Vo-guQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="49e-zn-WMW"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="1eM-NH-IU4"/>
                 </viewController>
@@ -61,4 +125,7 @@
             <point key="canvasLocation" x="624" y="-929"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="2000" height="1300"/>
+    </resources>
 </document>

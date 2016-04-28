@@ -19,7 +19,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uZ-cx-zfC">
                                 <rect key="frame" x="0.0" y="137" width="600" height="326"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-7G-0qN">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="42logo" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-7G-0qN">
                                         <rect key="frame" x="261" y="31" width="78" height="113"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="113" id="Dft-3y-sbn"/>
@@ -86,6 +86,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="1280" height="2160"/>
+        <image name="42logo" width="1280" height="2160"/>
     </resources>
 </document>
