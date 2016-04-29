@@ -17,13 +17,16 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate{
 	
 	@IBAction func connect42(sender: UIButton) {
 		LoginLoading.startAnimating()
-		apiRequester.connectApi(self, delegateSafari: self, success: { () in
-				self.LoginLoading.startAnimating()
-				self.performSegueWithIdentifier("connectSegue", sender: self)
-				self.LoginLoading.stopAnimating()
-			}) { (error) in
-				print("Error code : \(error.code)")
-			}
+		self.performSegueWithIdentifier("connectSegue", sender: self)
+		self.LoginLoading.stopAnimating()
+		
+//		apiRequester.connectApi(self, delegateSafari: self, success: { () in
+//				self.LoginLoading.startAnimating()
+//				self.performSegueWithIdentifier("connectSegue", sender: self)
+//				self.LoginLoading.stopAnimating()
+//			}) { (error) in
+//				print("Error code : \(error.code)")
+//			}
 	}
 	
 	override func didReceiveMemoryWarning() {
