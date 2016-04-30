@@ -34,11 +34,25 @@ class ApiRequester {
 	{
 		let URL = NSURL(string: baseURLString)!
 		let completeRoute = NSURLRequest(URL: URL.URLByAppendingPathComponent(router.path))
-		Alamofire.request(router.method, completeRoute, headers: ["Authorization":"Bearer \(apiCredential.token)"])
-			.response { request, response, data, error in
-				guard error == nil else { failure(error!); return }
-				guard data == nil else { failure(NSError(domain: "nil on data and no error network", code: -1, userInfo: nil)); return }
-				success(JSON(data!));
+		print(apiCredential.token)
+		if let token = apiCredential.token {
+		Alamofire.request(router.method, completeRoute, headers: ["Authorization":"Bearer \(token)"])
+			.responseJSON{ reponse in
+				print(reponse.result.value)
+				if let jsonData = reponse.result.value{
+					let responseJSON = JSON(jsonData);
+					if (responseJSON["error"].string == nil){
+						success(responseJSON);
+					}
+					else {
+						failure(NSError(domain: "Error on serveur : \(responseJSON["error"].stringValue)", code: -1, userInfo: nil))
+					}
+				} else {
+					failure(NSError(domain: "Data formating failed", code: -1, userInfo: nil))
+				}
+			}
+		} else {
+			failure(NSError(domain: "No token given", code: -2, userInfo: nil))
 		}
 	}
 	
