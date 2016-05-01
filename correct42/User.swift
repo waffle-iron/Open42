@@ -7,14 +7,10 @@
 //
 import SwiftyJSON
 
-class User : SuperModel, IdDelegate {
+class User : SuperModel {
 	
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
-	}()
-	
-	lazy var name:String = {
-		return (self.displayName)
 	}()
 	
 	lazy var email:String = {

@@ -7,7 +7,7 @@
 //
 import SwiftyJSON
 
-class Cursus : SuperModel, IdDelegate{
+class Cursus : SuperModel {
 	
 	// MARK: - Uncomputed (alias) proprieties
 	lazy var id:Int  = {
@@ -34,8 +34,8 @@ class Cursus : SuperModel, IdDelegate{
 		return (self.jsonData["end_at"].stringValue)
 	}()
 	
-	lazy var level:Int = {
-		return (self.jsonData["level"].intValue)
+	lazy var level:String = {
+		return (self.jsonData["level"].stringValue)
 	}()
 	
 	lazy var grade:String = {

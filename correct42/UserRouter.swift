@@ -11,11 +11,14 @@ import Alamofire
 enum UserRouter: ApiRouter {
 
 	case ReadUser(String)
+	case Me
 	
 	// MARK: Depend on Case proprieties
 	var method: Alamofire.Method {
 		switch self {
 		case .ReadUser:
+			return .GET
+		case .Me:
 			return .GET
 		}
 	}
@@ -24,6 +27,8 @@ enum UserRouter: ApiRouter {
 		switch self {
 		case .ReadUser(let username):
 			return "/users/\(username)"
+		case .Me:
+			return "/me"
 		}
 	}
 	
