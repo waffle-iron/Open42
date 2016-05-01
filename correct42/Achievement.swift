@@ -7,7 +7,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Achievement: SuperModel, IdDelegate {
+class Achievement: SuperModel{
 	lazy var id:Int  = {
 		return (self.jsonData["id"].intValue)
 	}()

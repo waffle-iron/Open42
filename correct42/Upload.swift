@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Upload : SuperModel, IdDelegate, DateDelegate {
+class Upload : SuperModel, DateDelegate {
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
 	}()

@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-class Campus: SuperModel, IdDelegate {
+class Campus: SuperModel{
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
 	}()

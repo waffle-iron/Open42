@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class TeamUpload : SuperModel, IdDelegate {
+class TeamUpload : SuperModel {
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
 	}()

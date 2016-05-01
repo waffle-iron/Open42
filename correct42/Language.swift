@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Language : SuperModel, IdDelegate, DateDelegate {
+class Language : SuperModel, DateDelegate {
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
 	}()

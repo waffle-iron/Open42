@@ -32,7 +32,6 @@
 		4658A4961CCE9C86001C0968 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4951CCE9C86001C0968 /* Scale.swift */; };
 		4658A4981CCEA5A9001C0968 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4971CCEA5A9001C0968 /* Flag.swift */; };
 		4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4991CCEAA9C001C0968 /* Upload.swift */; };
-		4658A4A11CCECDD7001C0968 /* IdDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A01CCECDD7001C0968 /* IdDelegate.swift */; };
 		4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A31CCECEF9001C0968 /* DateDelegate.swift */; };
 		4658A4A61CCEDB87001C0968 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A51CCEDB87001C0968 /* Title.swift */; };
 		4658A4A81CCEE0AC001C0968 /* TabBarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4658A4A71CCEE0AC001C0968 /* TabBarView.storyboard */; };
@@ -115,7 +114,6 @@
 		4658A4951CCE9C86001C0968 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		4658A4971CCEA5A9001C0968 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		4658A4991CCEAA9C001C0968 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
-		4658A4A01CCECDD7001C0968 /* IdDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdDelegate.swift; sourceTree = "<group>"; };
 		4658A4A31CCECEF9001C0968 /* DateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDelegate.swift; sourceTree = "<group>"; };
 		4658A4A51CCEDB87001C0968 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		4658A4A71CCEE0AC001C0968 /* TabBarView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarView.storyboard; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 		4658A4A21CCECDE3001C0968 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				4658A4A01CCECDD7001C0968 /* IdDelegate.swift */,
 				4658A4A31CCECEF9001C0968 /* DateDelegate.swift */,
 			);
 			name = Protocols;
@@ -679,7 +676,6 @@
 				462BAFE51CD625EA000F9F34 /* ProjectsViewController.swift in Sources */,
 				4658A4F61CD0F807001C0968 /* ApiCredential.swift in Sources */,
 				4648C9A91CC6E2D500E82D68 /* UserManager.swift in Sources */,
-				4658A4A11CCECDD7001C0968 /* IdDelegate.swift in Sources */,
 				4658A48A1CCE762F001C0968 /* Language.swift in Sources */,
 				462BAFDC1CD4CEF3000F9F34 /* ProfilViewController.swift in Sources */,
 				4658A4981CCEA5A9001C0968 /* Flag.swift in Sources */,

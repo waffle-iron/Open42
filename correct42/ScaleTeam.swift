@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class ScaleTeam : SuperModel, IdDelegate {
+class ScaleTeam : SuperModel{
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
 	}()
