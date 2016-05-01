@@ -54,6 +54,14 @@ class UserViewController: UIViewController{
 		}
 	}
 	
+	@IBAction func ClickButtonProjects(sender: UIButton) {
+		self.performSegueWithIdentifier("goToProjects", sender: self)
+	}
+	
+	@IBAction func ClickButtonSkills(sender: UIButton) {
+		self.performSegueWithIdentifier("goToSkills", sender: self)
+	}
+	
 	override func viewWillDisappear(animated: Bool) {
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: reloadUserNotifKey, object: nil)
 	}
