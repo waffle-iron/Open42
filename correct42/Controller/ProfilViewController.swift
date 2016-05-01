@@ -11,6 +11,7 @@ import UIKit
 class ProfilViewController: UIViewController {
 
 	@IBOutlet weak var userContainer: UIView!
+	
 	var userManager = UserManager.Shared()
 	
     override func viewDidLoad() {

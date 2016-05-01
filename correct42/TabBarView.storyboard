@@ -298,6 +298,9 @@
                                         <state key="normal" title="Projects">
                                             <color key="titleColor" red="1" green="0.98410965859999999" blue="0.9953608478" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ClickButtonProjects:" destination="db3-sD-clj" eventType="touchUpInside" id="Ya3-BC-fXf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-jy-bse">
                                         <rect key="frame" x="300" y="491" width="300" height="60"/>
@@ -308,6 +311,9 @@
                                         <state key="normal" title="Skills">
                                             <color key="titleColor" red="1" green="0.98410965859999999" blue="0.9953608478" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ClickButtonSkills:" destination="db3-sD-clj" eventType="touchUpInside" id="8ie-yB-QB8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,13 +409,13 @@
                         <outlet property="pointsLabel" destination="Za7-aU-zlG" id="cGm-bI-deI"/>
                         <outlet property="pseudoLabel" destination="KRX-Bb-UyL" id="JJ3-qw-JsY"/>
                         <outlet property="walletsLabel" destination="THV-St-WEQ" id="IYh-nw-bs7"/>
-                        <segue destination="jJI-Vk-ngX" kind="showDetail" identifier="goToSkills" id="cdO-ku-YxW"/>
-                        <segue destination="fX7-d2-7ki" kind="showDetail" identifier="goToProjects" id="PZC-z8-XeW"/>
+                        <segue destination="jJI-Vk-ngX" kind="presentation" identifier="goToSkills" modalTransitionStyle="coverVertical" id="cdO-ku-YxW"/>
+                        <segue destination="fX7-d2-7ki" kind="presentation" identifier="goToProjects" id="PZC-z8-XeW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mm-mh-kqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420" y="-1239.5"/>
+            <point key="canvasLocation" x="3518" y="-1239.5"/>
         </scene>
         <!--Skills-->
         <scene sceneID="gyL-ta-U4O">

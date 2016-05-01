@@ -44,7 +44,7 @@ class Cursus : SuperModel {
 	
 	lazy var projects:[Project] = {
 			var projectGet = [Project]()
-			for project in self.jsonData["Projects"].arrayValue{
+			for project in self.jsonData["projects"].arrayValue{
 				projectGet.append(Project(jsonFetch: project))
 			}
 			return (projectGet)

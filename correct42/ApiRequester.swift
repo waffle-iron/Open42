@@ -34,11 +34,9 @@ class ApiRequester {
 	{
 		let URL = NSURL(string: baseURLString)!
 		let completeRoute = NSURLRequest(URL: URL.URLByAppendingPathComponent(router.path))
-		print(apiCredential.token)
 		if let token = apiCredential.token {
 		Alamofire.request(router.method, completeRoute, headers: ["Authorization":"Bearer \(token)"])
 			.responseJSON{ reponse in
-				print(reponse.result.value)
 				if let jsonData = reponse.result.value{
 					let responseJSON = JSON(jsonData);
 					if (responseJSON["error"].string == nil){
