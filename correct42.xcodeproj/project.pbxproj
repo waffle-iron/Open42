@@ -15,8 +15,6 @@
 		462BAFE51CD625EA000F9F34 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BAFE41CD625EA000F9F34 /* ProjectsViewController.swift */; };
 		462BAFE81CD6264E000F9F34 /* projectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462BAFE71CD6264E000F9F34 /* projectCell.xib */; };
 		462BAFEA1CD62909000F9F34 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */; };
-		462BAFF21CD65651000F9F34 /* skillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462BAFF11CD65651000F9F34 /* skillCell.xib */; };
-		462BAFF41CD65736000F9F34 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BAFF31CD65736000F9F34 /* SkillTableViewCell.swift */; };
 		4648C9A31CC6A9F700E82D68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648C9A21CC6A9F700E82D68 /* AppDelegate.swift */; };
 		4648C9A51CC6E29D00E82D68 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648C9A41CC6E29D00E82D68 /* Project.swift */; };
 		4648C9A71CC6E2AD00E82D68 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648C9A61CC6E2AD00E82D68 /* User.swift */; };
@@ -52,6 +50,9 @@
 		4683B46F1CC26999005DBAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683B46D1CC26999005DBAA6 /* LaunchScreen.storyboard */; };
 		4683B47A1CC26999005DBAA6 /* correct42Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4683B4791CC26999005DBAA6 /* correct42Tests.swift */; };
 		4683B4851CC26999005DBAA6 /* correct42UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4683B4841CC26999005DBAA6 /* correct42UITests.swift */; };
+		46B3DDE41CD65FBD008A2D05 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDE31CD65FBD008A2D05 /* SkillsViewController.swift */; };
+		46B3DDE81CD6625A008A2D05 /* skillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B3DDE71CD6625A008A2D05 /* skillCell.xib */; };
+		46B3DDEA1CD6628B008A2D05 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDE91CD6628B008A2D05 /* SkillTableViewCell.swift */; };
 		46C773711CC94718005E8654 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C773701CC94718005E8654 /* ProjectManager.swift */; };
 		46E7895F1CCCFA4A00D4CBE3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895D1CCCFA4A00D4CBE3 /* Alamofire.framework */; };
 		46E789601CCCFA4A00D4CBE3 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895E1CCCFA4A00D4CBE3 /* OAuthSwift.framework */; };
@@ -97,8 +98,6 @@
 		462BAFE41CD625EA000F9F34 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectsViewController.swift; path = Controller/ProjectsViewController.swift; sourceTree = "<group>"; };
 		462BAFE71CD6264E000F9F34 /* projectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = projectCell.xib; path = "views/Table Cells/projectCell.xib"; sourceTree = "<group>"; };
 		462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTableViewCell.swift; path = "views/Table Cells/ProjectTableViewCell.swift"; sourceTree = "<group>"; };
-		462BAFF11CD65651000F9F34 /* skillCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = skillCell.xib; path = "views/Table Cells/skillCell.xib"; sourceTree = "<group>"; };
-		462BAFF31CD65736000F9F34 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillTableViewCell.swift; path = "views/Table Cells/SkillTableViewCell.swift"; sourceTree = "<group>"; };
 		4648C9A21CC6A9F700E82D68 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = correct42/AppDelegate.swift; sourceTree = "<group>"; };
 		4648C9A41CC6E29D00E82D68 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4648C9A61CC6E2AD00E82D68 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -139,6 +138,9 @@
 		4683B4801CC26999005DBAA6 /* correct42UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = correct42UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B4841CC26999005DBAA6 /* correct42UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = correct42UITests.swift; sourceTree = "<group>"; };
 		4683B4861CC26999005DBAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46B3DDE31CD65FBD008A2D05 /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillsViewController.swift; path = Controller/SkillsViewController.swift; sourceTree = "<group>"; };
+		46B3DDE71CD6625A008A2D05 /* skillCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = skillCell.xib; sourceTree = "<group>"; };
+		46B3DDE91CD6628B008A2D05 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillTableViewCell.swift; path = "views/Table Cells/SkillTableViewCell.swift"; sourceTree = "<group>"; };
 		46C773701CC94718005E8654 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 		46E7895D1CCCFA4A00D4CBE3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/correct42-chxutplijvficiclvoxgimrigxxa/Build/Products/Debug-iphonesimulator/Alamofire.framework"; sourceTree = "<group>"; };
 		46E7895E1CCCFA4A00D4CBE3 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/correct42-chxutplijvficiclvoxgimrigxxa/Build/Products/Debug-iphonesimulator/OAuthSwift.framework"; sourceTree = "<group>"; };
@@ -187,8 +189,8 @@
 			children = (
 				462BAFE71CD6264E000F9F34 /* projectCell.xib */,
 				462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */,
-				462BAFF11CD65651000F9F34 /* skillCell.xib */,
-				462BAFF31CD65736000F9F34 /* SkillTableViewCell.swift */,
+				46B3DDE71CD6625A008A2D05 /* skillCell.xib */,
+				46B3DDE91CD6628B008A2D05 /* SkillTableViewCell.swift */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -366,6 +368,7 @@
 				462BAFDB1CD4CEF3000F9F34 /* ProfilViewController.swift */,
 				462BAFDD1CD4D031000F9F34 /* UserViewController.swift */,
 				462BAFE41CD625EA000F9F34 /* ProjectsViewController.swift */,
+				46B3DDE31CD65FBD008A2D05 /* SkillsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -535,7 +538,7 @@
 				4683B46C1CC26999005DBAA6 /* Assets.xcassets in Resources */,
 				462BAFD81CD3AB4F000F9F34 /* Projects.storyboard in Resources */,
 				4683B46A1CC26999005DBAA6 /* LoginView.storyboard in Resources */,
-				462BAFF21CD65651000F9F34 /* skillCell.xib in Resources */,
+				46B3DDE81CD6625A008A2D05 /* skillCell.xib in Resources */,
 				4658A4A81CCEE0AC001C0968 /* TabBarView.storyboard in Resources */,
 				462BAFE81CD6264E000F9F34 /* projectCell.xib in Resources */,
 			);
@@ -676,7 +679,6 @@
 				462BAFE51CD625EA000F9F34 /* ProjectsViewController.swift in Sources */,
 				4658A4F61CD0F807001C0968 /* ApiCredential.swift in Sources */,
 				4648C9A91CC6E2D500E82D68 /* UserManager.swift in Sources */,
-				462BAFF41CD65736000F9F34 /* SkillTableViewCell.swift in Sources */,
 				4658A4A11CCECDD7001C0968 /* IdDelegate.swift in Sources */,
 				4658A48A1CCE762F001C0968 /* Language.swift in Sources */,
 				462BAFDC1CD4CEF3000F9F34 /* ProfilViewController.swift in Sources */,
@@ -687,6 +689,8 @@
 				4658A4EB1CCFBE50001C0968 /* ApiRequester.swift in Sources */,
 				4658A4901CCE81A3001C0968 /* SuperModel.swift in Sources */,
 				4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */,
+				46B3DDEA1CD6628B008A2D05 /* SkillTableViewCell.swift in Sources */,
+				46B3DDE41CD65FBD008A2D05 /* SkillsViewController.swift in Sources */,
 				4658A50A1CD12F53001C0968 /* ProprietiesMirror.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,9 @@ import UIKit
 
 class SkillTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var skillNameLabel: UILabel!
+	@IBOutlet weak var levelLabel: UILabel!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

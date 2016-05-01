@@ -69,14 +69,6 @@ class User : SuperModel {
 		return (cursusGet)
 	}()
 	
-	lazy var skills:[Skill] = {
-		var skillsGet = [Skill]()
-		for skill in self.jsonData["skills"].arrayValue{
-			skillsGet.append(Skill(jsonFetch: skill))
-		}
-		return (skillsGet)
-	}()
-	
 	lazy var achievements:[Achievement] = {
 		var achievementGet = [Achievement]()
 		for achievement in self.jsonData["achievements"].arrayValue{
