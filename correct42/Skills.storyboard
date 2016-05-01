@@ -1,43 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6X6-AA-vrv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Jm-My-n5B">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Skills-->
-        <scene sceneID="qDy-Xn-Uii">
+        <!--Projects-->
+        <scene sceneID="f9F-PA-fzR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YfX-s2-2An" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="SkillsVC" title="Skills" id="6X6-AA-vrv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectsVC" title="Projects" id="9Jm-My-n5B" customClass="SkillsViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ISx-F3-i7S"/>
-                        <viewControllerLayoutGuide type="bottom" id="W0C-8j-ozV"/>
+                        <viewControllerLayoutGuide type="top" id="I3p-Nr-xP6"/>
+                        <viewControllerLayoutGuide type="bottom" id="wL3-VA-8wL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="I39-Nw-nBw">
+                    <view key="view" contentMode="scaleToFill" id="qpn-nV-z11">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AHF-VO-dan">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YN2-8p-pS8">
+                                <rect key="frame" x="0.0" y="94" width="600" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pca-bd-h4r">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Skills" id="XGK-dm-k0b">
-                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="XQ2-BS-jLH"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K88-xv-DnS">
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="ca8-pV-nn3"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickBackButton:" destination="9Jm-My-n5B" eventType="touchUpInside" id="9K4-Tp-8Yh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someone's skills" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLg-5h-WMe">
+                                <rect key="frame" x="185" y="20" width="230" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="dDc-fH-xcJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="ahS-CU-VvF">
+                                <rect key="frame" x="185" y="58" width="230" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="jJP-GU-sxt"/>
+                                    <constraint firstAttribute="height" constant="28" id="s4N-es-uWU"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="A-Z"/>
+                                    <segment title="Mark"/>
+                                    <segment title="Z-A"/>
+                                </segments>
+                                <color key="tintColor" red="0.30998571920000001" green="0.66166072490000005" blue="0.60619968790000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="SortBy:" destination="9Jm-My-n5B" eventType="valueChanged" id="hZM-ED-hpY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20069020839999999" green="0.42837079430000002" blue="0.39246434330000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CLg-5h-WMe" firstAttribute="top" secondItem="I3p-Nr-xP6" secondAttribute="bottom" id="CO5-NK-E1i"/>
+                            <constraint firstItem="ahS-CU-VvF" firstAttribute="centerX" secondItem="qpn-nV-z11" secondAttribute="centerX" id="PaG-M0-pzQ"/>
+                            <constraint firstItem="YN2-8p-pS8" firstAttribute="top" secondItem="CLg-5h-WMe" secondAttribute="bottom" constant="44" id="VMA-i9-Cr2"/>
+                            <constraint firstItem="wL3-VA-8wL" firstAttribute="top" secondItem="YN2-8p-pS8" secondAttribute="bottom" id="ero-aA-JD0"/>
+                            <constraint firstItem="CLg-5h-WMe" firstAttribute="centerX" secondItem="qpn-nV-z11" secondAttribute="centerX" id="l2P-9R-qgk"/>
+                            <constraint firstItem="K88-xv-DnS" firstAttribute="top" secondItem="I3p-Nr-xP6" secondAttribute="bottom" id="nFb-8v-DDl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YN2-8p-pS8" secondAttribute="trailing" constant="-20" id="tHZ-Xq-ROo"/>
+                            <constraint firstItem="ahS-CU-VvF" firstAttribute="top" secondItem="CLg-5h-WMe" secondAttribute="bottom" constant="8" id="uZb-4R-frJ"/>
+                            <constraint firstItem="YN2-8p-pS8" firstAttribute="leading" secondItem="qpn-nV-z11" secondAttribute="leadingMargin" constant="-20" id="ui6-IL-TVV"/>
+                            <constraint firstItem="K88-xv-DnS" firstAttribute="leading" secondItem="qpn-nV-z11" secondAttribute="leadingMargin" id="wMm-lQ-XDp"/>
+                            <constraint firstItem="CLg-5h-WMe" firstAttribute="bottom" secondItem="K88-xv-DnS" secondAttribute="bottom" id="zuJ-Gw-puc"/>
+                        </constraints>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="7SA-Sp-y0s"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="skillTable" destination="YN2-8p-pS8" id="ca1-cy-aiA"/>
+                        <outlet property="titleLabel" destination="CLg-5h-WMe" id="OuJ-kP-0gQ"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HL-fv-oKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="208" y="173"/>
+            <point key="canvasLocation" x="-1" y="189"/>
         </scene>
     </scenes>
 </document>

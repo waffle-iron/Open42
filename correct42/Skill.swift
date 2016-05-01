@@ -6,7 +6,7 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
-class Skill: SuperModel, IdDelegate {
+class Skill: SuperModel {
 	lazy var id:Int  = {
 		return (self.jsonData["id"].intValue)
 	}()

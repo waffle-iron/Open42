@@ -42,7 +42,7 @@
                 <outlet property="markLabel" destination="uYO-WU-Vg6" id="niZ-0b-0XK"/>
                 <outlet property="projectNameLabel" destination="NxI-kW-4Km" id="7tW-y5-YnP"/>
             </connections>
-            <point key="canvasLocation" x="296" y="196"/>
+            <point key="canvasLocation" x="389" y="198"/>
         </tableViewCell>
     </objects>
 </document>
