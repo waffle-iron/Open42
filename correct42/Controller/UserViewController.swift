@@ -33,6 +33,7 @@ class UserViewController: UIViewController{
 	
 	override func viewDidAppear(animated: Bool) {
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserViewController.fillUser), name: reloadUserNotifKey, object: nil)
+		fillUser()
 	}
 
     override func didReceiveMemoryWarning() {

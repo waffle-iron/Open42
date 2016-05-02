@@ -16,47 +16,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="RRc-Rx-pkd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uZ-cx-zfC">
                                 <rect key="frame" x="0.0" y="137" width="600" height="326"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="42logo" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-7G-0qN">
-                                        <rect key="frame" x="261" y="31" width="78" height="113"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="113" id="Dft-3y-sbn"/>
-                                            <constraint firstAttribute="width" constant="78" id="FqU-Zz-O6b"/>
-                                        </constraints>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kan-CK-uRh">
                                         <rect key="frame" x="198" y="213" width="205" height="59"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.20069020839999999" green="0.42837079430000002" blue="0.39246434330000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="59" id="0Hi-RV-xe2"/>
                                             <constraint firstAttribute="width" constant="205" id="mvF-qB-qjj"/>
                                         </constraints>
                                         <state key="normal" title="Connect With 42">
                                             <color key="titleColor" red="1" green="0.97952860384202423" blue="0.98865711628273745" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.021425189393939448" green="0.021425189393939448" blue="0.021425189393939448" alpha="0.85174725506756754" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="connect42:" destination="BYZ-38-t0r" eventType="touchUpInside" id="92I-ne-gqO"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-tq-8PA">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-tq-8PA">
                                         <rect key="frame" x="290" y="164" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="2bB-fh-9DQ"/>
                                             <constraint firstAttribute="height" constant="20" id="VeJ-lh-6KZ"/>
                                         </constraints>
                                     </activityIndicatorView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="42logo" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-7G-0qN">
+                                        <rect key="frame" x="237" y="40" width="126" height="77"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="77" id="Dft-3y-sbn"/>
+                                            <constraint firstAttribute="width" constant="126" id="FqU-Zz-O6b"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Kan-CK-uRh" firstAttribute="centerY" secondItem="9uZ-cx-zfC" secondAttribute="centerY" constant="79.5" id="4sW-k3-gaJ"/>
                                     <constraint firstItem="bjT-tq-8PA" firstAttribute="centerX" secondItem="9uZ-cx-zfC" secondAttribute="centerX" id="6Sh-ID-Iwk"/>
                                     <constraint firstItem="HpR-7G-0qN" firstAttribute="centerX" secondItem="9uZ-cx-zfC" secondAttribute="centerX" id="Qwd-NA-XP3"/>
                                     <constraint firstAttribute="height" constant="326" id="WZB-T4-2sD"/>
                                     <constraint firstItem="HpR-7G-0qN" firstAttribute="centerX" secondItem="Kan-CK-uRh" secondAttribute="centerX" id="ppe-aN-Zb3"/>
-                                    <constraint firstItem="bjT-tq-8PA" firstAttribute="top" secondItem="HpR-7G-0qN" secondAttribute="bottom" constant="20" id="sYb-EU-bZT"/>
-                                    <constraint firstItem="HpR-7G-0qN" firstAttribute="top" secondItem="9uZ-cx-zfC" secondAttribute="top" constant="31" id="sod-yB-hYB"/>
+                                    <constraint firstItem="bjT-tq-8PA" firstAttribute="top" secondItem="HpR-7G-0qN" secondAttribute="bottom" constant="47" id="sYb-EU-bZT"/>
+                                    <constraint firstItem="HpR-7G-0qN" firstAttribute="top" secondItem="9uZ-cx-zfC" secondAttribute="top" constant="40" id="sod-yB-hYB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -86,6 +90,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="42logo" width="1280" height="2160"/>
+        <image name="42logo" width="138" height="97"/>
+        <image name="background" width="2000" height="1300"/>
     </resources>
 </document>

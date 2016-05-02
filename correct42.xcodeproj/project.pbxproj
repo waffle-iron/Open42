@@ -52,6 +52,10 @@
 		46B3DDE41CD65FBD008A2D05 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDE31CD65FBD008A2D05 /* SkillsViewController.swift */; };
 		46B3DDE81CD6625A008A2D05 /* skillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B3DDE71CD6625A008A2D05 /* skillCell.xib */; };
 		46B3DDEA1CD6628B008A2D05 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDE91CD6628B008A2D05 /* SkillTableViewCell.swift */; };
+		46B3DDEC1CD78387008A2D05 /* SearchUserContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDEB1CD78387008A2D05 /* SearchUserContainerViewController.swift */; };
+		46B3DDEE1CD78D8B008A2D05 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDED1CD78D8B008A2D05 /* SearchUserViewController.swift */; };
+		46B3DDF01CD793EF008A2D05 /* searchUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B3DDEF1CD793EF008A2D05 /* searchUserCell.xib */; };
+		46B3DDF21CD79442008A2D05 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDF11CD79442008A2D05 /* SearchUserTableViewCell.swift */; };
 		46C773711CC94718005E8654 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C773701CC94718005E8654 /* ProjectManager.swift */; };
 		46E7895F1CCCFA4A00D4CBE3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895D1CCCFA4A00D4CBE3 /* Alamofire.framework */; };
 		46E789601CCCFA4A00D4CBE3 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895E1CCCFA4A00D4CBE3 /* OAuthSwift.framework */; };
@@ -139,6 +143,10 @@
 		46B3DDE31CD65FBD008A2D05 /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillsViewController.swift; path = Controller/SkillsViewController.swift; sourceTree = "<group>"; };
 		46B3DDE71CD6625A008A2D05 /* skillCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = skillCell.xib; sourceTree = "<group>"; };
 		46B3DDE91CD6628B008A2D05 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillTableViewCell.swift; path = "views/Table Cells/SkillTableViewCell.swift"; sourceTree = "<group>"; };
+		46B3DDEB1CD78387008A2D05 /* SearchUserContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserContainerViewController.swift; path = Controller/SearchUserContainerViewController.swift; sourceTree = "<group>"; };
+		46B3DDED1CD78D8B008A2D05 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = Controller/SearchUserViewController.swift; sourceTree = "<group>"; };
+		46B3DDEF1CD793EF008A2D05 /* searchUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchUserCell.xib; sourceTree = "<group>"; };
+		46B3DDF11CD79442008A2D05 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserTableViewCell.swift; path = "views/Table Cells/SearchUserTableViewCell.swift"; sourceTree = "<group>"; };
 		46C773701CC94718005E8654 /* ProjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 		46E7895D1CCCFA4A00D4CBE3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/correct42-chxutplijvficiclvoxgimrigxxa/Build/Products/Debug-iphonesimulator/Alamofire.framework"; sourceTree = "<group>"; };
 		46E7895E1CCCFA4A00D4CBE3 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/correct42-chxutplijvficiclvoxgimrigxxa/Build/Products/Debug-iphonesimulator/OAuthSwift.framework"; sourceTree = "<group>"; };
@@ -189,6 +197,8 @@
 				462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */,
 				46B3DDE71CD6625A008A2D05 /* skillCell.xib */,
 				46B3DDE91CD6628B008A2D05 /* SkillTableViewCell.swift */,
+				46B3DDEF1CD793EF008A2D05 /* searchUserCell.xib */,
+				46B3DDF11CD79442008A2D05 /* SearchUserTableViewCell.swift */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -366,6 +376,8 @@
 				462BAFDD1CD4D031000F9F34 /* UserViewController.swift */,
 				462BAFE41CD625EA000F9F34 /* ProjectsViewController.swift */,
 				46B3DDE31CD65FBD008A2D05 /* SkillsViewController.swift */,
+				46B3DDEB1CD78387008A2D05 /* SearchUserContainerViewController.swift */,
+				46B3DDED1CD78D8B008A2D05 /* SearchUserViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -530,6 +542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B3DDF01CD793EF008A2D05 /* searchUserCell.xib in Resources */,
 				462BAFDA1CD3AB5C000F9F34 /* Skills.storyboard in Resources */,
 				4683B46F1CC26999005DBAA6 /* LaunchScreen.storyboard in Resources */,
 				4683B46C1CC26999005DBAA6 /* Assets.xcassets in Resources */,
@@ -655,6 +668,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B3DDF21CD79442008A2D05 /* SearchUserTableViewCell.swift in Sources */,
 				4658A4F01CCFC163001C0968 /* UserRouter.swift in Sources */,
 				462BAFDE1CD4D031000F9F34 /* UserViewController.swift in Sources */,
 				4658A4FD1CD102D8001C0968 /* ApiRouter.swift in Sources */,
@@ -672,6 +686,7 @@
 				4658A4941CCE9640001C0968 /* TeamUpload.swift in Sources */,
 				462BAFEA1CD62909000F9F34 /* ProjectTableViewCell.swift in Sources */,
 				4658A4821CCE5555001C0968 /* Skill.swift in Sources */,
+				46B3DDEE1CD78D8B008A2D05 /* SearchUserViewController.swift in Sources */,
 				4658A4841CCE5C28001C0968 /* UserSession.swift in Sources */,
 				462BAFE51CD625EA000F9F34 /* ProjectsViewController.swift in Sources */,
 				4658A4F61CD0F807001C0968 /* ApiCredential.swift in Sources */,
@@ -682,6 +697,7 @@
 				4658A4921CCE962C001C0968 /* ScaleTeam.swift in Sources */,
 				4658A4861CCE61EC001C0968 /* Cursus.swift in Sources */,
 				4648C9A31CC6A9F700E82D68 /* AppDelegate.swift in Sources */,
+				46B3DDEC1CD78387008A2D05 /* SearchUserContainerViewController.swift in Sources */,
 				4658A4EB1CCFBE50001C0968 /* ApiRequester.swift in Sources */,
 				4658A4901CCE81A3001C0968 /* SuperModel.swift in Sources */,
 				4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */,

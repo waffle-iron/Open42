@@ -20,6 +20,7 @@ class UserManager {
 	var loginUser:User?
 	var searchUser:User?
 	var currentUser:User?
+	var listSearchUser:[User] = [User]()
 	
 	//MARK: - Service Singletons
 	let apiRequester = ApiRequester.Shared()
@@ -40,8 +41,21 @@ class UserManager {
 		}
 	}
 	
-	func fetchSearchUser(pseudo:String, success:(User)->Void, failure:(NSError)->Void){
-		apiRequester.request(UserRouter.ReadUser(pseudo), success: { (jsonData) in
+	func fetchSearchUser(pseudo:String, success:([User])->Void, failure:(NSError)->Void){
+		apiRequester.request(UserRouter.Search(pseudo), success: { (jsonData) in
+			self.listSearchUser.removeAll()
+			for userInfos in jsonData.arrayValue {
+				self.listSearchUser.append(User(jsonFetch: userInfos))
+			}
+			success(self.listSearchUser)
+		}) { (error) in
+			// get local requester if exist else
+			failure(error)
+		}
+	}
+	
+	func fetchUserById(id:Int, success:(User)->Void, failure:(NSError)->Void){
+		apiRequester.request(UserRouter.ReadUser(id), success: { (jsonData) in
 			self.searchUser = User(jsonFetch: jsonData)
 			if let user = self.loginUser {
 				success(user)
@@ -53,5 +67,6 @@ class UserManager {
 			// get local requester if exist else
 			failure(error)
 		}
+		
 	}
 }

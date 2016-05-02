@@ -12,7 +12,8 @@ import Alamofire
 */
 
 protocol ApiRouter {
-	func route() -> (Method, String)
+	func route() -> (Method, String, String)
 	var method:Method{get}
 	var path:String{get}
+	var parameters:String{get}
 }

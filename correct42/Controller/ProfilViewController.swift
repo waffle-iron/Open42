@@ -17,8 +17,11 @@ class ProfilViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-		fetchUser()
     }
+	
+	override func viewWillAppear(animated: Bool) {
+		fetchUser()
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

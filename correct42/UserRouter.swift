@@ -10,8 +10,9 @@ import Alamofire
 
 enum UserRouter: ApiRouter {
 
-	case ReadUser(String)
+	case ReadUser(Int)
 	case Me
+	case Search(String)
 	
 	// MARK: Depend on Case proprieties
 	var method: Alamofire.Method {
@@ -20,15 +21,28 @@ enum UserRouter: ApiRouter {
 			return .GET
 		case .Me:
 			return .GET
+		case .Search:
+			return .GET
 		}
 	}
 	
 	var path: String {
 		switch self {
-		case .ReadUser(let username):
-			return "/users/\(username)"
+		case .ReadUser(let id):
+			return "/users/\(id)"
 		case .Me:
 			return "/me"
+		case .Search:
+			return "/users"
+		}
+	}
+	
+	var parameters:String{
+		switch self {
+		case .Search(let login):
+			return "?search=in:login%20\(login)"
+		default:
+			return ""
 		}
 	}
 	
@@ -37,8 +51,8 @@ enum UserRouter: ApiRouter {
 	/*
 	** return complete path of api
 	*/
-	func route() -> (Method, String)
+	func route() -> (Method, String, String)
 	{
-		return (method, path)
+		return (method, path, parameters)
 	}
 }
