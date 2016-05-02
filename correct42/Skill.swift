@@ -15,7 +15,7 @@ class Skill: SuperModel {
 		return (self.jsonData["name"].stringValue)
 	}()
 	
-	lazy var level:Int = {
-		return (self.jsonData["level"].intValue)
+	lazy var level:Float = {
+		return (self.jsonData["level"].floatValue)
 	}()
 }

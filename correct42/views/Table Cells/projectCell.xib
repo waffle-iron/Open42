@@ -15,27 +15,29 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Project's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxI-kW-4Km">
-                        <rect key="frame" x="8" y="8" width="255" height="41.5"/>
+                        <rect key="frame" x="8" y="8" width="246" height="41.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYO-WU-Vg6">
-                        <rect key="frame" x="271" y="8" width="41" height="41.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYO-WU-Vg6">
+                        <rect key="frame" x="262" y="8" width="50" height="41.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="DNx-fI-fgr"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NxI-kW-4Km" firstAttribute="leading" secondItem="dsc-yi-eHG" secondAttribute="leadingMargin" id="0Si-sm-r3e"/>
-                    <constraint firstItem="NxI-kW-4Km" firstAttribute="bottom" secondItem="dsc-yi-eHG" secondAttribute="bottomMargin" id="2Aq-37-Xvr"/>
-                    <constraint firstItem="NxI-kW-4Km" firstAttribute="top" secondItem="dsc-yi-eHG" secondAttribute="topMargin" id="3dC-OO-jcv"/>
-                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="leading" secondItem="NxI-kW-4Km" secondAttribute="trailing" constant="8" id="Chh-u7-H8J"/>
-                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="height" secondItem="NxI-kW-4Km" secondAttribute="height" id="CkF-Wd-5AW"/>
-                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="bottom" secondItem="dsc-yi-eHG" secondAttribute="bottomMargin" id="HGm-6Q-Re2"/>
-                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="trailing" secondItem="dsc-yi-eHG" secondAttribute="trailingMargin" id="VgQ-xn-gb0"/>
-                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="top" secondItem="dsc-yi-eHG" secondAttribute="topMargin" id="YQL-Xc-dj4"/>
+                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="trailing" secondItem="dsc-yi-eHG" secondAttribute="trailingMargin" id="1Xf-mQ-STh"/>
+                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="leading" secondItem="NxI-kW-4Km" secondAttribute="trailing" constant="8" id="3gI-OG-4X1"/>
+                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="top" secondItem="dsc-yi-eHG" secondAttribute="topMargin" id="EU4-8h-Jeh"/>
+                    <constraint firstItem="uYO-WU-Vg6" firstAttribute="bottom" secondItem="dsc-yi-eHG" secondAttribute="bottomMargin" id="Jg2-Rd-02M"/>
+                    <constraint firstItem="NxI-kW-4Km" firstAttribute="leading" secondItem="dsc-yi-eHG" secondAttribute="leadingMargin" id="MxD-1A-jTe"/>
+                    <constraint firstItem="NxI-kW-4Km" firstAttribute="bottom" secondItem="dsc-yi-eHG" secondAttribute="bottomMargin" id="gZM-Vb-mg4"/>
+                    <constraint firstItem="NxI-kW-4Km" firstAttribute="top" secondItem="dsc-yi-eHG" secondAttribute="topMargin" id="trn-SM-k5R"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

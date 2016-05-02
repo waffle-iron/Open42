@@ -13,17 +13,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lvl" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9u-nS-mzX">
-                        <rect key="frame" x="271" y="1" width="49" height="41.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lvl" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9u-nS-mzX">
+                        <rect key="frame" x="253" y="1" width="59" height="41.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="49" id="CDu-WN-XjA"/>
+                            <constraint firstAttribute="width" constant="59" id="CDu-WN-XjA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.62790009469999997" green="0.62790009469999997" blue="0.62790009469999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Skill's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iH1-iX-6ZQ">
-                        <rect key="frame" x="8" y="0.0" width="255" height="43.5"/>
+                        <rect key="frame" x="8" y="0.0" width="237" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                     <constraint firstItem="iH1-iX-6ZQ" firstAttribute="top" secondItem="ely-03-vWb" secondAttribute="top" id="Ynf-1L-YP9"/>
                     <constraint firstAttribute="bottom" secondItem="g9u-nS-mzX" secondAttribute="bottom" constant="1" id="ejc-jh-u16"/>
                     <constraint firstAttribute="bottom" secondItem="iH1-iX-6ZQ" secondAttribute="bottom" id="nBz-ps-d9W"/>
-                    <constraint firstAttribute="trailing" secondItem="g9u-nS-mzX" secondAttribute="trailing" id="sSS-GV-YOO"/>
+                    <constraint firstAttribute="trailing" secondItem="g9u-nS-mzX" secondAttribute="trailing" constant="8" id="sSS-GV-YOO"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
