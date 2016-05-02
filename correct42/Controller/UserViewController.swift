@@ -12,6 +12,7 @@ let reloadUserNotifKey = "fr.spiroux-web.correct42.reloadUserNotifKey"
 
 class UserViewController: UIViewController{
 
+	@IBOutlet weak var userImage: UIImageView!
 	@IBOutlet weak var pseudoLabel: UILabel!
 	@IBOutlet weak var mobileLabel: UILabel!
 	@IBOutlet weak var emailLabel: UILabel!
@@ -21,10 +22,13 @@ class UserViewController: UIViewController{
 	@IBOutlet weak var locationLabel: UILabel!
 	
 	var user = UserManager.Shared()
+	var apiRequester = ApiRequester.Shared()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+		userImage.layer.cornerRadius = userImage.frame.size.width/2
+		userImage.clipsToBounds = true
     }
 	
 	override func viewDidAppear(animated: Bool) {
@@ -37,6 +41,7 @@ class UserViewController: UIViewController{
     }
 	
 	func fillUser(){
+		fillImage()
 		if let currentUser = user.currentUser{
 			pseudoLabel.text = currentUser.login
 			emailLabel.text = currentUser.email
@@ -51,6 +56,16 @@ class UserViewController: UIViewController{
 			if let cursus = currentUser.cursus.first{
 				levelLabel.text = "\(cursus.level)%"
 			}
+		}
+	}
+	
+	func fillImage(){
+		if let currentUser = user.currentUser{
+		apiRequester.downloadImage(currentUser.imageUrl, success: { (image) in
+				self.userImage.image = image
+			}, failure: { (error) in
+				print(error.domain)
+		})
 		}
 	}
 	

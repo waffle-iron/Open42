@@ -50,7 +50,7 @@
                                 </constraints>
                                 <segments>
                                     <segment title="A-Z"/>
-                                    <segment title="Mark"/>
+                                    <segment title="Level"/>
                                     <segment title="Z-A"/>
                                 </segments>
                                 <color key="tintColor" red="0.30998571920000001" green="0.66166072490000005" blue="0.60619968790000001" alpha="1" colorSpace="calibratedRGB"/>

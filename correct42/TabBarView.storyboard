@@ -206,13 +206,13 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email :   " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jw2-s3-Tvo">
-                                        <rect key="frame" x="8" y="228.5" width="288" height="20.5"/>
+                                        <rect key="frame" x="8" y="228" width="288" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exemple@example.fr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjc-B6-COg">
-                                        <rect key="frame" x="304" y="228.5" width="288" height="20.5"/>
+                                        <rect key="frame" x="304" y="228" width="288" height="20.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.97328756309999997" green="0.97328756309999997" blue="0.97328756309999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -244,13 +244,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallets :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttG-9K-gyL">
-                                        <rect key="frame" x="8" y="285.5" width="288" height="20.5"/>
+                                        <rect key="frame" x="8" y="285" width="288" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 ₳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THV-St-WEQ">
-                                        <rect key="frame" x="304" y="285.5" width="288" height="20.5"/>
+                                        <rect key="frame" x="304" y="285" width="288" height="20.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.97328756309999997" green="0.97328756309999997" blue="0.97328756309999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -269,13 +269,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-wO-mMG">
-                                        <rect key="frame" x="304" y="342.5" width="288" height="20.5"/>
+                                        <rect key="frame" x="304" y="342" width="288" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlz-wG-Ws7">
-                                        <rect key="frame" x="8" y="342.5" width="288" height="20.5"/>
+                                        <rect key="frame" x="8" y="342" width="288" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -408,6 +408,7 @@
                         <outlet property="mobileLabel" destination="boG-pY-XwU" id="wT0-BZ-ljx"/>
                         <outlet property="pointsLabel" destination="Za7-aU-zlG" id="cGm-bI-deI"/>
                         <outlet property="pseudoLabel" destination="KRX-Bb-UyL" id="JJ3-qw-JsY"/>
+                        <outlet property="userImage" destination="8q7-T3-S9F" id="mcp-So-5xB"/>
                         <outlet property="walletsLabel" destination="THV-St-WEQ" id="IYh-nw-bs7"/>
                         <segue destination="jJI-Vk-ngX" kind="presentation" identifier="goToSkills" modalTransitionStyle="coverVertical" id="cdO-ku-YxW"/>
                         <segue destination="fX7-d2-7ki" kind="presentation" identifier="goToProjects" id="PZC-z8-XeW"/>
@@ -446,29 +447,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Lo-Eq-xKa">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
                                     <segue destination="db3-sD-clj" kind="embed" id="htO-Rb-Nyt"/>
                                 </connections>
                             </containerView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLW-RP-mRQ">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Name User" id="jSn-aD-C3m">
-                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="bqJ-EX-UbN"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5g-3H-xJk">
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="rcD-1c-CN2"/>
+                                    <constraint firstAttribute="height" constant="30" id="y5d-EE-0yR"/>
+                                </constraints>
+                                <state key="normal" title="Back"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="2Lo-Eq-xKa" secondAttribute="trailing" constant="-20" id="79W-3E-VNt"/>
-                            <constraint firstItem="56w-tk-Qnm" firstAttribute="top" secondItem="2Lo-Eq-xKa" secondAttribute="bottom" id="83T-IS-1dl"/>
-                            <constraint firstItem="2Lo-Eq-xKa" firstAttribute="top" secondItem="gLW-RP-mRQ" secondAttribute="bottom" id="gjR-M6-9EV"/>
-                            <constraint firstItem="gLW-RP-mRQ" firstAttribute="leading" secondItem="v8u-gF-fk6" secondAttribute="leadingMargin" constant="-20" id="i09-2J-cTs"/>
-                            <constraint firstItem="2Lo-Eq-xKa" firstAttribute="leading" secondItem="v8u-gF-fk6" secondAttribute="leadingMargin" constant="-20" id="kqV-gy-o1P"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gLW-RP-mRQ" secondAttribute="trailing" constant="-20" id="z68-zB-D2i"/>
-                            <constraint firstItem="gLW-RP-mRQ" firstAttribute="top" secondItem="F0P-O4-YdS" secondAttribute="bottom" id="zL1-ud-uBv"/>
+                            <constraint firstItem="56w-tk-Qnm" firstAttribute="top" secondItem="2Lo-Eq-xKa" secondAttribute="bottom" id="4KL-jz-sAR"/>
+                            <constraint firstItem="2Lo-Eq-xKa" firstAttribute="leading" secondItem="v8u-gF-fk6" secondAttribute="leadingMargin" constant="-20" id="Mlw-YC-3to"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Lo-Eq-xKa" secondAttribute="trailing" constant="-20" id="ORf-VB-xXi"/>
+                            <constraint firstItem="L5g-3H-xJk" firstAttribute="top" secondItem="F0P-O4-YdS" secondAttribute="bottom" id="icd-ZT-hUi"/>
+                            <constraint firstItem="L5g-3H-xJk" firstAttribute="leading" secondItem="v8u-gF-fk6" secondAttribute="leadingMargin" id="qxC-b5-Yg7"/>
+                            <constraint firstItem="2Lo-Eq-xKa" firstAttribute="top" secondItem="v8u-gF-fk6" secondAttribute="topMargin" id="tJX-0C-Kim"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -482,6 +482,6 @@
         <image name="background" width="2000" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h5l-sx-m2K"/>
+        <segue reference="htO-Rb-Nyt"/>
     </inferredMetricsTieBreakers>
 </document>

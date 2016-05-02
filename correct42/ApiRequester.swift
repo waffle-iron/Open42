@@ -83,5 +83,24 @@ class ApiRequester {
 			}
 		)
 	}
+	
+	/*
+	** download an image and return NSUTF8String image data
+	*/
+	func downloadImage(imageUrl:String, success:(UIImage)->Void, failure:(NSError)->Void){
+		Alamofire.request(.GET, imageUrl).response() {
+			(_, _, data, _) in
+			if let data = data{
+				if let image = UIImage(data: data){
+					success(image)
+				} else {
+					failure(NSError(domain: "Error on casting data to image", code: -1, userInfo: nil))
+				}
+			} else {
+				failure(NSError(domain: "Error on download image user", code: -1, userInfo: nil))
+			}
+		}
+		
+	}
 }
 
