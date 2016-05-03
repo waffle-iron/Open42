@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -23,6 +24,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="42logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bdb-FY-X2j">
                                 <rect key="frame" x="260" y="273" width="81" height="53"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bdb-FY-X2j" secondAttribute="height" multiplier="81:53" id="5vb-Es-bKS"/>
                                     <constraint firstAttribute="width" constant="81" id="o4c-Th-phk"/>
                                 </constraints>
                             </imageView>

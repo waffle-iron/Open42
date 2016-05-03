@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate{
 
 	func safariViewControllerDidFinish(controller: SFSafariViewController) {
 		self.LoginLoading.stopAnimating()
+		
 	}
-	
 }
 

@@ -45,6 +45,9 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 					print(error.domain)
 					self.searchingState = false
 				}
+		} else if value == "" {
+			self.userList.removeAll()
+			self.resultTableView.reloadData()
 		}
 	}
 	
@@ -59,7 +62,6 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		print(userList[indexPath.row].id)
 		userManager.fetchUserById(userList[indexPath.row].id, success: { (user) in
 				self.userManager.currentUser = self.userManager.searchUser
 				self.performSegueWithIdentifier("goToUserSearch", sender: self)

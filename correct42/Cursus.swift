@@ -53,7 +53,6 @@ class Cursus : SuperModel {
 	lazy var skills:[Skill] = {
 		var skillsGet = [Skill]()
 		for skill in self.jsonData["skills"].arrayValue{
-			print(skill)
 			skillsGet.append(Skill(jsonFetch: skill))
 		}
 		return (skillsGet)
