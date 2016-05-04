@@ -59,8 +59,6 @@
 		46C773711CC94718005E8654 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C773701CC94718005E8654 /* ProjectManager.swift */; };
 		46E7895F1CCCFA4A00D4CBE3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895D1CCCFA4A00D4CBE3 /* Alamofire.framework */; };
 		46E789601CCCFA4A00D4CBE3 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895E1CCCFA4A00D4CBE3 /* OAuthSwift.framework */; };
-		86BB6D5FA660FC196ACA6A9C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055884862E0D49084F3D5965 /* Pods.framework */; };
-		EF50DFB7308164885E7573F2 /* Pods_correct42.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8577085A4E217520BFE0CC /* Pods_correct42.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,8 +165,6 @@
 			files = (
 				46E7895F1CCCFA4A00D4CBE3 /* Alamofire.framework in Frameworks */,
 				46E789601CCCFA4A00D4CBE3 /* OAuthSwift.framework in Frameworks */,
-				86BB6D5FA660FC196ACA6A9C /* Pods.framework in Frameworks */,
-				EF50DFB7308164885E7573F2 /* Pods_correct42.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
