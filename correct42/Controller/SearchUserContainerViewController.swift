@@ -10,9 +10,12 @@ import UIKit
 
 class SearchUserContainerViewController: UIViewController {
 
+	let userManager = UserManager.Shared()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+		self.title = "user profile"
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +27,12 @@ class SearchUserContainerViewController: UIViewController {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
+	override func viewDidAppear(animated: Bool) {
+		self.userManager.currentUser = self.userManager.searchUser
+		self.title = self.userManager.searchUser?.login
+		NSNotificationCenter.defaultCenter().postNotificationName(reloadUserNotifKey, object: self)
+	}
+	
     /*
     // MARK: - Navigation
 

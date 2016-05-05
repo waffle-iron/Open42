@@ -26,6 +26,13 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate{
 	}
 	
 	override func viewDidAppear(animated: Bool) {
+		connect()
+	}
+	
+	override func viewDidLoad() {
+	}
+	
+	func connect(){
 		if (isConnected){
 			self.LoginLoading.startAnimating()
 			self.performSegueWithIdentifier("connectSegue", sender: self)
@@ -40,7 +47,6 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate{
 
 	func safariViewControllerDidFinish(controller: SFSafariViewController) {
 		self.LoginLoading.stopAnimating()
-		
 	}
 }
 

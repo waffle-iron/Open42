@@ -20,6 +20,7 @@ class ProfilViewController: UIViewController {
     }
 	
 	override func viewWillAppear(animated: Bool) {
+		self.userManager.currentUser = self.userManager.loginUser
 		fetchUser()
 	}
 
