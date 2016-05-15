@@ -83,14 +83,14 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
 		projectCellPrototype!.markLabel.text = "\(projects[indexPath.row].finalMark) %"
 		
 		if (projects[indexPath.row].finalMark >= 50){
-			projectCellPrototype!.markLabel.textColor = UIColor.greenColor()
+			projectCellPrototype!.markLabel.textColor = UIColor.greenDarkColor()
 		} else {
-			projectCellPrototype!.markLabel.textColor = UIColor.redColor()
+			projectCellPrototype!.markLabel.textColor = UIColor.redDarkColor()
 		}
 		projectCellPrototype!.projectNameLabel.text = projects[indexPath.row].slug.stringByReplacingOccurrencesOfString("-", withString: " ", options: NSStringCompareOptions.LiteralSearch, range: nil).capitalizedString
 			return (projectCellPrototype!)
 	}
-	
+
     /*
     // MARK: - Navigation
 
@@ -101,4 +101,14 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     */
 
+}
+
+private extension UIColor {
+	static func greenDarkColor() -> UIColor{
+		return (UIColor(red: 0.0, green: 0.6, blue: 0.0, alpha: 1.0))
+	}
+	
+	static func redDarkColor() -> UIColor{
+		return (UIColor(red: 0.6, green: 0.0, blue: 0.0, alpha: 1.0))
+	}
 }
