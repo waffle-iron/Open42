@@ -13,7 +13,10 @@ class Scale: SuperModel{
 	}()
 	
 	lazy var name:String = {
-		return (self.jsonData["name"].stringValue)
+		if let name = self.jsonData["name"].string{
+			return name.stringByReplacingOccurrencesOfString("_", withString: " ").stringByReplacingOccurrencesOfString("-copy", withString: "")
+		}
+		return ("Unknow Project")
 	}()
 	
 	lazy var evaluationId:Int = {

@@ -28,9 +28,16 @@ class SearchUserContainerViewController: UIViewController {
 	}
 
 	override func viewDidAppear(animated: Bool) {
-		self.userManager.currentUser = self.userManager.searchUser
-		self.title = self.userManager.searchUser?.login
-		NSNotificationCenter.defaultCenter().postNotificationName(reloadUserNotifKey, object: self)
+        let priority = DISPATCH_QUEUE_PRIORITY_LOW
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.userManager.currentUser = self.userManager.searchUser
+            self.title = self.userManager.searchUser?.login
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            dispatch_async(dispatch_get_main_queue()) {
+                NSNotificationCenter.defaultCenter().postNotificationName(reloadUserNotifKey, object: self)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }
+        }
 	}
 	
     /*

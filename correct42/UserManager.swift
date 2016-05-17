@@ -19,6 +19,7 @@ class UserManager {
 	//MARK: - needed
 	var loginUser:User?
 	var searchUser:User?
+	var correctionUser:User?
 	var currentUser:User?
 	var listSearchUser:[User] = [User]()
 	
@@ -56,13 +57,7 @@ class UserManager {
 	
 	func fetchUserById(id:Int, success:(User)->Void, failure:(NSError)->Void){
 		apiRequester.request(UserRouter.ReadUser(id), success: { (jsonData) in
-			self.searchUser = User(jsonFetch: jsonData)
-			if let user = self.loginUser {
-				success(user)
-			} else {
-				failure(NSError(domain: "no user", code: -1, userInfo: nil))
-			}
-			
+				success(User(jsonFetch: jsonData))
 		}) { (error) in
 			// get local requester if exist else
 			failure(error)

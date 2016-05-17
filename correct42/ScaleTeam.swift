@@ -68,12 +68,8 @@ class ScaleTeam : SuperModel{
 		return (userGet)
 	}()
 	
-	lazy var corrector:[User] = {
-		var userGet = [User]()
-		for user in self.jsonData["corrector"].arrayValue {
-			userGet.append(User(jsonFetch: user))
-		}
-		return (userGet)
+	lazy var corrector:User? = {
+		return (User(jsonFetch: self.jsonData["corrector"]))
 	}()
 	
 	lazy var scale:Scale = {

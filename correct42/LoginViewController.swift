@@ -34,9 +34,11 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate{
 	
 	func connect(){
 		if (isConnected){
-			self.LoginLoading.startAnimating()
-			self.performSegueWithIdentifier("connectSegue", sender: self)
-			self.LoginLoading.stopAnimating()
+            dispatch_async(dispatch_get_main_queue()){
+                self.LoginLoading.startAnimating()
+                self.performSegueWithIdentifier("connectSegue", sender: self)
+                self.LoginLoading.stopAnimating()
+            }
 		}
 	}
 	

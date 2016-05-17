@@ -17,11 +17,12 @@ class ProfilViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        fetchUser()
     }
 	
 	override func viewWillAppear(animated: Bool) {
 		self.userManager.currentUser = self.userManager.loginUser
-		fetchUser()
+        NSNotificationCenter.defaultCenter().postNotificationName(reloadUserNotifKey, object: self)
 	}
 
     override func didReceiveMemoryWarning() {
@@ -30,11 +31,15 @@ class ProfilViewController: UIViewController {
     }
 	
 	func fetchUser(){
-		userManager.fetchMyProfil({ (user) in
-			self.userManager.currentUser = user
-			NSNotificationCenter.defaultCenter().postNotificationName(reloadUserNotifKey, object: self)
-			}) { (error) in
-				print(error.domain)
-		}
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        self.userManager.fetchMyProfil({ (user) in
+            self.userManager.currentUser = user
+            dispatch_async(dispatch_get_main_queue()) {
+                NSNotificationCenter.defaultCenter().postNotificationName(reloadUserNotifKey, object: self)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }
+        }) { (error) in
+            print(error.domain)
+        }
 	}
 }
