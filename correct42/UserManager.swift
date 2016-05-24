@@ -8,7 +8,7 @@
 import Foundation
 
 class UserManager {
-	//MARK: - Singleton
+	// MARK: - Singleton
 	static let sharedInstance = UserManager()
 	
 	static func Shared() -> UserManager
@@ -16,17 +16,16 @@ class UserManager {
 		return (self.sharedInstance)
 	}
 	
-	//MARK: - needed
+	// MARK: - Proprieties
 	var loginUser:User?
 	var searchUser:User?
 	var correctionUser:User?
 	var currentUser:User?
-	var listSearchUser:[User] = [User]()
 	
-	//MARK: - Service Singletons
+	// MARK: - Services
 	let apiRequester = ApiRequester.Shared()
 	
-	//MARK: -Methods loginUser
+	// MARK: - Methods
 	func fetchMyProfil(success:(User)->Void, failure:(NSError)->Void){
 		apiRequester.request(UserRouter.Me, success: { (jsonData) in
 			self.loginUser = User(jsonFetch: jsonData)
@@ -37,19 +36,6 @@ class UserManager {
 			}
 			
 			}) { (error) in
-			// get local requester if exist else
-			failure(error)
-		}
-	}
-	
-	func fetchSearchUser(pseudo:String, success:([User])->Void, failure:(NSError)->Void){
-		apiRequester.request(UserRouter.Search(pseudo), success: { (jsonData) in
-			self.listSearchUser.removeAll()
-			for userInfos in jsonData.arrayValue {
-				self.listSearchUser.append(User(jsonFetch: userInfos))
-			}
-			success(self.listSearchUser)
-		}) { (error) in
 			// get local requester if exist else
 			failure(error)
 		}

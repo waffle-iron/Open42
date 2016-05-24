@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -50,22 +51,11 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 				return (scaleTeamCell as! ScaleTeamTableViewCell)
 			}
 			return (nil)
-			}(){
+		}(){
 		
-		let curScaleTeam = scaleTeamsManager.list[indexPath.row]
-		var firstCorrectedName = "someone"
-		if (curScaleTeam.correcteds.count > 0){
-			firstCorrectedName = curScaleTeam.correcteds[0].login
-		}
-		
-		//TODO beware of bool : it can be wrong if you are the corrector.
-		scaleTeamCellPrototype?.setText(
-			Bool(curScaleTeam.correcteds.filter{$0.id == userManager.loginUser?.id}.count),
-			correctedLogin: firstCorrectedName,
-			date: curScaleTeam.beginAt,
-			projectName: curScaleTeam.scale.name
-		)
-		return (scaleTeamCellPrototype)!
+			let curScaleTeam = scaleTeamsManager.list[indexPath.row]
+			scaleTeamCellPrototype?.setText(curScaleTeam.beginAt,projectName: curScaleTeam.scale.name)
+			return (scaleTeamCellPrototype)!
 		}
 		return (UITableViewCell())
 	}
@@ -75,16 +65,47 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		//TODO click on cell send to user profil
 		let curScaleTeam = scaleTeamsManager.list[indexPath.row]
-		if (curScaleTeam.corrector?.id) != nil  {
-			userManager.fetchUserById((curScaleTeam.corrector?.id)!, success: { (user) in
-			self.userManager.correctionUser = user
-			self.performSegueWithIdentifier("goToUserCorrect", sender: self)
-			}) { (error) in
-				print(error.domain)
-			}
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR")
+		dateFormatter.dateFormat = "yyyy-LL-dd'T'HH:mm:ss'.'SSSz"
+		if let startDate = dateFormatter.dateFromString(curScaleTeam.beginAt){
+			addEventToCalendar(title: curScaleTeam.scale.name, description: "", startDate: startDate, endDate: startDate.dateByAddingTimeInterval(1/4 * 60 * 60), completion: { (success, error) in
+				print("Date added ! success ? \(success)")
+				if (!success){
+					showAlertWithTitle("Corrections", message: "Oups ! A problem occured.", view: self)
+				} else {
+					showAlertWithTitle("Corrections", message: "Your correction slot on \(curScaleTeam.scale.name) has been added to your calendar at \(startDate)", view: self)
+				}
+			})
+		} else {
+			print("Date formatting fail...")
 		}
+		
+	}
+	
+	private func addEventToCalendar(title title: String, description: String?, startDate: NSDate, endDate: NSDate, completion: ((success: Bool, error: NSError?) -> Void)? = nil) {
+		let eventStore = EKEventStore()
+		
+		eventStore.requestAccessToEntityType(.Event, completion: { (granted, error) in
+			if (granted) && (error == nil) {
+				let event = EKEvent(eventStore: eventStore)
+				event.title = title
+				event.startDate = startDate
+				event.endDate = endDate
+				event.notes = description
+				event.calendar = eventStore.defaultCalendarForNewEvents
+				do {
+					try eventStore.saveEvent(event, span: .ThisEvent)
+				} catch let e as NSError {
+					completion?(success: false, error: e)
+					return
+				}
+				completion?(success: true, error: nil)
+			} else {
+				completion?(success: false, error: error)
+			}
+		})
 	}
 	
     /*

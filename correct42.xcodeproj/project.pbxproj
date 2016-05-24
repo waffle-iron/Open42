@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EEBB6A580BC0C3B564111BB /* Pods_correct42Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0852E15E614E7553D82BB7 /* Pods_correct42Tests.framework */; };
+		4603B02A1CF48A790030F75F /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4603B0291CF48A790030F75F /* ShowAlert.swift */; };
 		462BAFD81CD3AB4F000F9F34 /* Projects.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462BAFD71CD3AB4F000F9F34 /* Projects.storyboard */; };
 		462BAFDA1CD3AB5C000F9F34 /* Skills.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462BAFD91CD3AB5C000F9F34 /* Skills.storyboard */; };
 		462BAFDC1CD4CEF3000F9F34 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BAFDB1CD4CEF3000F9F34 /* ProfilViewController.swift */; };
@@ -15,6 +16,8 @@
 		462BAFE51CD625EA000F9F34 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BAFE41CD625EA000F9F34 /* ProjectsViewController.swift */; };
 		462BAFE81CD6264E000F9F34 /* projectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462BAFE71CD6264E000F9F34 /* projectCell.xib */; };
 		462BAFEA1CD62909000F9F34 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */; };
+		4630FCFA1CF3887E00B37031 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FCF91CF3887E00B37031 /* SearchManager.swift */; };
+		46366BE71CEE320500E23569 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46366BE61CEE320500E23569 /* TabBarViewController.swift */; };
 		4648C9A31CC6A9F700E82D68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648C9A21CC6A9F700E82D68 /* AppDelegate.swift */; };
 		4648C9A51CC6E29D00E82D68 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648C9A41CC6E29D00E82D68 /* Project.swift */; };
 		4648C9A71CC6E2AD00E82D68 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648C9A61CC6E2AD00E82D68 /* User.swift */; };
@@ -48,6 +51,7 @@
 		4683B46F1CC26999005DBAA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683B46D1CC26999005DBAA6 /* LaunchScreen.storyboard */; };
 		4683B47A1CC26999005DBAA6 /* correct42Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4683B4791CC26999005DBAA6 /* correct42Tests.swift */; };
 		4683B4851CC26999005DBAA6 /* correct42UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4683B4841CC26999005DBAA6 /* correct42UITests.swift */; };
+		469804281CF4DB3C007C2D2B /* SearchManagerDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469804271CF4DB3C007C2D2B /* SearchManagerDelegation.swift */; };
 		46AB96CC1CE8F90900908F1F /* ScaleTeamsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB96CB1CE8F90900908F1F /* ScaleTeamsRouter.swift */; };
 		46AB96CE1CE8FA7600908F1F /* ScaleTeamsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB96CD1CE8FA7600908F1F /* ScaleTeamsManager.swift */; };
 		46AB96D01CE8FDED00908F1F /* ScaleTeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB96CF1CE8FDED00908F1F /* ScaleTeamsViewController.swift */; };
@@ -87,7 +91,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 7;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +100,7 @@
 
 /* Begin PBXFileReference section */
 		055884862E0D49084F3D5965 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4603B0291CF48A790030F75F /* ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		462BAFD71CD3AB4F000F9F34 /* Projects.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Projects.storyboard; sourceTree = "<group>"; };
 		462BAFD91CD3AB5C000F9F34 /* Skills.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Skills.storyboard; sourceTree = "<group>"; };
 		462BAFDB1CD4CEF3000F9F34 /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilViewController.swift; path = Controller/ProfilViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +108,8 @@
 		462BAFE41CD625EA000F9F34 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectsViewController.swift; path = Controller/ProjectsViewController.swift; sourceTree = "<group>"; };
 		462BAFE71CD6264E000F9F34 /* projectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = projectCell.xib; path = "views/Table Cells/projectCell.xib"; sourceTree = "<group>"; };
 		462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTableViewCell.swift; path = "views/Table Cells/ProjectTableViewCell.swift"; sourceTree = "<group>"; };
+		4630FCF91CF3887E00B37031 /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchManager.swift; path = Services/SearchManager.swift; sourceTree = "<group>"; };
+		46366BE61CEE320500E23569 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = Controller/TabBarViewController.swift; sourceTree = "<group>"; };
 		4648C9A21CC6A9F700E82D68 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = correct42/AppDelegate.swift; sourceTree = "<group>"; };
 		4648C9A41CC6E29D00E82D68 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		4648C9A61CC6E2AD00E82D68 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -141,6 +148,7 @@
 		4683B4801CC26999005DBAA6 /* correct42UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = correct42UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B4841CC26999005DBAA6 /* correct42UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = correct42UITests.swift; sourceTree = "<group>"; };
 		4683B4861CC26999005DBAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		469804271CF4DB3C007C2D2B /* SearchManagerDelegation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchManagerDelegation.swift; path = Services/Delegations/SearchManagerDelegation.swift; sourceTree = "<group>"; };
 		46AB96CB1CE8F90900908F1F /* ScaleTeamsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTeamsRouter.swift; sourceTree = "<group>"; };
 		46AB96CD1CE8FA7600908F1F /* ScaleTeamsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTeamsManager.swift; sourceTree = "<group>"; };
 		46AB96CF1CE8FDED00908F1F /* ScaleTeamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScaleTeamsViewController.swift; path = Controller/ScaleTeamsViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +300,7 @@
 		4658A5041CD12B79001C0968 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4603B0291CF48A790030F75F /* ShowAlert.swift */,
 				4658A5091CD12F53001C0968 /* ProprietiesMirror.swift */,
 			);
 			name = Helpers;
@@ -386,6 +395,7 @@
 				46B3DDEB1CD78387008A2D05 /* SearchUserContainerViewController.swift */,
 				46B3DDED1CD78D8B008A2D05 /* SearchUserViewController.swift */,
 				46AB96CF1CE8FDED00908F1F /* ScaleTeamsViewController.swift */,
+				46366BE61CEE320500E23569 /* TabBarViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -406,10 +416,20 @@
 		4683B4951CC2735A005DBAA6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				469804261CF4D956007C2D2B /* delegations */,
 				4648C9A81CC6E2D500E82D68 /* UserManager.swift */,
 				46AB96CD1CE8FA7600908F1F /* ScaleTeamsManager.swift */,
+				4630FCF91CF3887E00B37031 /* SearchManager.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		469804261CF4D956007C2D2B /* delegations */ = {
+			isa = PBXGroup;
+			children = (
+				469804271CF4DB3C007C2D2B /* SearchManagerDelegation.swift */,
+			);
+			name = delegations;
 			sourceTree = "<group>";
 		};
 		46AB96D11CE904FF00908F1F /* Scale Teams */ = {
@@ -693,9 +713,11 @@
 				4658A4961CCE9C86001C0968 /* Scale.swift in Sources */,
 				46AB96D51CE913CE00908F1F /* ScaleTeamTableViewCell.swift in Sources */,
 				4658A4A61CCEDB87001C0968 /* Title.swift in Sources */,
+				4630FCFA1CF3887E00B37031 /* SearchManager.swift in Sources */,
 				4683B4671CC26999005DBAA6 /* LoginViewController.swift in Sources */,
 				4658A48C1CCE785F001C0968 /* Team.swift in Sources */,
 				4648C9A51CC6E29D00E82D68 /* Project.swift in Sources */,
+				46366BE71CEE320500E23569 /* TabBarViewController.swift in Sources */,
 				4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */,
 				4648C9A71CC6E2AD00E82D68 /* User.swift in Sources */,
 				4658A4881CCE6240001C0968 /* Campus.swift in Sources */,
@@ -711,10 +733,12 @@
 				462BAFE51CD625EA000F9F34 /* ProjectsViewController.swift in Sources */,
 				4658A4F61CD0F807001C0968 /* ApiCredential.swift in Sources */,
 				4648C9A91CC6E2D500E82D68 /* UserManager.swift in Sources */,
+				469804281CF4DB3C007C2D2B /* SearchManagerDelegation.swift in Sources */,
 				4658A48A1CCE762F001C0968 /* Language.swift in Sources */,
 				462BAFDC1CD4CEF3000F9F34 /* ProfilViewController.swift in Sources */,
 				4658A4981CCEA5A9001C0968 /* Flag.swift in Sources */,
 				4658A4921CCE962C001C0968 /* ScaleTeam.swift in Sources */,
+				4603B02A1CF48A790030F75F /* ShowAlert.swift in Sources */,
 				4658A4861CCE61EC001C0968 /* Cursus.swift in Sources */,
 				4648C9A31CC6A9F700E82D68 /* AppDelegate.swift in Sources */,
 				46B3DDEC1CD78387008A2D05 /* SearchUserContainerViewController.swift in Sources */,

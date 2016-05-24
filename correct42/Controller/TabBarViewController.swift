@@ -1,36 +1,48 @@
 //
-//  SearchUserContainerViewController.swift
+//  TabBarViewController.swift
 //  correct42
 //
-//  Created by larry on 02/05/2016.
+//  Created by larry on 19/05/2016.
 //  Copyright © 2016 42. All rights reserved.
 //
 
 import UIKit
 
-class SearchUserContainerViewController: UIViewController {
+class TabBarViewController: UITabBarController{
 
 	let userManager = UserManager.Shared()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-		self.title = ""
+		self.userManager.currentUser = self.userManager.loginUser
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-	@IBAction func backButton(sender: UIButton) {
-		self.dismissViewControllerAnimated(true, completion: nil)
-	}
-
-	override func viewDidAppear(animated: Bool) {
-        self.title = self.userManager.currentUser?.login
-	}
 	
+	override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+		if let items = tabBar.items {
+			switch item {
+			case items[0]:
+				self.userManager.currentUser = self.userManager.loginUser
+				break
+			case items[1]:
+				self.userManager.currentUser = self.userManager.searchUser
+				break
+			case items[2]:
+				self.userManager.currentUser = self.userManager.correctionUser
+				break
+			default:
+				self.userManager.currentUser = self.userManager.loginUser
+				break
+			}
+		}
+	}
+    
+
     /*
     // MARK: - Navigation
 

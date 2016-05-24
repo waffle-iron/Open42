@@ -107,4 +107,15 @@ class User : SuperModel {
 			campusGet.append(Campus(jsonFetch: campus))
 		}
 		return (campusGet)
-	}()}
+	}()
+	
+	init(login:String, id:Int){
+		super.init(jsonFetch: "")
+		self.login = login
+		self.id = id
+	}
+	
+	required init(jsonFetch:JSON){
+		super.init(jsonFetch: jsonFetch)
+	}
+}

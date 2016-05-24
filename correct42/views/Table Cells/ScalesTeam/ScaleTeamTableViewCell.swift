@@ -13,17 +13,6 @@ class ScaleTeamTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var allText: UILabel!
 	
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-	
 	func setText(owner:Bool, correctedLogin:String?, date:String, projectName:String){
 		var correctedLoginCheck = correctedLogin
 		if (correctedLogin != nil){
@@ -35,6 +24,11 @@ class ScaleTeamTableViewCell: UITableViewCell {
 		} else {
 			
 		}
+		allText.text = text
+	}
+	
+	func setText(date:String, projectName:String){
+		let text = " \(projectName) at\n\(date)"
 		allText.text = text
 	}
 

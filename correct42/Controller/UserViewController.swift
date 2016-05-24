@@ -8,13 +8,11 @@
 
 import UIKit
 
-let reloadUserNotifKey = "fr.spiroux-web.correct42.reloadUserNotifKey"
-
 class UserViewController: UIViewController{
 
 	@IBOutlet weak var userImage: UIImageView!
 	@IBOutlet weak var pseudoLabel: UILabel!
-	@IBOutlet weak var mobileLabel: UILabel!
+	@IBOutlet weak var mobileLabel: UITextView!
 	@IBOutlet weak var emailLabel: UILabel!
 	@IBOutlet weak var levelLabel: UILabel!
 	@IBOutlet weak var walletsLabel: UILabel!
@@ -32,7 +30,6 @@ class UserViewController: UIViewController{
     }
 	
 	override func viewDidAppear(animated: Bool) {
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UserViewController.fillUser), name: reloadUserNotifKey, object: nil)
 		fillUser()
 	}
 
@@ -42,8 +39,8 @@ class UserViewController: UIViewController{
     }
 	
 	func fillUser(){
-		fillImage()
 		if let currentUser = user.currentUser{
+			fillImage(currentUser.imageUrl)
 			pseudoLabel.text = currentUser.login
 			emailLabel.text = currentUser.email
 			mobileLabel.text = currentUser.phone
@@ -57,17 +54,24 @@ class UserViewController: UIViewController{
 			if let cursus = currentUser.cursus.first{
 				levelLabel.text = "\(cursus.level)%"
 			}
+		} else {
+			userImage.image = nil
+			pseudoLabel.text = "Unknown"
+			emailLabel.text = "Unknown"
+			mobileLabel.text = "Unknown"
+			walletsLabel.text = "0 ₳"
+			pointsLabel.text = "0"
+			locationLabel.text = "-"
+			levelLabel.text = "0%"
 		}
 	}
 	
-	func fillImage(){
-		if let currentUser = user.currentUser{
-		apiRequester.downloadImage(currentUser.imageUrl, success: { (image) in
+	private func fillImage(imageUrl:String){
+		apiRequester.downloadImage(imageUrl, success: { (image) in
 				self.userImage.image = image
 			}, failure: { (error) in
 				print(error.domain)
 		})
-		}
 	}
 	
 	@IBAction func ClickButtonProjects(sender: UIButton) {
@@ -76,9 +80,5 @@ class UserViewController: UIViewController{
 	
 	@IBAction func ClickButtonSkills(sender: UIButton) {
 		self.performSegueWithIdentifier("goToSkills", sender: self)
-	}
-	
-	override func viewWillDisappear(animated: Bool) {
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: reloadUserNotifKey, object: nil)
 	}
 }

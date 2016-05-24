@@ -32,6 +32,7 @@ class ApiRequester {
 	*/
 	func request(router:ApiRouter, success: (JSON)->Void, failure:(NSError)->Void)
 	{
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		if let token = apiCredential.token {
 		Alamofire.request(router.method, "\(baseURLString)\(router.path)\(router.parameters)", headers: ["Authorization":"Bearer \(token)"])
 			.responseJSON{ reponse in
@@ -46,15 +47,17 @@ class ApiRequester {
 				} else {
 					failure(NSError(domain: "Data formating failed", code: -1, userInfo: nil))
 				}
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			}
 		} else {
 			failure(NSError(domain: "No token given", code: -2, userInfo: nil))
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 		}
 	}
 	
 	/*
-	** Fetch api Token by asking it to the user with webview his ids and execute
-	** corresponding callback.
+	Fetch api Token by asking it to the user with webview his ids and execute
+	corresponding callback.
 	*/
 	func connectApi(viewController:UIViewController, delegateSafari:SFSafariViewControllerDelegate, success:(Void)->Void, failure:(NSError)->Void)
 	{
@@ -68,16 +71,18 @@ class ApiRequester {
 		let safariView = SafariURLHandler(viewController: viewController)
 		safariView.delegate = delegateSafari
 		oauthswift.authorize_url_handler = safariView
-		
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		oauthswift.authorizeWithCallbackURL(
 			NSURL(string: "correct42://oauth-callback/intra")!,
 			scope: "public", state:"INTRA",
 			success: { credential, response, parameters in
 				self.apiCredential.token = credential.oauth_token
 				success()
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			},
 			failure: { error in
 				failure(error)
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			}
 		)
 	}
@@ -86,6 +91,7 @@ class ApiRequester {
 	** download an image and return NSUTF8String image data
 	*/
 	func downloadImage(imageUrl:String, success:(UIImage)->Void, failure:(NSError)->Void){
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		Alamofire.request(.GET, imageUrl).response() {
 			(_, _, data, _) in
 			if let data = data{
@@ -94,11 +100,12 @@ class ApiRequester {
 				} else {
 					failure(NSError(domain: "Error on casting data to image", code: -1, userInfo: nil))
 				}
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			} else {
 				failure(NSError(domain: "Error on download image user", code: -1, userInfo: nil))
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			}
 		}
-		
 	}
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 
 class ScaleTeamsManager {
-	//MARK: - Singleton
+	// MARK: - Singleton
 	static let sharedInstance = ScaleTeamsManager()
 	
 	static func Shared() -> ScaleTeamsManager
@@ -17,12 +17,13 @@ class ScaleTeamsManager {
 		return (self.sharedInstance)
 	}
 	
-	//MARK: - needed
+	// MARK: - Proprieties
 	lazy var list:[ScaleTeam] = [ScaleTeam]()
 	
-	//MARK: - Service Singletons
+	// MARK: - Services
 	let apiRequester = ApiRequester.Shared()
 
+	// MARK: - Methods
 	func fetchMyScaleTeams(success:([ScaleTeam])->Void, failure:(NSError)->Void){
 		apiRequester.request(ScaleTeamsRouter.Me, success: { (jsonData) in
 			self.list.removeAll()

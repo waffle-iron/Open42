@@ -13,15 +13,12 @@ enum UserRouter: ApiRouter {
 	case ReadUser(Int)
 	case Me
 	case Search(String)
+	case SearchPage(Int)
 	
 	// MARK: Depend on Case proprieties
 	var method: Alamofire.Method {
 		switch self {
-		case .ReadUser:
-			return .GET
-		case .Me:
-			return .GET
-		case .Search:
+		case .ReadUser, .Me, .Search, .SearchPage:
 			return .GET
 		}
 	}
@@ -32,7 +29,7 @@ enum UserRouter: ApiRouter {
 			return "/users/\(id)"
 		case .Me:
 			return "/me"
-		case .Search:
+		case .Search, .SearchPage:
 			return "/users"
 		}
 	}
@@ -41,6 +38,8 @@ enum UserRouter: ApiRouter {
 		switch self {
 		case .Search(let login):
 			return "?search=in:login%20\(login)"
+		case .SearchPage(let page):
+			return "?page=\(page)&filter=status:admis"
 		default:
 			return ""
 		}
