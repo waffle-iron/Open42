@@ -7,60 +7,79 @@
 //
 import SwiftyJSON
 
+// Model who define what's an user.
 class User : SuperModel {
 	
+	// MARK: - Int
+	/// Unique Id.
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
 	}()
 	
-	lazy var email:String = {
-		return (self.jsonData["email"].stringValue)
-	}()
-	
-	lazy var login:String = {
-		return (self.jsonData["login"].stringValue)
-	}()
-	
-	lazy var url:String = {
-		return (self.jsonData["url"].stringValue)
-	}()
-	
-	lazy var phone:String = {
-		return (self.jsonData["phone"].stringValue)
-	}()
-	
-	lazy var displayName:String = {
-		return (self.jsonData["displayname"].stringValue)
-	}()
-	
-	lazy var imageUrl:String = {
-		return (self.jsonData["image_url"].stringValue)
-	}()
-	
-	lazy var staff:Bool = {
-		return (self.jsonData["staff?"].boolValue)
-	}()
-	
+	/// Number of corrections points.
 	lazy var correctionPoint:Int = {
 		return (self.jsonData["correction_point"].intValue)
 	}()
 	
-	lazy var poolMonth:String = {
-		return (self.jsonData["pool_month"].stringValue)
-	}()
-	
-	lazy var poolYear:String = {
-		return (self.jsonData["pool_year"].stringValue)
-	}()
-	
-	lazy var location:String = {
-		return (self.jsonData["location"].stringValue)
-	}()
-	
+	/// Number of wallets.
 	lazy var wallet:Int = {
 		return (self.jsonData["wallet"].intValue)
 	}()
 	
+	// MARK: - String
+	/// Email.
+	lazy var email:String = {
+		return (self.jsonData["email"].stringValue)
+	}()
+	
+	/// Login.
+	lazy var login:String = {
+		return (self.jsonData["login"].stringValue)
+	}()
+	
+	/// Url.
+	lazy var url:String = {
+		return (self.jsonData["url"].stringValue)
+	}()
+	
+	/// Phone number.
+	lazy var phone:String = {
+		return (self.jsonData["phone"].stringValue)
+	}()
+	
+	/// Full name.
+	lazy var displayName:String = {
+		return (self.jsonData["displayname"].stringValue)
+	}()
+	
+	/// Url of the profil image.
+	lazy var imageUrl:String = {
+		return (self.jsonData["image_url"].stringValue)
+	}()
+	
+	/// Pool month.
+	lazy var poolMonth:String = {
+		return (self.jsonData["pool_month"].stringValue)
+	}()
+	
+	/// Pool year.
+	lazy var poolYear:String = {
+		return (self.jsonData["pool_year"].stringValue)
+	}()
+	
+	/// Logued in location in 42 School.
+	lazy var location:String = {
+		return (self.jsonData["location"].stringValue)
+	}()
+	
+	// MARK: - Bool
+	/// True if the user is in the staff.
+	lazy var staff:Bool = {
+		return (self.jsonData["staff?"].boolValue)
+	}()
+	
+	// MARK: - Array
+	/// Array of `Cursus`.
 	lazy var cursus:[Cursus] = {
 		var cursusGet = [Cursus]()
 		for cursus in self.jsonData["cursus"].arrayValue {
@@ -69,6 +88,7 @@ class User : SuperModel {
 		return (cursusGet)
 	}()
 	
+	/// Array of `Achievement`.
 	lazy var achievements:[Achievement] = {
 		var achievementGet = [Achievement]()
 		for achievement in self.jsonData["achievements"].arrayValue{
@@ -77,6 +97,7 @@ class User : SuperModel {
 		return (achievementGet)
 	}()
 	
+	/// Array of `Title`.
 	lazy var titles:[Title] = {
 		var titlesGet = [Title]()
 		for title in self.jsonData["titles"].arrayValue{
@@ -85,6 +106,7 @@ class User : SuperModel {
 		return (titlesGet)
 	}()
 	
+	/// Array of patroned `User`.
 	lazy var patroned:[User] = {
 		var userGet = [User]()
 		for user in self.jsonData["patroned"].arrayValue{
@@ -93,6 +115,7 @@ class User : SuperModel {
 		return (userGet)
 	}()
 	
+	/// Array of patroning `User`.
 	lazy var patroning:[User] = {
 		var userGet = [User]()
 		for user in self.jsonData["patroning"].arrayValue{
@@ -101,6 +124,7 @@ class User : SuperModel {
 		return (userGet)
 	}()
 	
+	/// Array of `Campus` where the user be registred.
 	lazy var campus:[Campus] = {
 		var campusGet = [Campus]()
 		for campus in self.jsonData["Campus"].arrayValue{
@@ -109,12 +133,15 @@ class User : SuperModel {
 		return (campusGet)
 	}()
 	
+	// MARK: - Initialisers
+	/// Init an user with his login and id.
 	init(login:String, id:Int){
 		super.init(jsonFetch: "")
 		self.login = login
 		self.id = id
 	}
 	
+	/// Init an user with data fetch from the 42 School's REST API.
 	required init(jsonFetch:JSON){
 		super.init(jsonFetch: jsonFetch)
 	}

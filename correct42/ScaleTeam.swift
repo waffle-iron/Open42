@@ -6,15 +6,16 @@
 //  Copyright © 2016 42. All rights reserved.
 //
 
+/// Model who define what's a scale of a team.
 class ScaleTeam : SuperModel{
+	
+	// MARK: - Int
+	/// Id value
 	lazy var id:Int = {
 		return (self.jsonData["id"].intValue)
 	}()
 	
-	lazy var name:String = {
-		return (self.jsonData["name"].stringValue)
-	}()
-	
+	/// Scale id calue
 	lazy var scaleId:Int = {
 		return (self.jsonData["scale_id"].intValue)
 	}()
@@ -23,15 +24,32 @@ class ScaleTeam : SuperModel{
 		return (self.jsonData["team"].intValue)
 	}()
 	
+	/// Feedback's mark on a correction
+	lazy var feedBackRating:Int = {
+		return (self.jsonData["feedBack_rating"].intValue)
+	}()
+	
+	/// Final Mark
+	lazy var finalMark:Int = {
+		return (self.jsonData["final_mark"].intValue)
+	}()
+	
+	// MARK: - String
+	/// Name value
+	lazy var name:String = {
+		return (self.jsonData["name"].stringValue)
+	}()
 	
 	lazy var comment:String = {
 		return (self.jsonData["comment"].stringValue)
 	}()
 	
+	/// Date of creation
 	lazy var createdAt:String = {
 		return (self.jsonData["created_at"].stringValue)
 	}()
 	
+	/// Date of the last update
 	lazy var updatedAt:String = {
 		return (self.jsonData["updated_at"].stringValue)
 	}()
@@ -40,26 +58,18 @@ class ScaleTeam : SuperModel{
 		return (self.jsonData["feedback"].stringValue)
 	}()
 	
-	
-	lazy var feedBackRating:Int = {
-		return (self.jsonData["feedBack_rating"].intValue)
-	}()
-	
-	lazy var finalMark:Int = {
-		return (self.jsonData["final_mark"].intValue)
-	}()
-	
-	
-	lazy var flag:Flag = {
-		return (Flag(jsonFetch: self.jsonData["flag"]))
-	}()
-	
-	
+	/// Date of the work beginning
 	lazy var beginAt:String = {
 		return (self.jsonData["begin_at"].stringValue)
 	}()
 	
+	// MARK: - Single Typed
+	/// Flag description (usually an icon)
+	lazy var flag:Flag = {
+		return (Flag(jsonFetch: self.jsonData["flag"]))
+	}()
 	
+	/// List of corrected users
 	lazy var correcteds:[User] = {
 		var userGet = [User]()
 		for user in self.jsonData["correcteds"].arrayValue {
@@ -68,10 +78,12 @@ class ScaleTeam : SuperModel{
 		return (userGet)
 	}()
 	
+	/// `User` object of the corrector
 	lazy var corrector:User? = {
 		return (User(jsonFetch: self.jsonData["corrector"]))
 	}()
 	
+	/// `Scale` of the project
 	lazy var scale:Scale = {
 		return (Scale(jsonFetch: self.jsonData["scale"]))
 	}()

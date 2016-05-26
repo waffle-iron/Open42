@@ -34,7 +34,6 @@
 		4658A4961CCE9C86001C0968 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4951CCE9C86001C0968 /* Scale.swift */; };
 		4658A4981CCEA5A9001C0968 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4971CCEA5A9001C0968 /* Flag.swift */; };
 		4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4991CCEAA9C001C0968 /* Upload.swift */; };
-		4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A31CCECEF9001C0968 /* DateDelegate.swift */; };
 		4658A4A61CCEDB87001C0968 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4A51CCEDB87001C0968 /* Title.swift */; };
 		4658A4A81CCEE0AC001C0968 /* TabBarView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4658A4A71CCEE0AC001C0968 /* TabBarView.storyboard */; };
 		4658A4EB1CCFBE50001C0968 /* ApiRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4EA1CCFBE50001C0968 /* ApiRequester.swift */; };
@@ -125,7 +124,6 @@
 		4658A4951CCE9C86001C0968 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		4658A4971CCEA5A9001C0968 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		4658A4991CCEAA9C001C0968 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
-		4658A4A31CCECEF9001C0968 /* DateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDelegate.swift; sourceTree = "<group>"; };
 		4658A4A51CCEDB87001C0968 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		4658A4A71CCEE0AC001C0968 /* TabBarView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarView.storyboard; sourceTree = "<group>"; };
 		4658A4EA1CCFBE50001C0968 /* ApiRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequester.swift; sourceTree = "<group>"; };
@@ -224,14 +222,6 @@
 			);
 			name = "Supporting Files";
 			path = ..;
-			sourceTree = "<group>";
-		};
-		4658A4A21CCECDE3001C0968 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				4658A4A31CCECEF9001C0968 /* DateDelegate.swift */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		4658A4EC1CCFBFFC001C0968 /* Library */ = {
@@ -353,7 +343,6 @@
 		4683B4921CC27336005DBAA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4658A4A21CCECDE3001C0968 /* Protocols */,
 				4658A48F1CCE81A3001C0968 /* SuperModel.swift */,
 				4648C9A41CC6E29D00E82D68 /* Project.swift */,
 				4648C9A61CC6E2AD00E82D68 /* User.swift */,
@@ -733,7 +722,6 @@
 				46B3DDEC1CD78387008A2D05 /* SearchUserContainerViewController.swift in Sources */,
 				4658A4EB1CCFBE50001C0968 /* ApiRequester.swift in Sources */,
 				4658A4901CCE81A3001C0968 /* SuperModel.swift in Sources */,
-				4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */,
 				46B3DDEA1CD6628B008A2D05 /* SkillTableViewCell.swift in Sources */,
 				46B3DDE41CD65FBD008A2D05 /* SkillsViewController.swift in Sources */,
 			);

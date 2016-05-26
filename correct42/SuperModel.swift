@@ -8,10 +8,16 @@
 
 import SwiftyJSON
 
+/// Use to keep data from json to define lazy var in inheritence
 class SuperModel {
 	
+	/// Parsed JSON Data
 	var jsonData:JSON = JSON("")
 	
+	/**
+	Set `jsonData`
+	- Parameter jsonFetch: Any `JSON` object conform to inheritence
+	*/
 	required init(jsonFetch:JSON){
 		jsonData = jsonFetch
 	}
