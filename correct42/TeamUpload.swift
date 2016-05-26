@@ -8,6 +8,7 @@
 
 /// Model who define what's an upload from a team.
 class TeamUpload : SuperModel {
+	
 	// MARK: - Int
 	/// Id value
 	lazy var id:Int = {

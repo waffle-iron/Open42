@@ -8,6 +8,7 @@
 
 /// Model who define what's a flag.
 class Flag : SuperModel{
+	
 	// MARK: - Int
 	/// Id value
 	lazy var id:Int = {

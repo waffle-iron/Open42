@@ -8,6 +8,7 @@
 
 /// Model who define what's an upload.
 class Upload : SuperModel {
+	
 	// MARK: - Int
 	/// Id Value
 	lazy var id:Int = {

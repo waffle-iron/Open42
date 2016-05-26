@@ -8,6 +8,7 @@
 
 /// Model who define what's a language.
 class Language : SuperModel{
+	
 	// MARK: - Int
 	/// Id value
 	lazy var id:Int = {
