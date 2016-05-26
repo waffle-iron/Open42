@@ -29,7 +29,7 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 	
 	/// Lazy array of all users admit to School 42, sort in alphabetical order
 	lazy var users:[User] = {
-		return (self.searchManager.listSearchUser.sort({$0.login > $1.login}))
+		return (self.searchManager.listSearchUser.sort({$0.login < $1.login}))
 	}()
 
 	/// Bool to keep loading two users in same time.

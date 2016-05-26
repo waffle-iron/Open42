@@ -30,7 +30,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickBackButton:" destination="9Jm-My-n5B" eventType="touchUpInside" id="9K4-Tp-8Yh"/>
+                                    <action selector="clickBackButton:" destination="9Jm-My-n5B" eventType="touchUpInside" id="VWj-0i-yVt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someone's skills" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLg-5h-WMe">
@@ -55,7 +55,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.30998571920000001" green="0.66166072490000005" blue="0.60619968790000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="SortBy:" destination="9Jm-My-n5B" eventType="valueChanged" id="hZM-ED-hpY"/>
+                                    <action selector="sortBy:" destination="9Jm-My-n5B" eventType="valueChanged" id="P8K-yN-TOD"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -75,7 +75,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="skillTable" destination="YN2-8p-pS8" id="ca1-cy-aiA"/>
+                        <outlet property="skillsTable" destination="YN2-8p-pS8" id="nmJ-0I-irv"/>
                         <outlet property="titleLabel" destination="CLg-5h-WMe" id="OuJ-kP-0gQ"/>
                     </connections>
                 </viewController>

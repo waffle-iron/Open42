@@ -46,7 +46,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 	
 	- Parameter sender: Any `UISegmentedControl`
 	*/
-	@IBAction func SortBy(sender: UISegmentedControl) {
+	@IBAction func sortBy(sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
 			skills = skills.sort({ $0.name < $1.name })
@@ -63,6 +63,10 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		skillsTable.reloadData()
 	}
 	
+	@IBAction func clickBackButton(sender: UIButton)
+	{
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
 	// MARK: - View life cycle
 	/**
 	Register Custom cells, fill delegate and dataSource `skillsTable` by `SkillsViewController`

@@ -51,7 +51,7 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
 	
 	- Parameter sender: Any `UISegmentedControl`
 	*/
-	@IBAction func SortBy(sender: UISegmentedControl) {
+	@IBAction func sortBy(sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
 			projects = projects.sort({ $0.slug < $1.slug })
