@@ -10,42 +10,47 @@ import UIKit
 
 class ProjectsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-	//MARK: - UIView Links
-	@IBOutlet weak var projectTable: UITableView!
-	@IBOutlet weak var titleLabel: UILabel!
+	// MARK: - Singletons
+	/// Singleton of `UserManager`
+	let currentUser = UserManager.Shared().currentUser
 	
-	//MARK: - Needed
-	let userManager = UserManager.Shared().currentUser
+	// MARK: - Proprieties
+	/// Name of the custom cell call by the `projectsTable`
 	let cellName = "projectCell"
 	
+	/// Lazy array of all projects of `currentUser` sort by Mark
 	lazy var projects:[Project] = {
-		if let cursusProjects = self.userManager?.cursus.first?.projects{
+		if let cursusProjects = self.currentUser?.cursus.first?.projects{
 			return (cursusProjects.sort({ $0.finalMark > $1.finalMark }))
 		}
 		return ([])
 	}()
 	
+	// MARK: - IBOutlets
+	/// Table view of each projects of `currentUser`
+	@IBOutlet weak var projectsTable: UITableView!
+	
+	/// Title label of the view (generally the login of the user)
+	@IBOutlet weak var titleLabel: UILabel!
+	
+	// MARK: - IBActions
+	/// Dissmiss the project view
 	@IBAction func clickBackButton(sender: UIButton) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-		
-		//Register project cell
-		let nib = UINib(nibName: cellName, bundle: nil)
-		projectTable.registerNib(nib, forCellReuseIdentifier: cellName)
-		projectTable.delegate = self
-		projectTable.dataSource = self
-    }
+	/**
+	Change the order of `projects` and reload data in `projectsTable`
+	with this model options compared with `selectedSegmentIndex` :
 	
-	override func viewWillAppear(animated: Bool) {
-		if let currentUser = userManager{
-			titleLabel.text = "\(currentUser.login)'s projects"
-		}
-	}
+	case 0 : Sort by A-Z
 	
+	case 1 : Sort by Mark
+	
+	Default : Sort by Z-A
+	
+	- Parameter sender: Any `UISegmentedControl`
+	*/
 	@IBAction func SortBy(sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
@@ -60,21 +65,45 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
 		default:
 			break
 		}
-		projectTable.reloadData()
+		projectsTable.reloadData()
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+	
+	// MARK: - View life cycle
+	/**
+	Register Custom cells, fill delegate and dataSource `projectsTable` by `ProjectsViewController`
+	*/
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		let nib = UINib(nibName: cellName, bundle: nil)
+		projectsTable.registerNib(nib, forCellReuseIdentifier: cellName)
+		projectsTable.delegate = self
+		projectsTable.dataSource = self
     }
-
+	
+	/**
+	Set the login user in `titleLabel` like "\(currentUser.login)'s projects"
+	*/
+	override func viewWillAppear(animated: Bool) {
+		if let currentUser = currentUser{
+			titleLabel.text = "\(currentUser.login)'s projects"
+		}
+	}
+	
+	// MARK: - Table view delegation
+	/**
+	Count `projects` for the `projectsTable` numberOfRowsInSection.
+	*/
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return (projects.count)
 	}
 	
+	/**
+	Create a `ProjectTableViewCell` and fill it.
+	- Returns: An `ProjectTableViewCell` filled.
+	*/
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let projectCellPrototype:ProjectTableViewCell? = {
-			let projectCell = self.projectTable.dequeueReusableCellWithIdentifier(self.cellName)
+			let projectCell = self.projectsTable.dequeueReusableCellWithIdentifier(self.cellName)
 			if projectCell is ProjectTableViewCell{
 				return (projectCell as! ProjectTableViewCell)
 			}
@@ -91,24 +120,16 @@ class ProjectsViewController: UIViewController, UITableViewDelegate, UITableView
 			return (projectCellPrototype!)
 	}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-
+/// extension UIColor to define color extensions
 private extension UIColor {
+	/// return a little bit dark green `UIColor`
 	static func greenDarkColor() -> UIColor{
 		return (UIColor(red: 0.0, green: 0.6, blue: 0.0, alpha: 1.0))
 	}
 	
+	/// return a little bit dark red `UIColor`
 	static func redDarkColor() -> UIColor{
 		return (UIColor(red: 0.6, green: 0.0, blue: 0.0, alpha: 1.0))
 	}

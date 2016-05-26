@@ -10,7 +10,7 @@ import Foundation
 
 class SearchManager {
 	// MARK: - Singleton
-	/// static Instance of the Search Manager
+	/// Static Instance of the Search Manager
 	static let instance = SearchManager()
 	
 	/**
@@ -39,13 +39,20 @@ class SearchManager {
 	/// Services to fetch list of all the user
 	lazy var apiRequester = ApiRequester.Shared()
 	
-	/// constante of the file name
-	let pathFile = "usersNameListV1.1.1.txt"
+	/// Constante of the file name
+	let nameFile = "usersNameListV1.1.1.txt"
 	
 	/// Content file of the file at `pathFile`
 	var contentFile = ""
+
+	/// Do completion at any time of the execution of a function
+	lazy var onCompletionHandler:(Bool,NSError!)->Void = {
+		return ({ ( _, _) in
+			print("No completion handler implement in SearchManager.");
+		})
+	}()
 	
-	/// fetch directory of the user list file
+	/// Fetch directory of the user list file
 	lazy var dir:String? = {
 		let dirs = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true)
 		guard (dirs.count > 0) else {
@@ -53,11 +60,11 @@ class SearchManager {
 		}
 		
 		var dirRet = dirs[0]
-		dirRet.appendContentsOf(self.pathFile)
+		dirRet.appendContentsOf(self.nameFile)
 		return (dirRet)
 	}()
 
-	/// lazy Boolean checking if the users are already fetch
+	/// Lazy Boolean checking if the users are already fetch
 	func fileAlreadyExist() -> Bool {
 		if let path = self.dir {
 			return NSFileManager().fileExistsAtPath(path)
@@ -70,48 +77,130 @@ class SearchManager {
 	// MARK: - List Methods
 	/**
 	Fetch Users name in `usersNameList.txt`
+	
+	```
+	let searchManager = ScaleTeamsManager.Shared()
+	// Start at the first page
+	searchManager.fetchUsersOnAPI(0){ (success, error) in
+		if (success){
+			print(List User : \(self.searchManager.listSearchUser))
+		} else {
+			showAlertWithTitle("fetch Users On API", message: error.description, view: self)
+		}
+	}
+	```
+	
+	- Parameters:
+		- onCompletion: Function who take a Bool for success and NSError for explanation if fail
 	*/
-	func fetchUsersOnAPI(pageNumber:Int , onCompletion:(Bool,NSError!)->Void){
+	func fetchAllUsersFromAPI(onCompletion:((Bool,NSError!)->Void)?){
+		if (onCompletion != nil){
+			self.onCompletionHandler = onCompletion!
+			fillUserListFromAPIAtBeginPagetoTheEnd(1)
+		}
+	}
+	
+	/**
+	Put Users name and id in `nameFile` at pageNumber to the end from the API and
+	fill the `listSearchUser`
+	
+	```
+	let searchManager = ScaleTeamsManager.Shared()
+	
+	// Start at the first page
+	searchManager.fillUserListFromAPIAtBeginPage(0)
+	let myListUser = searchManager.listSearchUser
+	
+	// only id and login are available
+	print(myListUser.id)
+	print(myListUser.login)
+	```
+	
+	- Parameters:
+		- pageNumber : First page of the request
+	*/
+	func fillUserListFromAPIAtBeginPagetoTheEnd(pageNumber:Int){
 		if let path = dir{
-			self.currentPage = pageNumber + 1
 			apiRequester.request(UserRouter.SearchPage(self.currentPage), success: { (jsonData) in
 				if (jsonData.arrayValue.count > 0){
 					for userInfos in jsonData.arrayValue {
+						
+						// Catch information from user
 						let user = User(jsonFetch: userInfos)
-						var userInfos = user.login
+						
+						// Format the Id
 						let userId = ":\(user.id)"
 						
-						// Construct data user
+						// Construct userInfos
+						var userInfos = user.login
 						userInfos.appendContentsOf(userId)
 						userInfos.appendContentsOf("\n")
+						
+						// Add data to the content file string
 						self.contentFile.appendContentsOf(userInfos)
+						
+						// Add user in listSearchUser array
+						self.listSearchUser.append(user)
+						
+						/**
+						If searchManager have a delegate give the percent progression
+						*/
 						if let delegation = self.delegate {
 							if let delegateCompletionPercent = delegation.searchManager {
 								delegateCompletionPercent(percentOfCompletion: self.knowPercentAlpha(userInfos.lowercaseString.characters.first!))
 							}
 						}
 					}
-					self.fetchUsersOnAPI(self.currentPage, onCompletion: onCompletion)
+					// Go to the next page !
+					let nextPageNumber = pageNumber + 1
+					self.fillUserListFromAPIAtBeginPagetoTheEnd(nextPageNumber)
 				} else {
 					do {
 						try self.contentFile.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
 					} catch {
 						print(NSError(domain: "Search Manager", code: -1, userInfo: [1:"error writing User list to file"]))
 					}
-					self.fetchUsersOnFile(onCompletion)
+					
 				}
 			}) { (error) in
-				onCompletion(false, NSError(domain: "Search Manager", code: -1, userInfo: [1:"Error loading all the user."]))
+				self.onCompletionHandler(false, NSError(domain: "Search Manager", code: -1, userInfo: [1:"Error loading all the user."]))
 			}
 		} else {
-			onCompletion(false, NSError(domain: "Search Manager", code: -1, userInfo: [1:"Error creating 42 users file list."]))
+			self.onCompletionHandler(false, NSError(domain: "Search Manager", code: -1, userInfo: [1:"Error creating 42 users file list."]))
 		}
 	}
 	
 	/**
-	Read Users login in `usersNameList.txt` and fill the listSearchUser var
+	Put Users name and id in `listSearchUser` from `nameFile`
+	
+	```
+	let searchManager = ScaleTeamsManager.Shared()
+	// Start at the first page
+	SearchManager.fetchUsersOnAPI(0){ (success, error) in
+		if (success){
+			self.performSegueWithIdentifier("connectSegue", sender: self)
+		} else {
+			showAlertWithTitle("Loading users list", message: "A problem occured.", view: self)
+		}
+	}
+	```
+	
+	- Parameters:
+		- onCompletion : Function take Bool for success and NSError for explanation if fail
 	*/
-	func fetchUsersOnFile(onCompletion: (Bool,NSError!)->Void){
+	func fetchUsersFromFile(onCompletion:((Bool,NSError!)->Void)?){
+		if (onCompletion != nil){
+			self.onCompletionHandler = onCompletion!
+			fillUserListFromFile()
+		}
+	}
+	
+	/**
+	Fetch `listSearchUser` with data in `nameFile`
+	Data format :
+	```login:id\n```
+	*/
+	private func fillUserListFromFile(){
 		if let path = dir{
 			if fileAlreadyExist() {
 				do {
@@ -125,16 +214,16 @@ class SearchManager {
 							}
 						}
 					}
-					onCompletion(true, nil)
+					self.onCompletionHandler(true, nil)
 				} catch {
-					onCompletion(false, NSError(domain: "Search Manager", code: -1, userInfo: ["Error":"Error oppening 42 users file list."]))
+					self.onCompletionHandler(false, NSError(domain: "Search Manager", code: -1, userInfo: ["Error":"Error oppening 42 users file list."]))
 				}
 				return
 			} else {
-				onCompletion(false, NSError(domain: "Search Manager", code: -1, userInfo: ["Error":"42 users file list not found."]))
+				self.onCompletionHandler(false, NSError(domain: "Search Manager", code: -1, userInfo: ["Error":"42 users file list not found."]))
 			}
 		} else {
-			onCompletion(false, NSError(domain: "Search Manager", code: -1, userInfo: ["Error":"Error on composing path"]))
+			self.onCompletionHandler(false, NSError(domain: "Search Manager", code: -1, userInfo: ["Error":"Error on composing path"]))
 		}
 	}
 	
@@ -147,8 +236,10 @@ class SearchManager {
 	}
 }
 
+/// Private extension of Character object
 private extension Character
 {
+	/// give the ASCII int of a Number
 	func unicodeScalarCodePoint() -> UInt32
 	{
 		let characterString = String(self)

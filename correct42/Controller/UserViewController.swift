@@ -10,18 +10,51 @@ import UIKit
 
 class UserViewController: UIViewController{
 
-	@IBOutlet weak var userImage: UIImageView!
-	@IBOutlet weak var pseudoLabel: UILabel!
-	@IBOutlet weak var mobileLabel: UITextView!
-	@IBOutlet weak var emailLabel: UILabel!
-	@IBOutlet weak var levelLabel: UILabel!
-	@IBOutlet weak var walletsLabel: UILabel!
-	@IBOutlet weak var pointsLabel: UILabel!
-	@IBOutlet weak var locationLabel: UILabel!
-	
+	// MARK: - Singletons
+	/// Singleton of `UserManager`
 	var user = UserManager.Shared()
+	/// Singleton of `ApiRequester`
 	var apiRequester = ApiRequester.Shared()
 	
+	// MARK: - IBOutlets
+	/// Image view of the `userManager.currentUser`.
+	@IBOutlet weak var userImage: UIImageView!
+	
+	/// Login label of the `userManager.currentUser`.
+	@IBOutlet weak var pseudoLabel: UILabel!
+	
+	/// Mobile TextView of the `userManager.currentUser`.
+	@IBOutlet weak var mobileLabel: UITextView!
+	
+	/// Email label of the `userManager.currentUser`.
+	@IBOutlet weak var emailLabel: UILabel!
+	
+	/// Level label of the `userManager.currentUser`.
+	@IBOutlet weak var levelLabel: UILabel!
+	
+	/// Wallet label of the `userManager.currentUser`.
+	@IBOutlet weak var walletsLabel: UILabel!
+	
+	/// Correction points label of the `userManager.currentUser`.
+	@IBOutlet weak var pointsLabel: UILabel!
+	
+	/// Location in 42 School label of the `userManager.currentUser`.
+	@IBOutlet weak var locationLabel: UILabel!
+	
+	// MARK: - IBActions
+	/// Perform segue with id:  `goToProjects`.
+	@IBAction func ClickButtonProjects(sender: UIButton) {
+		self.performSegueWithIdentifier("goToProjects", sender: self)
+	}
+	
+	/// Perform segue with id:  `goToSkills`.
+	@IBAction func ClickButtonSkills(sender: UIButton) {
+		self.performSegueWithIdentifier("goToSkills", sender: self)
+	}
+	
+
+	// MARK: - View life cycle
+	/// Define cornerRadius of the image.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,16 +62,17 @@ class UserViewController: UIViewController{
 		userImage.clipsToBounds = true
     }
 	
-	override func viewDidAppear(animated: Bool) {
+	/// Ask to fill information from `userManager.currentUser`.
+	override func viewWillAppear(animated: Bool) {
 		fillUser()
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 	
-	func fillUser(){
+	// MARK: - Private methods
+	/**
+	If Fill information from `userManager.currentUser` else if he's optionnal
+	fill view with defaults values.
+	*/
+	private func fillUser(){
 		if let currentUser = user.currentUser{
 			fillImage(currentUser.imageUrl)
 			pseudoLabel.text = currentUser.login
@@ -66,19 +100,15 @@ class UserViewController: UIViewController{
 		}
 	}
 	
+	/**
+	Take an imageUrl and downloadImage with `apiRequester.downloadImage` 
+	and fill `userImage` with result on success.
+	*/
 	private func fillImage(imageUrl:String){
 		apiRequester.downloadImage(imageUrl, success: { (image) in
 				self.userImage.image = image
 			}, failure: { (error) in
 				print(error.domain)
 		})
-	}
-	
-	@IBAction func ClickButtonProjects(sender: UIButton) {
-		self.performSegueWithIdentifier("goToProjects", sender: self)
-	}
-	
-	@IBAction func ClickButtonSkills(sender: UIButton) {
-		self.performSegueWithIdentifier("goToSkills", sender: self)
 	}
 }

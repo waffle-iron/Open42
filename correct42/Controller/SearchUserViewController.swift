@@ -10,87 +10,121 @@ import UIKit
 
 class SearchUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-	//MARK: - UIView Links
-	@IBOutlet weak var resultTableView: UITableView!
+	// MARK: - IBOutlets
+	/// Table view of each `users`
+	@IBOutlet weak var usersTable: UITableView!
+	
+	/// Search Bar to filter `users`
 	@IBOutlet weak var searchBar: UISearchBar!
 	
-	//MARK: - Needed
+	// MARK: - Singletons
+	/// Singleton of `UserManager`
 	let userManager = UserManager.Shared()
+	/// Singleton of `SearchManager`
 	let searchManager = SearchManager.Shared()
-	let cellName = "searchUserCell"
-	var userList = [User]()
-	var performRequest = false
 	
+	// MARK: - Proprieties
+	/// Name of the custom cell call by the `usersTable`
+	let cellName = "searchUserCell"
+	
+	/// Lazy array of all users admit to School 42, sort in alphabetical order
+	lazy var users:[User] = {
+		return (self.searchManager.listSearchUser.sort({$0.login > $1.login}))
+	}()
+
+	/// Bool to keep loading two users in same time.
+	var requestInProgress = false
 	
 	//MARK: - View methods
+	/**
+	On View did load :
+	1. Register Custom cells, fill delegate and dataSource `usersTable` by `SearchUserViewController` and reload `usersTable`.
+	2. Delegate the searchBar by `SearchUserViewController`
+	*/
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-		//Register user list cell
 		let nib = UINib(nibName: cellName, bundle: nil)
-		resultTableView.registerNib(nib, forCellReuseIdentifier: cellName)
-		resultTableView.delegate = self
-		resultTableView.dataSource = self
+		usersTable.registerNib(nib, forCellReuseIdentifier: cellName)
+		usersTable.delegate = self
+		usersTable.dataSource = self
+		usersTable.reloadData()
+		
 		searchBar.delegate = self
-
-		self.userList = searchManager.listSearchUser
-		self.resultTableView.reloadData()
     }
 	
-	//MARK: - Other methods
-	func searchValueOnAPI(value:String){
-		if (value != ""){
-			self.userList.removeAll()
-			self.userList = searchManager.listSearchUser.filter{$0.login.localizedCaseInsensitiveContainsString(value)}
-			self.resultTableView.reloadData()
-		} else {
-			self.userList.removeAll()
-			self.userList = searchManager.listSearchUser
-			self.resultTableView.reloadData()
-		}
-	}
-	
-	//MARK: - Search Bar delegation
+	// MARK: - SearchBar delegation
+	/// If the text in `searchBar` change, this methods call `searchValueOnAPI` private function
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-		searchValueOnAPI(searchText)
+		filterUsersWithLoginValue(searchText)
 	}
 	
-	//MARK: - Table delegation
+	// MARK: - TableView delegation
+	/// Count `users` for the `usersTable` numberOfRowsInSection.
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return (userList.count)
+		return (users.count)
 	}
 	
+	/**
+	Fetch the selected user and perform a request (if `requestInProgress` == false)
+	*/
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		if (!performRequest){
-			performRequest = true
-			userManager.fetchUserById(userList[indexPath.row].id, success: { (user) in
-					self.performRequest = false
+		if (!requestInProgress){
+			requestInProgress = true
+			userManager.fetchUserById(users[indexPath.row].id, success: { (user) in
+					self.requestInProgress = false
 					self.userManager.searchUser = user
 					self.performSegueWithIdentifier("goToUserSearch", sender: self)
 				}) { (error) in
-					self.performRequest = false
+					self.requestInProgress = false
 					print(error.domain)
 			}
 		}
 	}
 	
+	/**
+	Create a `SearchUserTableViewCell` and fill it.
+	- Returns: An `SearchUserTableViewCell` filled.
+	*/
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let userListCellPrototype:SearchUserTableViewCell? = {
-			let userSearchCell = self.resultTableView.dequeueReusableCellWithIdentifier(self.cellName)
+			let userSearchCell = self.usersTable.dequeueReusableCellWithIdentifier(self.cellName)
 			if userSearchCell is SearchUserTableViewCell{
 				return (userSearchCell as! SearchUserTableViewCell)
 			}
 			return (nil)
 		}()
-		userListCellPrototype!.loginUser.text = userList[indexPath.row].login
+		userListCellPrototype!.loginUser.text = users[indexPath.row].login
 		return (userListCellPrototype!)
 	}
 	
+	// MARK: - Segue methods
+	/// Set `userManager.searchUser` in `userManager.currentUser` to fill the user container view
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.destinationViewController is SearchUserContainerViewController{
 			if let userSearch = self.userManager.searchUser{
 				self.userManager.currentUser = userSearch
 			}
+		}
+	}
+	
+	// MARK: - Private methods
+	/**
+	1. Remove all data from user and filter with `login` parameter in `searchManager.listSearchUser`.
+	2. Reload data in `usersTable`.
+	
+	if `login` parameter is empty, display all users
+	
+	- Parameter login: Login research in `searchManager.listSearchUser`
+	*/
+	private func filterUsersWithLoginValue(login:String){
+		if (login != ""){
+			self.users.removeAll()
+			self.users = searchManager.listSearchUser.filter{$0.login.localizedCaseInsensitiveContainsString(login)}
+			self.usersTable.reloadData()
+		} else {
+			self.users.removeAll()
+			self.users = searchManager.listSearchUser
+			self.usersTable.reloadData()
 		}
 	}
 }

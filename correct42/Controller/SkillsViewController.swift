@@ -10,14 +10,15 @@ import UIKit
 
 class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
-	@IBOutlet weak var skillTable: UITableView!
-	@IBOutlet weak var titleLabel: UILabel!
-	
-	
-	//MARK: - Needed
+	// MARK: - Singletons
+	/// Singleton of `UserManager`
 	let userManager = UserManager.Shared().currentUser
+	
+	// MARK: - Proprieties
+	/// Name of the custom cell call by the `skillsTable`
 	let cellName = "skillCell"
 	
+	/// Lazy array of all skills of `currentUser` sort by Mark
 	lazy var skills:[Skill] = {
 		if let cursusSkills = self.userManager?.cursus.first?.skills{
 			return (cursusSkills.sort({ $0.level > $1.level }))
@@ -25,27 +26,26 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		return ([])
 	}()
 	
-	@IBAction func clickBackButton(sender: UIButton) {
-		self.dismissViewControllerAnimated(true, completion: nil)
-	}
+	// MARK: - IBOutlets
+	/// Table view of each skills of `currentUser`
+	@IBOutlet weak var skillsTable: UITableView!
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view.
-		
-		//Register skill cell
-		let nib = UINib(nibName: cellName, bundle: nil)
-		skillTable.registerNib(nib, forCellReuseIdentifier: cellName)
-		skillTable.delegate = self
-		skillTable.dataSource = self
-	}
+	/// Title label of the view (generally the login of the user)
+	@IBOutlet weak var titleLabel: UILabel!
 	
-	override func viewWillAppear(animated: Bool) {
-		if let currentUser = userManager{
-			titleLabel.text = "\(currentUser.login)'s skills"
-		}
-	}
+	// MARK: - IBActions
+	/**
+	Change the order of `skills` and reload data in `skillsTable`
+	with this model options compared with `selectedSegmentIndex` :
 	
+	case 0 : Sort by A-Z
+	
+	case 1 : Sort by Mark
+	
+	Default : Sort by Z-A
+	
+	- Parameter sender: Any `UISegmentedControl`
+	*/
 	@IBAction func SortBy(sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
@@ -60,21 +60,45 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 		default:
 			break
 		}
-		skillTable.reloadData()
+		skillsTable.reloadData()
 	}
 	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	// MARK: - View life cycle
+	/**
+	Register Custom cells, fill delegate and dataSource `skillsTable` by `SkillsViewController`
+	*/
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		let nib = UINib(nibName: cellName, bundle: nil)
+		skillsTable.registerNib(nib, forCellReuseIdentifier: cellName)
+		skillsTable.delegate = self
+		skillsTable.dataSource = self
 	}
 	
+	/**
+	Set the login user in `titleLabel` like "\(currentUser.login)'s skills"
+	*/
+	override func viewWillAppear(animated: Bool) {
+		if let currentUser = userManager{
+			titleLabel.text = "\(currentUser.login)'s skills"
+		}
+	}
+
+	// MARK: - TableView delegation
+	/**
+	Count `skills` for the `skillsTable` numberOfRowsInSection.
+	*/
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return (skills.count)
 	}
 	
+	/**
+	Create a `ProjectTableViewCell` and fill it.
+	- Returns: A new `ProjectTableViewCell` filled.
+	*/
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let skillCellPrototype:SkillTableViewCell? = {
-			let skillCell = self.skillTable.dequeueReusableCellWithIdentifier(self.cellName)
+			let skillCell = self.skillsTable.dequeueReusableCellWithIdentifier(self.cellName)
 			if skillCell is SkillTableViewCell{
 				return (skillCell as! SkillTableViewCell)
 			}

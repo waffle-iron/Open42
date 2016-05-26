@@ -43,8 +43,7 @@
 		4658A4F71CD0FAE5001C0968 /* ApiCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4F51CD0F807001C0968 /* ApiCredential.swift */; };
 		4658A4FB1CD0FDFB001C0968 /* ApiCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4FA1CD0FDFB001C0968 /* ApiCredentialTests.swift */; };
 		4658A4FD1CD102D8001C0968 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4FC1CD102D8001C0968 /* ApiRouter.swift */; };
-		4658A5011CD1211B001C0968 /* LocalRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A5001CD1211B001C0968 /* LocalRequester.swift */; };
-		4658A50A1CD12F53001C0968 /* ProprietiesMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A5091CD12F53001C0968 /* ProprietiesMirror.swift */; };
+		468347ED1CF769D900F7C1AD /* addEventToCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468347EC1CF769D900F7C1AD /* addEventToCalendar.swift */; };
 		4683B4671CC26999005DBAA6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4683B4661CC26999005DBAA6 /* LoginViewController.swift */; };
 		4683B46A1CC26999005DBAA6 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4683B4681CC26999005DBAA6 /* LoginView.storyboard */; };
 		4683B46C1CC26999005DBAA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4683B46B1CC26999005DBAA6 /* Assets.xcassets */; };
@@ -134,8 +133,7 @@
 		4658A4F51CD0F807001C0968 /* ApiCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCredential.swift; sourceTree = "<group>"; };
 		4658A4FA1CD0FDFB001C0968 /* ApiCredentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiCredentialTests.swift; path = Library/ApiCredentialTests.swift; sourceTree = "<group>"; };
 		4658A4FC1CD102D8001C0968 /* ApiRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
-		4658A5001CD1211B001C0968 /* LocalRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRequester.swift; sourceTree = "<group>"; };
-		4658A5091CD12F53001C0968 /* ProprietiesMirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProprietiesMirror.swift; sourceTree = "<group>"; };
+		468347EC1CF769D900F7C1AD /* addEventToCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = addEventToCalendar.swift; path = Helpers/addEventToCalendar.swift; sourceTree = "<group>"; };
 		4683B4611CC26999005DBAA6 /* correct42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = correct42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B4661CC26999005DBAA6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4683B4691CC26999005DBAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginView.storyboard; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 		4658A4EC1CCFBFFC001C0968 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				4658A4FF1CD11D1F001C0968 /* LocalStorage */,
 				4658A4ED1CCFC12A001C0968 /* Api */,
 			);
 			name = Library;
@@ -289,19 +286,11 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
-		4658A4FF1CD11D1F001C0968 /* LocalStorage */ = {
-			isa = PBXGroup;
-			children = (
-				4658A5001CD1211B001C0968 /* LocalRequester.swift */,
-			);
-			name = LocalStorage;
-			sourceTree = "<group>";
-		};
 		4658A5041CD12B79001C0968 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				4603B0291CF48A790030F75F /* ShowAlert.swift */,
-				4658A5091CD12F53001C0968 /* ProprietiesMirror.swift */,
+				468347EC1CF769D900F7C1AD /* addEventToCalendar.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -717,13 +706,13 @@
 				4683B4671CC26999005DBAA6 /* LoginViewController.swift in Sources */,
 				4658A48C1CCE785F001C0968 /* Team.swift in Sources */,
 				4648C9A51CC6E29D00E82D68 /* Project.swift in Sources */,
+				468347ED1CF769D900F7C1AD /* addEventToCalendar.swift in Sources */,
 				46366BE71CEE320500E23569 /* TabBarViewController.swift in Sources */,
 				4658A49A1CCEAA9C001C0968 /* Upload.swift in Sources */,
 				4648C9A71CC6E2AD00E82D68 /* User.swift in Sources */,
 				4658A4881CCE6240001C0968 /* Campus.swift in Sources */,
 				46AB96CE1CE8FA7600908F1F /* ScaleTeamsManager.swift in Sources */,
 				4658A4801CCE54D7001C0968 /* Achievement.swift in Sources */,
-				4658A5011CD1211B001C0968 /* LocalRequester.swift in Sources */,
 				4658A4941CCE9640001C0968 /* TeamUpload.swift in Sources */,
 				462BAFEA1CD62909000F9F34 /* ProjectTableViewCell.swift in Sources */,
 				46AB96CC1CE8F90900908F1F /* ScaleTeamsRouter.swift in Sources */,
@@ -747,7 +736,6 @@
 				4658A4A41CCECEF9001C0968 /* DateDelegate.swift in Sources */,
 				46B3DDEA1CD6628B008A2D05 /* SkillTableViewCell.swift in Sources */,
 				46B3DDE41CD65FBD008A2D05 /* SkillsViewController.swift in Sources */,
-				4658A50A1CD12F53001C0968 /* ProprietiesMirror.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

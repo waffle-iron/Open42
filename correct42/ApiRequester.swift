@@ -12,29 +12,52 @@ import SafariServices
 
 class ApiRequester {
 	
-	//MARK: - Singleton
+	// MARK: - Singleton
 	static let sharedInstance = ApiRequester()
 	
+	/**
+	Give the singleton object of the ApiRequester.
+	
+	```
+	let apiRequester = APIRequester.Shared()
+	```
+	
+	- returns: `static let sharedInstance`
+	*/
 	static func Shared() -> ApiRequester
 	{
 		return (self.sharedInstance)
 	}
 	
-	//MARK: - Proprieties
-	var baseURLString = "https://api.intra.42.fr/v2"
-	
-	//MARK: - Credentials
+	// MARK: - Credentials
+	/// Credential information singleton
 	lazy var apiCredential = ApiCredential.Shared()
 	
-	//MARK: - Methods
-	/*
-	** Send request to api server with a router Enum and execute callback.
+	// MARK: - Methods
+	/**
+	Send request to api server with an APIRouter inheritance Enum and execute callback.
+	
+	```
+	let apiRequester = APIRequester.Shared()
+	apiRequester.request(UserRouter.Me, success:
+	{ (fileContent) in
+		print(fileContent)
+	}
+	}) { (error) in
+		print(error)
+	}
+	```
+	
+	- Parameters:
+		- router: ApiRouter protocol. Give the url of the ressource.
+		- success: CallBack execute if the request success.
+		- failure: CallBack execute if the request fail.
 	*/
 	func request(router:ApiRouter, success: (JSON)->Void, failure:(NSError)->Void)
 	{
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		if let token = apiCredential.token {
-		Alamofire.request(router.method, "\(baseURLString)\(router.path)\(router.parameters)", headers: ["Authorization":"Bearer \(token)"])
+		Alamofire.request(router.method, "\(router.baseUrl)\(router.path)\(router.parameters)", headers: ["Authorization":"Bearer \(token)"])
 			.responseJSON{ reponse in
 				if let jsonData = reponse.result.value{
 					let responseJSON = JSON(jsonData);
@@ -55,9 +78,27 @@ class ApiRequester {
 		}
 	}
 	
-	/*
+	
+	/**
 	Fetch api Token by asking it to the user with webview his ids and execute
 	corresponding callback.
+	
+	```
+	let apiRequester = APIRequester.Shared()
+	apiRequester.connectApi(self, self, success:
+	{ in
+		print("Success !")
+	}
+	}) { (error) in
+		print(error)
+	}
+	```
+	
+	- Parameters:
+		- viewController: To perform the segway.
+		- delegateSafari: To delegate action in a controllers.
+		- success: CallBack execute if the request success.
+		- failure: CallBack execute if the request fail.
 	*/
 	func connectApi(viewController:UIViewController, delegateSafari:SFSafariViewControllerDelegate, success:(Void)->Void, failure:(NSError)->Void)
 	{
@@ -87,8 +128,22 @@ class ApiRequester {
 		)
 	}
 	
-	/*
-	** download an image and return NSUTF8String image data
+	/**
+	Download a Picture from an ApiRouter inheritance Enum and execute callback.
+	
+	let apiRequester = APIRequester.Shared()
+	apiRequester.downloadFile(LigandRouter.Representation("NAG"), success:
+	{ (fileContent) in
+		print(fileContent)
+	}
+	}) { (error) in
+		print(error)
+	}
+	
+	- Parameters:
+		- router: ApiRouter protocol. Give the url of the ressource.
+		- success: CallBack execute if the request success, take String for the content of the File.
+		- failure: CallBack execute if the request fail.
 	*/
 	func downloadImage(imageUrl:String, success:(UIImage)->Void, failure:(NSError)->Void){
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -105,6 +160,41 @@ class ApiRequester {
 				failure(NSError(domain: "Error on download image user", code: -1, userInfo: nil))
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 			}
+		}
+	}
+	
+	/**
+	Download a file from an ApiRouter inheritance Enum and execute callback.
+	
+	let apiRequester = APIRequester.Shared()
+	apiRequester.downloadFile(LigandRouter.Representation("NAG"), success:
+	{ (fileContent) in
+		print(fileContent)
+	}
+	}) { (error) in
+		print(error)
+	}
+	
+	- Parameters:
+		- router: ApiRouter protocol. Give the url of the ressource.
+		- success: CallBack execute if the request success, take String for the content of the File.
+		- failure: CallBack execute if the request fail.
+	*/
+	func downloadFile(router:ApiRouter, success:(String)->Void, failure:(NSError)->Void){
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+		Alamofire.request(router.method, "\(router.baseUrl)\(router.path)\(router.parameters)").response() {
+			(_, _, data, _) in
+			if let data = data{
+				let fileContent = String.init(data: data, encoding: NSUTF8StringEncoding)
+				if let content = fileContent{
+					success(content)
+				} else {
+					failure(NSError(domain: "File content is empty", code: -1, userInfo: nil))
+				}
+			} else {
+				failure(NSError(domain: "Error on download pdbFile", code: -1, userInfo: nil))
+			}
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 		}
 	}
 }

@@ -10,19 +10,22 @@ import UIKit
 
 class TabBarViewController: UITabBarController{
 
+	// MARK: - Singletons
+	/// Singleton of `UserManager`
 	let userManager = UserManager.Shared()
 	
+	// MARK: - View life cycle
+	/**
+	Load `userManager.loginUser` to `userManager.currentUser` for the first tabBar: Profil
+	*/
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 		self.userManager.currentUser = self.userManager.loginUser
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 	
+	// MARK: - tabBar delegation
+	/// Load the user corresponding to the selected tabBar
 	override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
 		if let items = tabBar.items {
 			switch item {
@@ -41,16 +44,5 @@ class TabBarViewController: UITabBarController{
 			}
 		}
 	}
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

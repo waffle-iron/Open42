@@ -9,21 +9,9 @@
 import UIKit
 
 class ProfilViewController: UIViewController {
-
-	@IBOutlet weak var userContainer: UIView!
 	
-	//var userManager = UserManager.Shared()
-	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-	
+	// MARK: - Default Styles definitions
+	/// Determine the color of the Status Bar at `.LightContent`
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
 	}

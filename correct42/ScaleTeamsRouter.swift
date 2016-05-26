@@ -10,9 +10,16 @@ import Alamofire
 
 enum ScaleTeamsRouter: ApiRouter {
 	
+	// MARK: - Cases
+	/**
+	This case read all the scale team of the owner of the token
+	*/
 	case Me
 	
-	// MARK: Depend on Case proprieties
+	// MARK: - APIRouter protocols
+	/**
+	- .Me = .GET
+	*/
 	var method: Alamofire.Method {
 		switch self {
 		case .Me:
@@ -20,6 +27,9 @@ enum ScaleTeamsRouter: ApiRouter {
 		}
 	}
 	
+	/**
+	- .Me = "/me/scale_teams"
+	*/
 	var path: String {
 		switch self {
 		case .Me:
@@ -27,6 +37,9 @@ enum ScaleTeamsRouter: ApiRouter {
 		}
 	}
 	
+	/**
+	- default = ""
+	*/
 	var parameters:String{
 		switch self {
 		default:
@@ -34,13 +47,13 @@ enum ScaleTeamsRouter: ApiRouter {
 		}
 	}
 	
-	
-	// MARK: - ApiRouter methods
-	/*
-	** return complete path of api
+	/**
+	- default = "https://api.intra.42.fr/v2"
 	*/
-	func route() -> (Method, String, String)
-	{
-		return (method, path, parameters)
+	var baseUrl:String{
+		switch self {
+		default:
+			return "https://api.intra.42.fr/v2"
+		}
 	}
 }
