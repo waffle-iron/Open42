@@ -138,7 +138,9 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 			self.userManager.currentUser = user
 			self.fetchListUser()
 		}) { (error) in
-			print(error.domain)
+			showAlertWithTitle("Intra 42", message: error.domain, view: self)
+			self.LoginLoading.stopAnimating()
+			self.button42Login.hidden = false
 		}
 	}
 	
