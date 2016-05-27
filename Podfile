@@ -5,13 +5,15 @@
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-#use_frameworks!
+use_frameworks!
 
 
 
 target 'correct42' do
 	pod 'OAuthSwift', '~> 0.5.0'
 	pod 'Alamofire', '~> 3.3'
+	pod 'Fabric'
+	pod 'Crashlytics'
 	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 

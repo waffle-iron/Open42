@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-correct42UITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2B95207B2A055D3463B4D4383577F4A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>45935B91DF0442390E2CA6DEEF68AE99</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A527CB283B9B4CAF9E1902A727ED5A8</key>
+		<key>4C2FF5DCE5527615BCDBD7053C466AE7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7421F35D7DE992742FD0B808E9FBA0A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B6A2538B9E69C07BF30F126AE421A6C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF1139FDF82552DC6D6BB130CEBE9F6C</key>
+		<key>E9A19464DFDA612314292D26E59E0E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
