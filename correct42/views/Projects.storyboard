@@ -55,7 +55,6 @@
                                 </segments>
                                 <color key="tintColor" red="0.30998571918281764" green="0.66166072485555549" blue="0.60619968791914414" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="SortBy:" destination="X8S-3K-9dc" eventType="valueChanged" id="Cbn-cG-7A7"/>
                                     <action selector="sortBy:" destination="X8S-3K-9dc" eventType="valueChanged" id="bLu-Tw-fLI"/>
                                 </connections>
                             </segmentedControl>
