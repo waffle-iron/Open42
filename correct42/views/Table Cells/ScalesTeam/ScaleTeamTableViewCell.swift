@@ -10,19 +10,19 @@ import UIKit
 
 class ScaleTeamTableViewCell: UITableViewCell {
 
-
 	@IBOutlet weak var allText: UILabel!
 	
-	func setText(owner:Bool, correctedLogin:String?, date:String, projectName:String){
+	func setText(owner:Bool, correctedLogin:String?, date:NSDate, projectName:String){
 		var correctedLoginCheck = correctedLogin
-		if (correctedLogin != nil){
+		if (correctedLogin == nil){
 			correctedLoginCheck = "someone"
 		}
-		var text = "You'll correct \(correctedLoginCheck!) at\n\(date)\non \(projectName)"
+		let dateFormat = NSDateFormatter()
+		dateFormat.locale = NSLocale(localeIdentifier: "fr_FR")
+		dateFormat.dateFormat = "'on' dd/LL/yyyy 'at' HH:mm"
+		var text = "You'll correct \(correctedLoginCheck!) \n\(dateFormat.stringFromDate(date))\nfor \(projectName)"
 		if owner{
-			text = "You'll be corrected by \(correctedLoginCheck!) at\n\(date)\non \(projectName)"
-		} else {
-			
+			text = "You'll be corrected by \(correctedLoginCheck!)\n\(dateFormat.stringFromDate(date))\n for \(projectName)"
 		}
 		allText.text = text
 	}
@@ -31,5 +31,4 @@ class ScaleTeamTableViewCell: UITableViewCell {
 		let text = " \(projectName) at\n\(date)"
 		allText.text = text
 	}
-
 }

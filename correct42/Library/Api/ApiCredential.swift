@@ -35,6 +35,7 @@ class ApiCredential{
 			return (fetchToken())
 		}
 		set{
+			print("set Token : \(newValue)")
 			setToken(newValue!)
 		}
 	}

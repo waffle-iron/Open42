@@ -40,7 +40,7 @@ class SearchManager {
 	lazy var apiRequester = ApiRequester.Shared()
 	
 	/// Constante of the file name
-	let nameFile = "usersNameListV1.1.1.txt"
+	let nameFile = "usersNameListV1.1.1"
 	
 	/// Content file of the file at `pathFile`
 	var contentFile = ""
@@ -54,14 +54,7 @@ class SearchManager {
 	
 	/// Fetch directory of the user list file
 	lazy var dir:String? = {
-		let dirs = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true)
-		guard (dirs.count > 0) else {
-			return nil
-		}
-		
-		var dirRet = dirs[0]
-		dirRet.appendContentsOf(self.nameFile)
-		return (dirRet)
+		return (NSBundle.mainBundle().pathForResource(self.nameFile, ofType: "txt"))
 	}()
 
 	/// Lazy Boolean checking if the users are already fetch
@@ -121,7 +114,7 @@ class SearchManager {
 	*/
 	func fillUserListFromAPIAtBeginPagetoTheEnd(pageNumber:Int){
 		if let path = dir{
-			apiRequester.request(UserRouter.SearchPage(self.currentPage), success: { (jsonData) in
+			apiRequester.request(UserRouter.SearchPage(pageNumber), success: { (jsonData) in
 				if (jsonData.arrayValue.count > 0){
 					for userInfos in jsonData.arrayValue {
 						
@@ -134,6 +127,7 @@ class SearchManager {
 						// Construct userInfos
 						var userInfos = user.login
 						userInfos.appendContentsOf(userId)
+						print(userInfos)
 						userInfos.appendContentsOf("\n")
 						
 						// Add data to the content file string

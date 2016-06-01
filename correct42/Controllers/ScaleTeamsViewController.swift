@@ -44,6 +44,16 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 		scaleTeamsTable.delegate = self
 		scaleTeamsTable.dataSource = self
     }
+	
+	// MARK: - IBActions
+	@IBAction func addToCalendarAction(sender: UIBarButtonItem) {
+		let alert = UIAlertController(title: "Corrections", message: "Do you want to add Scale teams to your calendar ?", preferredStyle: .ActionSheet)
+		alert.addAction(UIAlertAction(title: "Do it !", style: .Default, handler: { (alertAction) in
+			self.addScaleTeamsToCalendar()
+		}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		self.presentViewController(alert, animated: true, completion: nil)
+	}
 
 	// MARK: - TableView delegation
 	/**
@@ -58,26 +68,14 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 	- Returns: An `ScaleTeamTableViewCell` filled.
 	*/
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		if let scaleTeamCellPrototype:ScaleTeamTableViewCell? = {
-			let scaleTeamCell = self.scaleTeamsTable.dequeueReusableCellWithIdentifier(self.cellName)
-			if scaleTeamCell is ScaleTeamTableViewCell{
-				return (scaleTeamCell as! ScaleTeamTableViewCell)
-			}
-			return (nil)
-		}(){
-		
-			let curScaleTeam = scaleTeamsManager.list[indexPath.row]
-			scaleTeamCellPrototype?.setText(curScaleTeam.beginAt,projectName: curScaleTeam.scale.name)
-			return (scaleTeamCellPrototype)!
-		}
-		return (UITableViewCell())
+		return (createScaleCell(indexPath.row))
 	}
 	
 	/**
 	Define the height of a cell `cellName`. Constant = 100
 	*/
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return (100)
+		return (93)
 	}
 	
 	/**
@@ -85,20 +83,87 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 	*/
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		let curScaleTeam = scaleTeamsManager.list[indexPath.row]
-		let dateFormatter = NSDateFormatter()
-		dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR")
-		dateFormatter.dateFormat = "yyyy-LL-dd'T'HH:mm:ss'.'SSSz"
-		if let startDate = dateFormatter.dateFromString(curScaleTeam.beginAt){
-			addEventToCalendar(title: curScaleTeam.scale.name, description: "", startDate: startDate, endDate: startDate.dateByAddingTimeInterval(1/4 * 60 * 60), onCompletion: { (success, error) in
-				print("Date added ! success ? \(success)")
-				if (!success){
-					showAlertWithTitle("Corrections", message: "Oups ! A problem occured.", view: self)
-				} else {
-					showAlertWithTitle("Corrections", message: "Your correction slot on \(curScaleTeam.scale.name) has been added to your calendar at \(startDate)", view: self)
+		// If corrector visible (maybe it's you)
+		if let corrector = curScaleTeam.corrector {
+			if corrector.id == userManager.loginUser?.id {
+				// If the login user are the corrector
+				// If corrected is visible
+				if let corrected = curScaleTeam.correcteds.first {
+					// Go to profil user corrected
+					userManager.fetchUserById(corrected.id, success: { (user) in
+							self.userManager.currentUser = user
+							self.userManager.correctionUser = user
+							self.performSegueWithIdentifier("goToScaleUser", sender: self)
+						}, failure: { (error) in
+							showAlertWithTitle("Corrections", message: "Un problème est survenu, l'utilisateur ne semble plus exister.", view: self)
+					})
 				}
-			})
+			} else {
+				// if you're corrected and the corrector are visible
+				// Go to profil corrector
+				userManager.fetchUserById(corrector.id, success: { (user) in
+						self.userManager.currentUser = user
+						self.userManager.correctionUser = user
+						self.performSegueWithIdentifier("goToScaleUser", sender: self)
+					}, failure: { (error) in
+						showAlertWithTitle("Corrections", message: "Un problème est survenu, l'utilisateur ne semble plus exister.", view: self)
+				})
+			}
+		}
+	}
+	
+	// MARK: - Private methods
+	/// Create Scale cell by indexPath.row
+	func createScaleCell(indexPathRow:Int) -> UITableViewCell {
+		if let scaleTeamCellPrototype:ScaleTeamTableViewCell? = {
+			let scaleTeamCell = self.scaleTeamsTable.dequeueReusableCellWithIdentifier(self.cellName)
+			if scaleTeamCell is ScaleTeamTableViewCell{
+				return (scaleTeamCell as! ScaleTeamTableViewCell)
+			}
+			return (nil)
+			}(){
+			
+			let curScaleTeam = scaleTeamsManager.list[indexPathRow]
+			// If corrector visible (maybe it's you)
+			if let corrector = curScaleTeam.corrector {
+				if corrector.id == userManager.loginUser?.id {
+					// If it's the owner token
+					// If corrected is visible
+					if let corrected = curScaleTeam.correcteds.first {
+						scaleTeamCellPrototype?.setText(false, correctedLogin:corrected.login, date:curScaleTeam.beginAt, projectName:curScaleTeam.scale.name)
+					} else {
+						// If corrected is invisible
+						scaleTeamCellPrototype?.setText(false, correctedLogin:nil, date:curScaleTeam.beginAt, projectName:curScaleTeam.scale.name)
+					}
+				} else {
+					// if you're not the corrector and the corrector are visible
+					scaleTeamCellPrototype?.setText(true, correctedLogin: corrector.login, date:curScaleTeam.beginAt, projectName:curScaleTeam.scale.name)
+				}
+			} else {
+				// if corrector is not visible (not you for sure)
+				scaleTeamCellPrototype?.setText(true, correctedLogin:nil, date:curScaleTeam.beginAt, projectName:curScaleTeam.scale.name)
+			}
+			return (scaleTeamCellPrototype)!
+		}
+		return (UITableViewCell())
+	}
+	
+	private func addScaleTeamsToCalendar(){
+		var i = 0
+		for curScaleTeam in scaleTeamsManager.list {
+			if (!scaleTeamsManager.alreadyInCalendar(curScaleTeam)){
+				scaleTeamsManager.addedToCalendar(curScaleTeam, onCompletion: { (success, error) in
+					if (!success){
+						showAlertWithTitle("Corrections", message: error!.userInfo.indexForKey(0).debugDescription, view: self)
+					}
+				})
+				i = i + 1
+			}
+		}
+		if (i == 0){
+			showAlertWithTitle("Corrections", message: "All scale Teams are already added.", view: self)
 		} else {
-			print("Date formatting fail...")
+			showAlertWithTitle("Corrections", message: "Vos corrections ont été ajouté.", view: self)
 		}
 	}
 }

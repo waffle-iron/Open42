@@ -137,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BBZ-Uo-Fm4">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.20069020839999999" green="0.42837079430000002" blue="0.39246434330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.20069020839999999" green="0.42837079430000002" blue="0.39246434330000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
@@ -146,14 +146,20 @@
                         <constraints>
                             <constraint firstItem="lgE-qG-uFN" firstAttribute="top" secondItem="BBZ-Uo-Fm4" secondAttribute="bottom" id="6po-zo-me9"/>
                             <constraint firstItem="BBZ-Uo-Fm4" firstAttribute="leading" secondItem="vh2-dd-OWw" secondAttribute="leadingMargin" constant="-20" id="9I7-bi-wY5"/>
-                            <constraint firstItem="BBZ-Uo-Fm4" firstAttribute="top" secondItem="otF-Oq-bHW" secondAttribute="bottom" id="OcK-at-Bsb"/>
+                            <constraint firstItem="BBZ-Uo-Fm4" firstAttribute="top" secondItem="otF-Oq-bHW" secondAttribute="bottom" constant="-64" id="OcK-at-Bsb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BBZ-Uo-Fm4" secondAttribute="trailing" constant="-20" id="bmt-r6-y0M"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Corrections" id="cZ9-SI-xOO"/>
+                    <navigationItem key="navigationItem" title="Corrections" id="cZ9-SI-xOO">
+                        <barButtonItem key="rightBarButtonItem" image="ic_access_time_white" id="EDv-nv-Agx">
+                            <connections>
+                                <action selector="addToCalendarAction:" destination="Wyu-3D-1jl" id="sxb-0d-XBE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scaleTeamsTable" destination="BBZ-Uo-Fm4" id="7nE-w6-opV"/>
-                        <segue destination="9xp-9O-bw5" kind="show" identifier="goToUserCorrect" id="Dlh-pB-ELa"/>
+                        <segue destination="9xp-9O-bw5" kind="show" identifier="goToScaleUser" id="Dlh-pB-ELa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFm-Tl-Vpq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,12 +242,6 @@
                                                         <color key="textColor" red="0.97328756309999997" green="0.97328756309999997" blue="0.97328756309999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06 00 00 00 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKp-cM-blo">
-                                                        <rect key="frame" x="304" y="323" width="288" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjZ-B0-i9f">
                                                         <rect key="frame" x="8" y="323" width="288" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -304,6 +304,16 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06 00 00 00 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKp-cM-blo">
+                                                        <rect key="frame" x="304" y="323" width="288" height="21"/>
+                                                        <gestureRecognizers/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="ZVv-TJ-xda" appends="YES" id="uea-QD-Kqy"/>
+                                                        </connections>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -427,6 +437,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mm-mh-kqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZVv-TJ-xda">
+                    <connections>
+                        <action selector="clickOnLabel:" destination="db3-sD-clj" id="yGS-OG-hPt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4324" y="-1255.5"/>
         </scene>
@@ -526,7 +541,7 @@
         <image name="ic_account_circle_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L7q-8U-Pgj"/>
         <segue reference="htO-Rb-Nyt"/>
+        <segue reference="Dlh-pB-ELa"/>
     </inferredMetricsTieBreakers>
 </document>

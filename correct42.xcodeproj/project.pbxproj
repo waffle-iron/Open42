@@ -11,6 +11,7 @@
 		462BAFE81CD6264E000F9F34 /* projectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462BAFE71CD6264E000F9F34 /* projectCell.xib */; };
 		462BAFEA1CD62909000F9F34 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */; };
 		4630FCFA1CF3887E00B37031 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FCF91CF3887E00B37031 /* SearchManager.swift */; };
+		464378EB1CFF4D230066F9BC /* usersNameListV1.1.1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 464378EA1CFF4D230066F9BC /* usersNameListV1.1.1.txt */; };
 		4648C9A31CC6A9F700E82D68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648C9A21CC6A9F700E82D68 /* AppDelegate.swift */; };
 		4658A4FB1CD0FDFB001C0968 /* ApiCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4658A4FA1CD0FDFB001C0968 /* ApiCredentialTests.swift */; };
 		468347ED1CF769D900F7C1AD /* addEventToCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468347EC1CF769D900F7C1AD /* addEventToCalendar.swift */; };
@@ -105,6 +106,7 @@
 		462BAFE71CD6264E000F9F34 /* projectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = projectCell.xib; path = "views/Table Cells/projectCell.xib"; sourceTree = "<group>"; };
 		462BAFE91CD62909000F9F34 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTableViewCell.swift; path = "views/Table Cells/ProjectTableViewCell.swift"; sourceTree = "<group>"; };
 		4630FCF91CF3887E00B37031 /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchManager.swift; path = Services/SearchManager.swift; sourceTree = "<group>"; };
+		464378EA1CFF4D230066F9BC /* usersNameListV1.1.1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = usersNameListV1.1.1.txt; path = Ressources/usersNameListV1.1.1.txt; sourceTree = "<group>"; };
 		4648C9A21CC6A9F700E82D68 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = correct42/AppDelegate.swift; sourceTree = "<group>"; };
 		4658A4FA1CD0FDFB001C0968 /* ApiCredentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiCredentialTests.swift; path = Library/ApiCredentialTests.swift; sourceTree = "<group>"; };
 		468347EC1CF769D900F7C1AD /* addEventToCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = addEventToCalendar.swift; path = Helpers/addEventToCalendar.swift; sourceTree = "<group>"; };
@@ -217,6 +219,14 @@
 			name = "Table Cells";
 			sourceTree = "<group>";
 		};
+		464378E91CFF4CC10066F9BC /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				464378EA1CFF4D230066F9BC /* usersNameListV1.1.1.txt */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
 		4648C9AA1CC6E32F00E82D68 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +324,7 @@
 		4683B4631CC26999005DBAA6 /* correct42 */ = {
 			isa = PBXGroup;
 			children = (
+				464378E91CFF4CC10066F9BC /* Ressources */,
 				4658A5041CD12B79001C0968 /* Helpers */,
 				4658A4EC1CCFBFFC001C0968 /* Library */,
 				4648C9AA1CC6E32F00E82D68 /* Supporting Files */,
@@ -355,7 +366,6 @@
 				468347F31CF85F5D00F7C1AD /* Project.swift */,
 				468347F41CF85F5D00F7C1AD /* Scale.swift */,
 				468347F51CF85F5D00F7C1AD /* ScaleTeam.swift */,
-				468347F61CF85F5D00F7C1AD /* ScaleTeamsManager.swift */,
 				468347F71CF85F5D00F7C1AD /* Skill.swift */,
 				468347F81CF85F5D00F7C1AD /* SuperModel.swift */,
 				468347F91CF85F5D00F7C1AD /* Team.swift */,
@@ -402,6 +412,7 @@
 				469804261CF4D956007C2D2B /* delegations */,
 				4630FCF91CF3887E00B37031 /* SearchManager.swift */,
 				4683482D1CF8600300F7C1AD /* UserManager.swift */,
+				468347F61CF85F5D00F7C1AD /* ScaleTeamsManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -566,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4683B46F1CC26999005DBAA6 /* LaunchScreen.storyboard in Resources */,
+				464378EB1CFF4D230066F9BC /* usersNameListV1.1.1.txt in Resources */,
 				4683B46C1CC26999005DBAA6 /* Assets.xcassets in Resources */,
 				46AB96D31CE9052E00908F1F /* ScaleTeamCell.xib in Resources */,
 				468348271CF85FB400F7C1AD /* TabBarView.storyboard in Resources */,

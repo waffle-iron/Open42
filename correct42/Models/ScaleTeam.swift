@@ -7,6 +7,8 @@
 //
 
 /// Model who define what's a scale of a team.
+import Foundation
+
 class ScaleTeam : SuperModel{
 	
 	// MARK: - Int
@@ -59,8 +61,14 @@ class ScaleTeam : SuperModel{
 	}()
 	
 	/// Date of the work beginning
-	lazy var beginAt:String = {
-		return (self.jsonData["begin_at"].stringValue)
+	lazy var beginAt:NSDate = {
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR")
+		dateFormatter.dateFormat = "yyyy-LL-dd'T'HH:mm:ss'.'SSSz"
+		if let startDate = dateFormatter.dateFromString(self.jsonData["begin_at"].stringValue){
+			return (startDate)
+		}
+		return (NSDate())
 	}()
 	
 	// MARK: - Single Typed

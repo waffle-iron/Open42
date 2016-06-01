@@ -46,15 +46,10 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	@IBAction func connect42(sender: UIButton) {
 		LoginLoading.startAnimating()
 		apiRequester.connectApi(self, delegateSafari: self, success: { () in
-			self.isConnected = true
 		}) { (error) in
 			print("Error code : \(error.code)")
 		}
 	}
-	
-	// MARK: - Proprieties
-	/// Boolean who determine if the api connection is successfull
-	var isConnected = false
 	
 	// MARK: - Default Styles definitions
 	/// Determine the color of the Status Bar at `.LightContent`
@@ -114,9 +109,8 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	*/
 	private func connect(){
 		dispatch_async(dispatch_get_main_queue()){
-			if (self.isConnected){
+			if (ApiCredential.Shared().token != nil){
 				self.button42Login.hidden = true
-				self.isConnected = false
 				self.fetchUser()
 			} else {
 				self.progressBarLogin.hidden = true
@@ -155,6 +149,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 		self.loadingInformationsLabel.text = "Loading users list for research more faster than ever...\n(Only happens once a year)"
 		if !searchManager.fileAlreadyExist() {
 			searchManager.fetchAllUsersFromAPI{ (success, error) in
+				print("End fetch file")
 				if (success){
 					self.performSegueWithIdentifier("connectSegue", sender: self)
 				} else {
