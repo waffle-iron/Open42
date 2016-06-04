@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Teh-5i-Map">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="60b-mn-uLl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="60b-mn-uLl">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" red="0.20069020839999999" green="0.42837079430000002" blue="0.39246434330000002" alpha="0.50823479729729726" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.15814583322326242" green="0.33756034606767682" blue="0.30926571391218016" alpha="1" colorSpace="calibratedRGB"/>
@@ -541,7 +541,7 @@
         <image name="ic_account_circle_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="L7q-8U-Pgj"/>
         <segue reference="htO-Rb-Nyt"/>
-        <segue reference="Dlh-pB-ELa"/>
     </inferredMetricsTieBreakers>
 </document>

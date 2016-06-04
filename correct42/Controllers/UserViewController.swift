@@ -53,13 +53,13 @@ class UserViewController: UIViewController{
 	}
 	
 	@IBAction func clickOnLabel(sender: UITapGestureRecognizer) {
-		if sender.accessibilityElements![0] is UILabel{
-			//let label = sender.accessibilityElements![0] as! UILabel
-			print("Label")
-			//UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(label.text?.stringByReplacingOccurrencesOfString(" ", withString: ""))")!)
-		} else {
-			print("Error")
-		}
+//		if sender.accessibilityElements![0] is UILabel{
+//			//let label = sender.accessibilityElements![0] as! UILabel
+//			print("Label")
+//			//UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(label.text?.stringByReplacingOccurrencesOfString(" ", withString: ""))")!)
+//		} else {
+//			print("Error")
+//		}
 	}
 
 	// MARK: - View life cycle
