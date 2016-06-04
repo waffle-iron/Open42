@@ -36,6 +36,17 @@ class UserManager {
 	/// User sleected in the correction tab
 	var correctionUser:User?
 	
+	var currentIsProfil:Bool {
+		get {
+			if let cUser = currentUser {
+				if let lUser = loginUser {
+					return (lUser.id == cUser.id)
+				}
+			}
+			return false
+		}
+	}
+	
 	/// Current user in selected tab.
 	var currentUser:User?
 	

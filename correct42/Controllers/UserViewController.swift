@@ -115,14 +115,16 @@ class UserViewController: UIViewController, UIGestureRecognizerDelegate{
 	Call the phone number inside `mobileLabel` if exist else nothing happen.
 	*/
 	@objc private func clicPhoneNumber(){
-		if var phoneNumber = mobileLabel.text {
-			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("(", withString: "")
-			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(")", withString: "")
-			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("-", withString: "")
-			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(".", withString: "")
-			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: "")
-			if let phoneNumberURL = NSURL(string: "tel://\(phoneNumber)"){
-				UIApplication.sharedApplication().openURL(phoneNumberURL)
+		if (!user.currentIsProfil){
+			if var phoneNumber = mobileLabel.text {
+				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("(", withString: "")
+				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(")", withString: "")
+				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("-", withString: "")
+				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(".", withString: "")
+				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: "")
+				if let phoneNumberURL = NSURL(string: "tel://\(phoneNumber)"){
+					UIApplication.sharedApplication().openURL(phoneNumberURL)
+				}
 			}
 		}
 	}
@@ -131,10 +133,12 @@ class UserViewController: UIViewController, UIGestureRecognizerDelegate{
 	Call the phone number inside `mobileLabel` if exist else nothing happen.
 	*/
 	@objc private func clicEmail(){
-		if let email = emailLabel.text {
-			if email.containsString("@student.42.fr") {
-				if let email = NSURL(string: "mailto://\(email)"){
-					UIApplication.sharedApplication().openURL(email)
+		if (!user.currentIsProfil){
+			if let email = emailLabel.text {
+				if email.containsString("@student.42.fr") {
+					if let email = NSURL(string: "mailto://\(email)"){
+						UIApplication.sharedApplication().openURL(email)
+					}
 				}
 			}
 		}
