@@ -8,7 +8,7 @@
         <!--Projects-->
         <scene sceneID="siI-oA-d6Z">
             <objects>
-                <viewController storyboardIdentifier="ProjectsVC" title="Projects" id="X8S-3K-9dc" customClass="ProjectsViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectsVC" title="Projects" id="X8S-3K-9dc" customClass="ProjectsViewController" customModule="Open42" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YGf-ej-gcM"/>
                         <viewControllerLayoutGuide type="bottom" id="kGS-st-WMk"/>

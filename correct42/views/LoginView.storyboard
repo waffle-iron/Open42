@@ -8,7 +8,7 @@
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="loginVC" title="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="correct42" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" title="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Open42" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

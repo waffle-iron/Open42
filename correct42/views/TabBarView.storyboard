@@ -9,7 +9,7 @@
         <!--Search-->
         <scene sceneID="kXb-8I-ruh">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="coW-E2-q52" customClass="SearchUserViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="coW-E2-q52" customClass="SearchUserViewController" customModule="Open42" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3fa-eZ-mE7"/>
                         <viewControllerLayoutGuide type="bottom" id="7b1-eA-rRb"/>
@@ -73,7 +73,7 @@
         <!--Profil-->
         <scene sceneID="pdA-Pg-EK6">
             <objects>
-                <viewController storyboardIdentifier="ProfilVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPC-Gr-Nqb" customClass="ProfilViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfilVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPC-Gr-Nqb" customClass="ProfilViewController" customModule="Open42" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rjf-jo-S7b"/>
                         <viewControllerLayoutGuide type="bottom" id="yoh-8P-Kf7"/>
@@ -108,7 +108,7 @@
         <!--Home-->
         <scene sceneID="RW1-nE-iRv">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVC" title="Home" id="Cat-4C-7m9" customClass="TabBarViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" title="Home" id="Cat-4C-7m9" customClass="TabBarViewController" customModule="Open42" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ePZ-Y9-LmH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -127,7 +127,7 @@
         <!--Corrections-->
         <scene sceneID="ta7-p5-DoL">
             <objects>
-                <viewController id="Wyu-3D-1jl" customClass="ScaleTeamsViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wyu-3D-1jl" customClass="ScaleTeamsViewController" customModule="Open42" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="otF-Oq-bHW"/>
                         <viewControllerLayoutGuide type="bottom" id="lgE-qG-uFN"/>
@@ -169,7 +169,7 @@
         <!--User View Controller-->
         <scene sceneID="hEv-jD-Wrc">
             <objects>
-                <viewController id="db3-sD-clj" customClass="UserViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="db3-sD-clj" customClass="UserViewController" customModule="Open42" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zn5-Mt-wXQ"/>
                         <viewControllerLayoutGuide type="bottom" id="PFL-y2-L9r"/>
@@ -464,7 +464,7 @@
         <!--Name User-->
         <scene sceneID="fF8-Q4-GWV">
             <objects>
-                <viewController id="9xp-9O-bw5" customClass="SearchUserContainerViewController" customModule="correct42" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9xp-9O-bw5" customClass="SearchUserContainerViewController" customModule="Open42" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F0P-O4-YdS"/>
                         <viewControllerLayoutGuide type="bottom" id="56w-tk-Qnm"/>
@@ -541,7 +541,7 @@
         <image name="ic_account_circle_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L7q-8U-Pgj"/>
+        <segue reference="Dlh-pB-ELa"/>
         <segue reference="htO-Rb-Nyt"/>
     </inferredMetricsTieBreakers>
 </document>

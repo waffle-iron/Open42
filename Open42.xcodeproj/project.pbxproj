@@ -148,14 +148,14 @@
 		468348361CF8603500F7C1AD /* ScaleTeamsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScaleTeamsRouter.swift; path = Library/Api/Routers/ScaleTeamsRouter.swift; sourceTree = "<group>"; };
 		468348371CF8603500F7C1AD /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRouter.swift; path = Library/Api/Routers/UserRouter.swift; sourceTree = "<group>"; };
 		4683483A1CF8603F00F7C1AD /* ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowAlert.swift; path = Helpers/ShowAlert.swift; sourceTree = "<group>"; };
-		4683B4611CC26999005DBAA6 /* correct42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = correct42.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4683B4611CC26999005DBAA6 /* Open42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Open42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B46B1CC26999005DBAA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = correct42/Assets.xcassets; sourceTree = "<group>"; };
 		4683B46E1CC26999005DBAA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4683B4701CC26999005DBAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = correct42/Info.plist; sourceTree = "<group>"; };
-		4683B4751CC26999005DBAA6 /* correct42Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = correct42Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4683B4751CC26999005DBAA6 /* Open42.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Open42.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B4791CC26999005DBAA6 /* correct42Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = correct42Tests.swift; sourceTree = "<group>"; };
 		4683B47B1CC26999005DBAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4683B4801CC26999005DBAA6 /* correct42UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = correct42UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4683B4801CC26999005DBAA6 /* Open42.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Open42.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4683B4841CC26999005DBAA6 /* correct42UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = correct42UITests.swift; sourceTree = "<group>"; };
 		4683B4861CC26999005DBAA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		469804271CF4DB3C007C2D2B /* SearchManagerDelegation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchManagerDelegation.swift; path = Services/Delegations/SearchManagerDelegation.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		4683B4581CC26999005DBAA6 = {
 			isa = PBXGroup;
 			children = (
-				4683B4631CC26999005DBAA6 /* correct42 */,
+				4683B4631CC26999005DBAA6 /* Open42 */,
 				4683B4781CC26999005DBAA6 /* correct42Tests */,
 				4683B4831CC26999005DBAA6 /* correct42UITests */,
 				4683B4621CC26999005DBAA6 /* Products */,
@@ -314,14 +314,14 @@
 		4683B4621CC26999005DBAA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4683B4611CC26999005DBAA6 /* correct42.app */,
-				4683B4751CC26999005DBAA6 /* correct42Tests.xctest */,
-				4683B4801CC26999005DBAA6 /* correct42UITests.xctest */,
+				4683B4611CC26999005DBAA6 /* Open42.app */,
+				4683B4751CC26999005DBAA6 /* Open42.xctest */,
+				4683B4801CC26999005DBAA6 /* Open42.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4683B4631CC26999005DBAA6 /* correct42 */ = {
+		4683B4631CC26999005DBAA6 /* Open42 */ = {
 			isa = PBXGroup;
 			children = (
 				464378E91CFF4CC10066F9BC /* Ressources */,
@@ -333,6 +333,7 @@
 				4683B4931CC2733D005DBAA6 /* Controllers */,
 				4683B4921CC27336005DBAA6 /* Models */,
 			);
+			name = Open42;
 			path = correct42;
 			sourceTree = "<group>";
 		};
@@ -464,9 +465,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4683B4601CC26999005DBAA6 /* correct42 */ = {
+		4683B4601CC26999005DBAA6 /* Open42 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4683B4891CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "correct42" */;
+			buildConfigurationList = 4683B4891CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "Open42" */;
 			buildPhases = (
 				8FC5771B36747FBD35F23AFC /* 📦 Check Pods Manifest.lock */,
 				4683B45D1CC26999005DBAA6 /* Sources */,
@@ -481,14 +482,14 @@
 			);
 			dependencies = (
 			);
-			name = correct42;
+			name = Open42;
 			productName = correct42;
-			productReference = 4683B4611CC26999005DBAA6 /* correct42.app */;
+			productReference = 4683B4611CC26999005DBAA6 /* Open42.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4683B4741CC26999005DBAA6 /* correct42Tests */ = {
+		4683B4741CC26999005DBAA6 /* Open42Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4683B48C1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "correct42Tests" */;
+			buildConfigurationList = 4683B48C1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "Open42Tests" */;
 			buildPhases = (
 				2B3F7393CE81E7214BA066A1 /* 📦 Check Pods Manifest.lock */,
 				4683B4711CC26999005DBAA6 /* Sources */,
@@ -502,14 +503,14 @@
 			dependencies = (
 				4683B4771CC26999005DBAA6 /* PBXTargetDependency */,
 			);
-			name = correct42Tests;
+			name = Open42Tests;
 			productName = correct42Tests;
-			productReference = 4683B4751CC26999005DBAA6 /* correct42Tests.xctest */;
+			productReference = 4683B4751CC26999005DBAA6 /* Open42.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4683B47F1CC26999005DBAA6 /* correct42UITests */ = {
+		4683B47F1CC26999005DBAA6 /* Open42UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4683B48F1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "correct42UITests" */;
+			buildConfigurationList = 4683B48F1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "Open42UITests" */;
 			buildPhases = (
 				06F5FD1CDA1714F849EEAB32 /* 📦 Check Pods Manifest.lock */,
 				4683B47C1CC26999005DBAA6 /* Sources */,
@@ -522,9 +523,9 @@
 			dependencies = (
 				4683B4821CC26999005DBAA6 /* PBXTargetDependency */,
 			);
-			name = correct42UITests;
+			name = Open42UITests;
 			productName = correct42UITests;
-			productReference = 4683B4801CC26999005DBAA6 /* correct42UITests.xctest */;
+			productReference = 4683B4801CC26999005DBAA6 /* Open42.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -551,7 +552,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4683B45C1CC26999005DBAA6 /* Build configuration list for PBXProject "correct42" */;
+			buildConfigurationList = 4683B45C1CC26999005DBAA6 /* Build configuration list for PBXProject "Open42" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -564,9 +565,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4683B4601CC26999005DBAA6 /* correct42 */,
-				4683B4741CC26999005DBAA6 /* correct42Tests */,
-				4683B47F1CC26999005DBAA6 /* correct42UITests */,
+				4683B4601CC26999005DBAA6 /* Open42 */,
+				4683B4741CC26999005DBAA6 /* Open42Tests */,
+				4683B47F1CC26999005DBAA6 /* Open42UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -812,12 +813,12 @@
 /* Begin PBXTargetDependency section */
 		4683B4771CC26999005DBAA6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4683B4601CC26999005DBAA6 /* correct42 */;
+			target = 4683B4601CC26999005DBAA6 /* Open42 */;
 			targetProxy = 4683B4761CC26999005DBAA6 /* PBXContainerItemProxy */;
 		};
 		4683B4821CC26999005DBAA6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4683B4601CC26999005DBAA6 /* correct42 */;
+			target = 4683B4601CC26999005DBAA6 /* Open42 */;
 			targetProxy = 4683B4811CC26999005DBAA6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -931,7 +932,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.espiroux.correct42;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Open42;
 			};
 			name = Debug;
 		};
@@ -949,7 +950,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.espiroux.correct42;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Open42;
 			};
 			name = Release;
 		};
@@ -961,8 +962,8 @@
 				INFOPLIST_FILE = correct42Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = espiroux.correct42Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/correct42.app/correct42";
+				PRODUCT_NAME = Open42;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Open42.app/Open42";
 			};
 			name = Debug;
 		};
@@ -974,8 +975,8 @@
 				INFOPLIST_FILE = correct42Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = espiroux.correct42Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/correct42.app/correct42";
+				PRODUCT_NAME = Open42;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Open42.app/Open42";
 			};
 			name = Release;
 		};
@@ -986,7 +987,7 @@
 				INFOPLIST_FILE = correct42UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = espiroux.correct42UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Open42;
 				TEST_TARGET_NAME = correct42;
 			};
 			name = Debug;
@@ -998,7 +999,7 @@
 				INFOPLIST_FILE = correct42UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = espiroux.correct42UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Open42;
 				TEST_TARGET_NAME = correct42;
 			};
 			name = Release;
@@ -1006,7 +1007,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4683B45C1CC26999005DBAA6 /* Build configuration list for PBXProject "correct42" */ = {
+		4683B45C1CC26999005DBAA6 /* Build configuration list for PBXProject "Open42" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4683B4871CC26999005DBAA6 /* Debug */,
@@ -1015,7 +1016,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		4683B4891CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "correct42" */ = {
+		4683B4891CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "Open42" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4683B48A1CC26999005DBAA6 /* Debug */,
@@ -1024,7 +1025,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		4683B48C1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "correct42Tests" */ = {
+		4683B48C1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "Open42Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4683B48D1CC26999005DBAA6 /* Debug */,
@@ -1033,7 +1034,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		4683B48F1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "correct42UITests" */ = {
+		4683B48F1CC26999005DBAA6 /* Build configuration list for PBXNativeTarget "Open42UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4683B4901CC26999005DBAA6 /* Debug */,
