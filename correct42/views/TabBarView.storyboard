@@ -68,7 +68,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3004" y="-125"/>
+            <point key="canvasLocation" x="2268" y="1167"/>
         </scene>
         <!--Profil-->
         <scene sceneID="pdA-Pg-EK6">
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogi-8T-Tuh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1440" y="-1264"/>
+            <point key="canvasLocation" x="4328" y="200"/>
         </scene>
         <!--Home-->
         <scene sceneID="RW1-nE-iRv">
@@ -122,7 +122,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM0-aa-w5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624" y="-929"/>
+            <point key="canvasLocation" x="2260" y="-1885"/>
         </scene>
         <!--Corrections-->
         <scene sceneID="ta7-p5-DoL">
@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFm-Tl-Vpq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="1223"/>
+            <point key="canvasLocation" x="688" y="1112"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="hEv-jD-Wrc">
@@ -175,17 +175,17 @@
                         <viewControllerLayoutGuide type="bottom" id="PFL-y2-L9r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UwT-Pj-0Us">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAg-5E-0Kr">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="qEG-1Y-kyE">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBh-A0-a0Q">
-                                        <rect key="frame" x="0.0" y="427" width="300" height="60"/>
+                                        <rect key="frame" x="0.0" y="491" width="300" height="60"/>
                                         <color key="backgroundColor" red="0.0078431372549019607" green="0.0078431372549019607" blue="0.0078431372549019607" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Iug-LM-eY5"/>
@@ -198,7 +198,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5t-jy-bse">
-                                        <rect key="frame" x="300" y="427" width="300" height="60"/>
+                                        <rect key="frame" x="300" y="491" width="300" height="60"/>
                                         <color key="backgroundColor" red="0.0078431372550000003" green="0.0078431372550000003" blue="0.0078431372550000003" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="b5j-b7-Xlt"/>
@@ -211,10 +211,10 @@
                                         </connections>
                                     </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOY-on-q7p">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="427"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="491"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-Vo-vss" userLabel="Content view">
-                                                <rect key="frame" x="0.0" y="-32" width="600" height="551"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email :   " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPe-iP-j7N">
                                                         <rect key="frame" x="8" y="276" width="288" height="21"/>
@@ -443,7 +443,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4324" y="-1255.5"/>
+            <point key="canvasLocation" x="2540" y="4023.5"/>
         </scene>
         <!--Skills-->
         <scene sceneID="gyL-ta-U4O">
@@ -451,7 +451,7 @@
                 <viewControllerPlaceholder storyboardName="Skills" id="jJI-Vk-ngX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKL-ZD-vjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4493.5" y="-658"/>
+            <point key="canvasLocation" x="2699.5" y="4655"/>
         </scene>
         <!--Projects-->
         <scene sceneID="uUu-45-qu7">
@@ -459,7 +459,7 @@
                 <viewControllerPlaceholder storyboardName="Projects" id="fX7-d2-7ki" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyp-9w-rTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4184.5" y="-658"/>
+            <point key="canvasLocation" x="2390.5" y="4655"/>
         </scene>
         <!--Name User-->
         <scene sceneID="fF8-Q4-GWV">
@@ -494,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2O0-l0-5fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3824" y="-125"/>
+            <point key="canvasLocation" x="2260" y="2339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mcc-V1-WQe">
@@ -513,7 +513,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLV-yk-Et7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="-569"/>
+            <point key="canvasLocation" x="2260" y="215"/>
         </scene>
         <!--Corrections-->
         <scene sceneID="WT9-7K-Xxf">
@@ -532,7 +532,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJs-n0-YDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624" y="319"/>
+            <point key="canvasLocation" x="680" y="208"/>
         </scene>
     </scenes>
     <resources>
@@ -541,7 +541,7 @@
         <image name="ic_account_circle_white" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="h5l-sx-m2K"/>
         <segue reference="Dlh-pB-ELa"/>
-        <segue reference="htO-Rb-Nyt"/>
     </inferredMetricsTieBreakers>
 </document>
