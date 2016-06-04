@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserViewController: UIViewController{
+class UserViewController: UIViewController, UIGestureRecognizerDelegate{
 
 	// MARK: - Singletons
 	/// Singleton of `UserManager`
@@ -24,7 +24,7 @@ class UserViewController: UIViewController{
 	@IBOutlet weak var pseudoLabel: UILabel!
 	
 	/// Mobile TextView of the `userManager.currentUser`.
-	@IBOutlet weak var mobileLabel: UITextView!
+	@IBOutlet weak var mobileLabel: UILabel!
 	
 	/// Email label of the `userManager.currentUser`.
 	@IBOutlet weak var emailLabel: UILabel!
@@ -51,24 +51,14 @@ class UserViewController: UIViewController{
 	@IBAction func ClickButtonSkills(sender: UIButton) {
 		self.performSegueWithIdentifier("goToSkills", sender: self)
 	}
-	
-	@IBAction func clickOnLabel(sender: UITapGestureRecognizer) {
-//		if sender.accessibilityElements![0] is UILabel{
-//			//let label = sender.accessibilityElements![0] as! UILabel
-//			print("Label")
-//			//UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(label.text?.stringByReplacingOccurrencesOfString(" ", withString: ""))")!)
-//		} else {
-//			print("Error")
-//		}
-	}
 
 	// MARK: - View life cycle
 	/// Define cornerRadius of the image.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-		userImage.layer.cornerRadius = userImage.frame.size.width/2
-		userImage.clipsToBounds = true
+		defineDefaultDesign()
+		appendDefaultGestureReconizer()
     }
 	
 	/// Ask to fill information from `userManager.currentUser`.
@@ -119,5 +109,60 @@ class UserViewController: UIViewController{
 			}, failure: { (error) in
 				print(error.domain)
 		})
+	}
+	
+	/**
+	Call the phone number inside `mobileLabel` if exist else nothing happen.
+	*/
+	@objc private func clicPhoneNumber(){
+		if var phoneNumber = mobileLabel.text {
+			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("(", withString: "")
+			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(")", withString: "")
+			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("-", withString: "")
+			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(".", withString: "")
+			phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: "")
+			if let phoneNumberURL = NSURL(string: "tel://\(phoneNumber)"){
+				UIApplication.sharedApplication().openURL(phoneNumberURL)
+			}
+		}
+	}
+	
+	/**
+	Call the phone number inside `mobileLabel` if exist else nothing happen.
+	*/
+	@objc private func clicEmail(){
+		if let email = emailLabel.text {
+			if email.containsString("@student.42.fr") {
+				if let email = NSURL(string: "mailto://\(email)"){
+					UIApplication.sharedApplication().openURL(email)
+				}
+			}
+		}
+	}
+	
+	/**
+	Append default Gesture reconizer. Need to add interpretation
+	of label inside an profil user. Follow actions happens :
+	- `mobileLabel` tap gesture do the `clicPhoneNumber` action method
+	- `emailLabel` tap gesture do the `clicEmail` action method
+	*/
+	private func appendDefaultGestureReconizer() {
+		/// For `mobileLabel`
+		let tapPhone = UITapGestureRecognizer(target: self, action: #selector(self.clicPhoneNumber))
+		mobileLabel.addGestureRecognizer(tapPhone)
+		/// For `emailLabel`
+		let tapEmail = UITapGestureRecognizer(target: self, action: #selector(self.clicEmail))
+		emailLabel.addGestureRecognizer(tapEmail)
+	}
+	
+	/**
+	Define the default design of `UserViewController`
+	Follow designs will be set :
+	- `userImage` will draw inside a circle
+	*/
+	private func defineDefaultDesign() {
+		// Define userImage circle
+		userImage.layer.cornerRadius = userImage.frame.size.width/2
+		userImage.clipsToBounds = true
 	}
 }

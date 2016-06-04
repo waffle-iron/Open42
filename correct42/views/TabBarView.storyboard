@@ -222,12 +222,15 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exemple@example.fr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dau-g6-Or2">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exemple@example.fr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dau-g6-Or2">
                                                         <rect key="frame" x="304" y="276" width="288" height="21"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="0.97328756309999997" green="0.97328756309999997" blue="0.97328756309999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="ZVv-TJ-xda" appends="YES" id="uR5-o1-Ydd"/>
+                                                        </connections>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpk-v2-Ttf">
                                                         <rect key="frame" x="8" y="229" width="288" height="21"/>
@@ -437,13 +440,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mm-mh-kqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ZVv-TJ-xda">
-                    <connections>
-                        <action selector="clickOnLabel:" destination="db3-sD-clj" id="yGS-OG-hPt"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ZVv-TJ-xda"/>
             </objects>
-            <point key="canvasLocation" x="2540" y="4023.5"/>
+            <point key="canvasLocation" x="2268" y="3959.5"/>
         </scene>
         <!--Skills-->
         <scene sceneID="gyL-ta-U4O">
@@ -451,7 +450,7 @@
                 <viewControllerPlaceholder storyboardName="Skills" id="jJI-Vk-ngX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKL-ZD-vjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2699.5" y="4655"/>
+            <point key="canvasLocation" x="2419.5" y="4655"/>
         </scene>
         <!--Projects-->
         <scene sceneID="uUu-45-qu7">
@@ -459,7 +458,7 @@
                 <viewControllerPlaceholder storyboardName="Projects" id="fX7-d2-7ki" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyp-9w-rTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390.5" y="4655"/>
+            <point key="canvasLocation" x="2110.5" y="4655"/>
         </scene>
         <!--Name User-->
         <scene sceneID="fF8-Q4-GWV">

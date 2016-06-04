@@ -64,6 +64,7 @@
 		46B3DDF21CD79442008A2D05 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DDF11CD79442008A2D05 /* SearchUserTableViewCell.swift */; };
 		46E7895F1CCCFA4A00D4CBE3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895D1CCCFA4A00D4CBE3 /* Alamofire.framework */; };
 		46E789601CCCFA4A00D4CBE3 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E7895E1CCCFA4A00D4CBE3 /* OAuthSwift.framework */; };
+		46F9182C1D02F926001FFD6D /* UILabelPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F9182B1D02F926001FFD6D /* UILabelPhone.swift */; };
 		B60C27431EB982CC53DC70F0 /* Pods_correct42UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DE91D259426C794AA0937A /* Pods_correct42UITests.framework */; };
 		B9746AC7A499CF43FDC0C6C0 /* Pods_correct42.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A732D1AFE4D85890AFF12E /* Pods_correct42.framework */; };
 		CED89C7C1CDB5120001FC0CC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED89C7B1CDB5120001FC0CC /* SwiftyJSON.framework */; };
@@ -165,6 +166,7 @@
 		46B3DDF11CD79442008A2D05 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserTableViewCell.swift; path = "views/Table Cells/SearchUserTableViewCell.swift"; sourceTree = "<group>"; };
 		46E7895D1CCCFA4A00D4CBE3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/correct42-chxutplijvficiclvoxgimrigxxa/Build/Products/Debug-iphonesimulator/Alamofire.framework"; sourceTree = "<group>"; };
 		46E7895E1CCCFA4A00D4CBE3 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/correct42-chxutplijvficiclvoxgimrigxxa/Build/Products/Debug-iphonesimulator/OAuthSwift.framework"; sourceTree = "<group>"; };
+		46F9182B1D02F926001FFD6D /* UILabelPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILabelPhone.swift; path = System/Labels/UILabelPhone.swift; sourceTree = "<group>"; };
 		CC51351C6D40756D2B1095AC /* Pods-correct42UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-correct42UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-correct42UITests/Pods-correct42UITests.release.xcconfig"; sourceTree = "<group>"; };
 		CED89C7B1CDB5120001FC0CC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		DF0EB92496AEA7A93ACB2511 /* Pods-correct42Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-correct42Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-correct42Tests/Pods-correct42Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		4683B4631CC26999005DBAA6 /* Open42 */ = {
 			isa = PBXGroup;
 			children = (
+				46F918291D02F8D0001FFD6D /* System */,
 				464378E91CFF4CC10066F9BC /* Ressources */,
 				4658A5041CD12B79001C0968 /* Helpers */,
 				4658A4EC1CCFBFFC001C0968 /* Library */,
@@ -433,6 +436,22 @@
 				46AB96D41CE913CE00908F1F /* ScaleTeamTableViewCell.swift */,
 			);
 			name = "Scale Teams";
+			sourceTree = "<group>";
+		};
+		46F918291D02F8D0001FFD6D /* System */ = {
+			isa = PBXGroup;
+			children = (
+				46F9182A1D02F8DE001FFD6D /* Label */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		46F9182A1D02F8DE001FFD6D /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				46F9182B1D02F926001FFD6D /* UILabelPhone.swift */,
+			);
+			name = Label;
 			sourceTree = "<group>";
 		};
 		A8DDDEA8BFB5A4B034B6E341 /* Frameworks */ = {
@@ -772,6 +791,7 @@
 				468347FF1CF85F5D00F7C1AD /* Campus.swift in Sources */,
 				468348181CF85F8400F7C1AD /* ProfilViewController.swift in Sources */,
 				468348091CF85F5D00F7C1AD /* Team.swift in Sources */,
+				46F9182C1D02F926001FFD6D /* UILabelPhone.swift in Sources */,
 				468348171CF85F8400F7C1AD /* LoginViewController.swift in Sources */,
 				468348081CF85F5D00F7C1AD /* SuperModel.swift in Sources */,
 				4683481B1CF85F8400F7C1AD /* SearchUserContainerViewController.swift in Sources */,
