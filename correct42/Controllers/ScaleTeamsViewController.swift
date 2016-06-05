@@ -35,7 +35,7 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 		scaleTeamsManager.fetchMyScaleTeams({ (_) in
 			self.scaleTeamsTable.reloadData()
 		}){ (error) in
-			print("Error on load")
+			ApiGeneral(myView: self).check(error, animate: true)
 		}
 		
 		//delegation
@@ -95,7 +95,7 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 							self.userManager.correctionUser = user
 							self.performSegueWithIdentifier("goToScaleUser", sender: self)
 						}, failure: { (error) in
-							showAlertWithTitle("Corrections", message: "Un problème est survenu, l'utilisateur ne semble plus exister.", view: self)
+							ApiGeneral(myView: self).check(error, animate: true)
 					})
 				}
 			} else {
@@ -106,7 +106,7 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 						self.userManager.correctionUser = user
 						self.performSegueWithIdentifier("goToScaleUser", sender: self)
 					}, failure: { (error) in
-						showAlertWithTitle("Corrections", message: "Un problème est survenu, l'utilisateur ne semble plus exister.", view: self)
+						ApiGeneral(myView: self).check(error, animate: true)
 				})
 			}
 		}

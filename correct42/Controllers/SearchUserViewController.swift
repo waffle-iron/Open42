@@ -76,7 +76,7 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 					self.performSegueWithIdentifier("goToUserSearch", sender: self)
 				}) { (error) in
 					self.requestInProgress = false
-					print(error.domain)
+					ApiGeneral(myView: self).check(error, animate: true)
 			}
 		}
 	}

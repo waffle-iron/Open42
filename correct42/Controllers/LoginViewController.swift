@@ -46,8 +46,9 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	@IBAction func connect42(sender: UIButton) {
 		LoginLoading.startAnimating()
 		apiRequester.connectApi(self, delegateSafari: self, success: { () in
+			self.connect()
 		}) { (error) in
-			print("Error code : \(error.code)")
+			ApiGeneral(myView: self).check(error, animate: false)
 		}
 	}
 	
@@ -74,7 +75,6 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	override func viewDidAppear(animated: Bool) {
 		progressBarLogin.progress = 0.0
 		loadingInformationsLabel.text = ""
-		connect()
 	}
 	
 	// MARK: - SafariView delegate
@@ -109,7 +109,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	*/
 	private func connect(){
 		dispatch_async(dispatch_get_main_queue()){
-			if (ApiCredential.Shared().token != nil){
+			if (ApiCredential.Shared().token != ""){
 				self.button42Login.hidden = true
 				self.fetchUser()
 			} else {
@@ -117,6 +117,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 				self.LoginLoading.stopAnimating()
 			}
 		}
+
 	}
 	
 	/**
@@ -132,7 +133,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 			self.userManager.currentUser = user
 			self.fetchListUser()
 		}) { (error) in
-			showAlertWithTitle("Intra 42", message: error.domain, view: self)
+			ApiGeneral(myView: self).check(error, animate: false)
 			self.LoginLoading.stopAnimating()
 			self.button42Login.hidden = false
 		}
@@ -149,11 +150,10 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 		self.loadingInformationsLabel.text = "Loading users list for research more faster than ever...\n(Only happens once a year)"
 		if !searchManager.fileAlreadyExist() {
 			searchManager.fetchAllUsersFromAPI{ (success, error) in
-				print("End fetch file")
 				if (success){
 					self.performSegueWithIdentifier("connectSegue", sender: self)
 				} else {
-					showAlertWithTitle("Loading users list", message: "A problem occured.", view: self)
+					ApiGeneral(myView: self).check(error, animate: false)
 				}
 				self.LoginLoading.stopAnimating()
 				self.button42Login.hidden = false
@@ -165,7 +165,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 				if (success){
 					self.performSegueWithIdentifier("connectSegue", sender: self)
 				} else {
-					showAlertWithTitle("Loading users list", message: "A problem occured.", view: self)
+					ApiGeneral(myView: self).check(error, animate: false)
 				}
 				self.LoginLoading.stopAnimating()
 				self.button42Login.hidden = false
