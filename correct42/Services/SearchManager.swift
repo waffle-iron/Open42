@@ -33,6 +33,20 @@ class SearchManager {
 	/// Array of Users
 	lazy var listSearchUser:[User] = [User]()
 	
+	/// Array of Users sort by array and alpha
+	lazy var userListGroupByFirstLetter:[(String, [User])] = {
+		let groupArray = self.listSearchUser.groupBy{ (element) -> String in
+			if let FirstCharaterLogin = element.login.characters.first{
+				return ("\(FirstCharaterLogin)")
+			}
+			return ("")
+		}
+		let collectionArray = groupArray.sort({$0.0 < $1.0})
+		return (collectionArray)
+	}()
+		
+	
+	
 	/// Count the current fetched page.
 	lazy var currentPage = 0
 	
@@ -91,6 +105,18 @@ class SearchManager {
 			self.onCompletionHandler = onCompletion!
 			fillUserListFromAPIAtBeginPagetoTheEnd(1)
 		}
+	}
+	
+	func groupFromResearch(value:String) -> [(String, [User])]{
+		let filtredArray = self.listSearchUser.filter({$0.login.containsString(value)})
+		let groupArray = filtredArray.groupBy{ (element) -> String in
+			if let FirstCharaterLogin = element.login.characters.first{
+				return ("\(FirstCharaterLogin)")
+			}
+			return ("")
+		}
+		let collectionArray = groupArray.sort({$0.0 < $1.0})
+		return (collectionArray)
 	}
 	
 	/**
@@ -240,5 +266,21 @@ private extension Character
 		let scalars = characterString.unicodeScalars
 		
 		return scalars[scalars.startIndex].value
+	}
+}
+
+private extension Array{
+	func groupBy<G:Hashable>(groupingclosure:(Element) -> G) -> [G:[Element]] {
+		var dict = [G:[Element]]()
+		for element in self{
+			let key = groupingclosure(element)
+			var array = dict[key]
+			if array == nil {
+				array = [Element]()
+			}
+			array?.append(element)
+			dict[key] = array
+		}
+		return dict
 	}
 }

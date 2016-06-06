@@ -52,7 +52,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="searchBar" destination="QYE-XD-44f" id="bUU-aO-odh"/>
+                        <outlet property="searchBar" destination="QYE-XD-44f" id="ejC-fg-Iv0"/>
                         <outlet property="searchDisplayController" destination="TXs-Zk-axL" id="4Tw-v2-jSx"/>
                         <outlet property="usersTable" destination="60b-mn-uLl" id="ppX-S7-iXQ"/>
                         <segue destination="9xp-9O-bw5" kind="show" identifier="goToUserSearch" id="L7q-8U-Pgj"/>
@@ -534,6 +534,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="h5l-sx-m2K"/>
-        <segue reference="Dlh-pB-ELa"/>
+        <segue reference="L7q-8U-Pgj"/>
     </inferredMetricsTieBreakers>
 </document>

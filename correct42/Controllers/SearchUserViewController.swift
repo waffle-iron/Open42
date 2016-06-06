@@ -28,8 +28,8 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 	let cellName = "searchUserCell"
 	
 	/// Lazy array of all users admit to School 42, sort in alphabetical order
-	lazy var users:[User] = {
-		return (self.searchManager.listSearchUser.sort({$0.login < $1.login}))
+	lazy var users:[(String,[User])] = {
+		return (self.searchManager.userListGroupByFirstLetter)
 	}()
 
 	/// Bool to keep loading two users in same time.
@@ -39,7 +39,8 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 	/**
 	On View did load :
 	1. Register Custom cells, fill delegate and dataSource `usersTable` by `SearchUserViewController` and reload `usersTable`.
-	2. Delegate the searchBar by `SearchUserViewController`
+	2. Set Color and backgroundColor of the index section table
+	3. Delegate the searchBar by `SearchUserViewController`
 	*/
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,28 +50,59 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 		usersTable.dataSource = self
 		usersTable.reloadData()
 		
+		usersTable.sectionIndexColor = UIColor.whiteColor()
+		usersTable.sectionIndexBackgroundColor = UIColor.clearColor()
+		
 		searchBar.delegate = self
     }
 	
 	// MARK: - SearchBar delegation
 	/// If the text in `searchBar` change, this methods call `searchValueOnAPI` private function
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-		filterUsersWithLoginValue(searchText)
+		filterUsersWithLoginValue(searchText.lowercaseString)
+	}
+	
+	/**
+	Display an header with the string key 
+	in collectionArray `users`
+	*/
+	func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		let titleForHeaderInSection = users[section].0
+		return (titleForHeaderInSection.uppercaseString)
 	}
 	
 	// MARK: - TableView delegation
 	/// Count `users` for the `usersTable` numberOfRowsInSection.
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return (users.count)
+		let numberOfRowsInSection = users[section].1.count
+		return (numberOfRowsInSection)
+	}
+	
+	/// Give to `usersTable` the number of section (first letter login)
+	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+		let sectionCount = users.count
+		return (sectionCount)
+	}
+	
+	func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+		var arrayTitle = [String]()
+		for section in users{
+			arrayTitle.append(section.0 + " ")
+		}
+		if arrayTitle.count > 5 {
+			return arrayTitle
+		}
+		return nil
 	}
 	
 	/**
 	Fetch the selected user and perform a request (if `requestInProgress` == false)
 	*/
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		let userObject = users[indexPath.section].1[indexPath.row]
 		if (!requestInProgress){
 			requestInProgress = true
-			userManager.fetchUserById(users[indexPath.row].id, success: { (user) in
+			userManager.fetchUserById(userObject.id, success: { (user) in
 					self.requestInProgress = false
 					self.userManager.searchUser = user
 					self.performSegueWithIdentifier("goToUserSearch", sender: self)
@@ -86,6 +118,7 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 	- Returns: An `SearchUserTableViewCell` filled.
 	*/
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let userObject = users[indexPath.section].1[indexPath.row]
 		let userListCellPrototype:SearchUserTableViewCell? = {
 			let userSearchCell = self.usersTable.dequeueReusableCellWithIdentifier(self.cellName)
 			if userSearchCell is SearchUserTableViewCell{
@@ -93,7 +126,7 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 			}
 			return (nil)
 		}()
-		userListCellPrototype!.loginUser.text = users[indexPath.row].login
+		userListCellPrototype!.loginUser.text = userObject.login
 		return (userListCellPrototype!)
 	}
 	
@@ -119,11 +152,11 @@ class SearchUserViewController: UIViewController, UITableViewDelegate, UITableVi
 	private func filterUsersWithLoginValue(login:String){
 		if (login != ""){
 			self.users.removeAll()
-			self.users = searchManager.listSearchUser.filter{$0.login.localizedCaseInsensitiveContainsString(login)}
+			self.users = searchManager.groupFromResearch(login)
 			self.usersTable.reloadData()
 		} else {
 			self.users.removeAll()
-			self.users = searchManager.listSearchUser
+			self.users = searchManager.userListGroupByFirstLetter
 			self.usersTable.reloadData()
 		}
 	}
