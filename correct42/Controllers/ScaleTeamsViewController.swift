@@ -49,7 +49,9 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 	@IBAction func addToCalendarAction(sender: UIBarButtonItem) {
 		let alert = UIAlertController(title: "Corrections", message: "Do you want to add Scale teams to your calendar ?", preferredStyle: .ActionSheet)
 		alert.addAction(UIAlertAction(title: "Do it !", style: .Default, handler: { (alertAction) in
-			self.addScaleTeamsToCalendar()
+			self.scaleTeamsManager.addScaleTeamsToCalendar({ error in
+				showAlertWithTitle("Scale Calendar", message: error.userInfo[0]!.debugDescription, view: self)
+			})
 		}))
 		alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
 		self.presentViewController(alert, animated: true, completion: nil)
@@ -147,23 +149,5 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 		}
 		return (UITableViewCell())
 	}
-	
-	private func addScaleTeamsToCalendar(){
-		var i = 0
-		for curScaleTeam in scaleTeamsManager.list {
-			if (!scaleTeamsManager.alreadyInCalendar(curScaleTeam)){
-				scaleTeamsManager.addedToCalendar(curScaleTeam, onCompletion: { (success, error) in
-					if (!success){
-						showAlertWithTitle("Corrections", message: error!.userInfo.indexForKey(0).debugDescription, view: self)
-					}
-				})
-				i = i + 1
-			}
-		}
-		if (i == 0){
-			showAlertWithTitle("Corrections", message: "All scale Teams are already added.", view: self)
-		} else {
-			showAlertWithTitle("Corrections", message: "Vos corrections ont été ajouté.", view: self)
-		}
-	}
 }
+

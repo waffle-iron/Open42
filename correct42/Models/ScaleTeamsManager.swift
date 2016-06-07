@@ -35,8 +35,6 @@ class ScaleTeamsManager {
 	// MARK: - Services
 	/// Singleton of the API
 	let apiRequester = ApiRequester.Shared()
-	/// Singleton of the user ersistent data
-	let userPersistentData = NSUserDefaults.standardUserDefaults()
 
 	// MARK: - Methods
 	/**
@@ -78,7 +76,7 @@ class ScaleTeamsManager {
 	Check in list of scaleTeam if an id exist
 	
 	- Parameters:
-	- id: Id who we need to know if exist in the list of the scaleTeam.
+		- id: Id who we need to know if exist in the list of the scaleTeam.
 	
 	- Return: True if exist
 	*/
@@ -92,25 +90,109 @@ class ScaleTeamsManager {
 		return (result)
 	}
 	
-	func addedToCalendar(scaleTeam:ScaleTeam, onCompletion:(Bool, NSError?)->Void){
+	/**
+	Add an scaleTeam to the IOS calendar
+	
+	- Parameters:
+		- scaleTeam: `ScaleTeam` model
+		- onCompletion: Use (NSError?)->Void handler
+	*/
+	func addScaleTeamToCalendar(scaleTeam:ScaleTeam, onError:(NSError)->Void){
+		let idScaleTeam = scaleTeam.id
 		let startDate = scaleTeam.beginAt
-		let endDate = scaleTeam.beginAt.dateByAddingTimeInterval(Double(scaleTeam.scale.duration))
-		addEventToCalendar(title: scaleTeam.scale.name, description: "", startDate: startDate, endDate: endDate, onCompletion: { (success, error) in
-			if (!success){
-				onCompletion(false, NSError(domain: "Corrections", code: -1, userInfo: [0:"Un probleme est survenu pendant l'ajout."]))
-			} else {
-				self.userPersistentData.setValue(startDate, forKey: "lastAddCalendarCorrection")
-				onCompletion(true, nil)
-			}
-		})
+		let scaleName = scaleTeam.scale.name.stringByReplacingOccurrencesOfString("-", withString: " ")
+		
+		if self.persitentIdExist(idScaleTeam, dateScaleTeam: startDate) {
+			let endDate = scaleTeam.beginAt.dateByAddingTimeInterval(Double(scaleTeam.scale.duration))
+			addEventToCalendar(title: scaleTeam.scale.name, description: "", startDate: startDate, endDate: endDate, onCompletion: { (success, error) in
+				if (!success){
+					onError(NSError(domain: "Corrections", code: -1, userInfo: [0:"A problem happen when adding \(scaleName) \(scaleTeam.beginAtFormated) in calendar"]))
+				} else {
+					self.addPersitentId(idScaleTeam, dateScaleTeam: startDate)
+				}
+			})
+		} else {
+			onError(NSError(domain: "Corrections", code: -1, userInfo: [0:"Entry for \(scaleName) \(scaleTeam.beginAtFormated) already exist."]))
+		}
 	}
 	
-	func alreadyInCalendar(scaleTeam:ScaleTeam) -> Bool {
-		if let lastAddedDate = userPersistentData.valueForKey("lastAddCalendarCorrection") {
-			if (scaleTeam.beginAt <= lastAddedDate as? NSDate) {
-				return (true)
+	/**
+	Add all scaleTeams to the IOS calendar
+	
+	- Parameters:
+	- scalesTeam: `ScaleTeam` array model
+	- onCompletion: Use (NSError?)->Void handler
+	*/
+	func addScaleTeamsToCalendar(onErrorEntry:(NSError)->Void){
+		cleanOldScaleTeamPersistentData()
+		for curScaleTeam in list {
+			addScaleTeamToCalendar(curScaleTeam, onError: onErrorEntry)
+		}
+	}
+	
+	/**
+	Clean scaleTeam passed current date from persistent data
+	*/
+	func cleanOldScaleTeamPersistentData(){
+		/// Singleton of the user persistent data
+		let userPersistentData = NSUserDefaults.standardUserDefaults()
+		let addedIdOpt = userPersistentData.valueForKey("addedScaleCalendar") as? [Int:NSDate]
+		
+		var addedId = [Int:NSDate]()
+		if addedIdOpt != nil {
+			for (saveId, saveDate) in addedIdOpt! {
+				/// TODO : Check if correction has been already make.
+				if (saveDate > NSDate()){
+					addedId[saveId] = saveDate
+				}
 			}
 		}
-		return (false)
+		userPersistentData.setValue(addedId, forKey: "addedScaleCalendar")
 	}
+	
+	// MARK: - Private methods
+	/**
+	Add a scaleTeam in persistent data
+	
+	- Parameters :
+		- idScaleTeam : Int id of an scaleTeam
+		- dateScaleTeam : NSDate date of an scaleTeam
+	*/
+	private func addPersitentId(idScaleTeam: Int, dateScaleTeam: NSDate){
+		/// Singleton of the user persistent data
+		let userPersistentData = NSUserDefaults.standardUserDefaults()
+		let addedIdOpt = userPersistentData.valueForKey("addedScaleCalendar") as? [Int:NSDate]
+		
+		var addedId = [Int:NSDate]()
+		if addedIdOpt != nil {
+			addedId = addedIdOpt!
+		}
+		
+		addedId[idScaleTeam] = dateScaleTeam
+		userPersistentData.setValue(addedId, forKey: "addedScaleCalendar")
+	}
+	
+	/**
+	Return true if id of a scale team exist.
+	Please use `cleanOldScaleTeamPersistentData()` before.
+	
+	- Parameters:
+		- idScaleTeam: Int id of an scaleTeam
+		- dateScaleTeam: NSDate date of an scaleTeam
+	- Returns: True if id already exist
+	*/
+	private func persitentIdExist(idScaleTeam: Int, dateScaleTeam: NSDate) -> Bool {
+		/// Singleton of the user persistent data
+		let userPersistentData = NSUserDefaults.standardUserDefaults()
+		let addedIdOpt = userPersistentData.valueForKey("addedScaleCalendar") as? [Int:NSDate]
+		if addedIdOpt != nil {
+			if addedIdOpt![idScaleTeam] != nil {
+				return true
+			}
+		}
+		return false
+	}
+	
+	
+	
 }

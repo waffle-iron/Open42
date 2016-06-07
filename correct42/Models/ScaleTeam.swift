@@ -71,6 +71,15 @@ class ScaleTeam : SuperModel{
 		return (NSDate())
 	}()
 	
+	var beginAtFormated:String {
+		get {
+			let dateFormat = NSDateFormatter()
+			dateFormat.locale = NSLocale(localeIdentifier: "fr_FR")
+			dateFormat.dateFormat = "'on' dd/LL/yyyy 'at' HH:mm"
+			return (dateFormat.stringFromDate(self.beginAt))
+		}
+	}
+	
 	// MARK: - Single Typed
 	/// Flag description (usually an icon)
 	lazy var flag:Flag = {
