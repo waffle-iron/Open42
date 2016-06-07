@@ -141,7 +141,7 @@ class ScaleTeamsManager {
 		var addedId = [Int:NSDate]()
 		if addedIdOpt != nil {
 			for (saveId, saveDate) in addedIdOpt! {
-				/// TODO : Check if correction has been already make.
+				// TODO: Check if correction has been already exist in table not the date. ----------------------------
 				if (saveDate > NSDate()){
 					addedId[saveId] = saveDate
 				}
