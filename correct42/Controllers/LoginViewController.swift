@@ -45,6 +45,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	*/
 	@IBAction func connect42(sender: UIButton) {
 		LoginLoading.startAnimating()
+		button42Login.hidden = true
 		apiRequester.connectApi(self, delegateSafari: self, success: { () in
 			self.connect()
 		}) { (error) in
@@ -74,7 +75,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	*/
 	override func viewDidAppear(animated: Bool) {
 		progressBarLogin.progress = 0.0
-		loadingInformationsLabel.text = ""
+		loadingInformationsLabel.text = "Loading profile..."
 	}
 	
 	// MARK: - SafariView delegate
@@ -114,6 +115,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 				self.fetchUser()
 			} else {
 				self.progressBarLogin.hidden = true
+				self.button42Login.hidden = false
 				self.LoginLoading.stopAnimating()
 			}
 		}
@@ -147,8 +149,8 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 	*/
 	private func fetchListUser() { // ~2 min 30.
 		self.progressBarLogin.hidden = false
-		self.loadingInformationsLabel.text = "Loading users list for research more faster than ever...\n(Only happens once a year)"
 		if !searchManager.fileAlreadyExist() {
+			self.loadingInformationsLabel.text = "Loading users list for research more faster than ever...\n(Only happens once a year)"
 			searchManager.fetchAllUsersFromAPI{ (success, error) in
 				if (success){
 					self.performSegueWithIdentifier("connectSegue", sender: self)
@@ -161,6 +163,7 @@ class LoginViewController: UIViewController, SFSafariViewControllerDelegate, Sea
 			}
 		} else {
 			progressBarLogin.progress = 1.0
+			self.loadingInformationsLabel.text = "Loading users list..."
 			searchManager.fetchUsersFromFile({ (success, error) in
 				if (success){
 					self.performSegueWithIdentifier("connectSegue", sender: self)
