@@ -18,6 +18,8 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 	// MARK: - Proprieties
 	/// Name of the custom cell call by the `scaleTeamsTable`
 	var cellName = "ScaleTeamCell"
+	/// RefreshControl of the `scaleTeamsTable`
+	let refreshControl = UIRefreshControl()
 
 	// MARK: - Singletons
 	/// Singleton of `ScaleTeamsManager`
@@ -27,7 +29,9 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 	
 	// MARK: - View life cycle
 	/**
-	Fetch user data from api with `scaleTeamsManager` and Register Custom cells, fill delegate and dataSource `scaleTeamsTable` by `ScaleTeamsViewController`
+	1. Fetch user data from api with `scaleTeamsManager`
+	2. Register Custom cells and fill delegate dataSource `scaleTeamsTable` by `ScaleTeamsViewController`
+	3. Add pull refresh control to `scaleTeamsTable`
 	*/
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +47,12 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 		scaleTeamsTable.registerNib(nib, forCellReuseIdentifier: cellName)
 		scaleTeamsTable.delegate = self
 		scaleTeamsTable.dataSource = self
+		
+		// Add Refresh control on `scaleTeamsTable`
+		refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+		refreshControl.addTarget(self, action: #selector(self.pullRefreshAction), forControlEvents: UIControlEvents.ValueChanged)
+		refreshControl.tintColor = UIColor.whiteColor()
+		scaleTeamsTable.addSubview(refreshControl)
     }
 	
 	// MARK: - IBActions
@@ -116,7 +126,7 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 	
 	// MARK: - Private methods
 	/// Create Scale cell by indexPath.row
-	func createScaleCell(indexPathRow:Int) -> UITableViewCell {
+	private func createScaleCell(indexPathRow:Int) -> UITableViewCell {
 		if let scaleTeamCellPrototype:ScaleTeamTableViewCell? = {
 			let scaleTeamCell = self.scaleTeamsTable.dequeueReusableCellWithIdentifier(self.cellName)
 			if scaleTeamCell is ScaleTeamTableViewCell{
@@ -148,6 +158,16 @@ class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableVi
 			return (scaleTeamCellPrototype)!
 		}
 		return (UITableViewCell())
+	}
+	
+	func pullRefreshAction(){
+		scaleTeamsManager.fetchMyScaleTeams({ (_) in
+			self.scaleTeamsTable.reloadData()
+			self.refreshControl.endRefreshing()
+		}){ (error) in
+			ApiGeneral(myView: self).check(error, animate: true)
+			self.refreshControl.endRefreshing()
+		}
 	}
 }
 
