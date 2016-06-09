@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class UserViewController: UIViewController, UIGestureRecognizerDelegate{
+class UserViewController: UIViewController, UIGestureRecognizerDelegate, MFMessageComposeViewControllerDelegate{
 
 	// MARK: - Singletons
 	/// Singleton of `UserManager`
@@ -66,6 +67,22 @@ class UserViewController: UIViewController, UIGestureRecognizerDelegate{
 		fillUser()
 	}
 	
+	// MARK: - MFMessage Compose View Controller Delegate
+	/// Message compose handler.
+	func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+		switch (result) {
+		case MessageComposeResultCancelled:
+			self.dismissViewControllerAnimated(true, completion: nil)
+		case MessageComposeResultFailed:
+			self.dismissViewControllerAnimated(true, completion: nil)
+		case MessageComposeResultSent:
+			self.dismissViewControllerAnimated(true, completion: nil)
+		default:
+			break;
+		}
+	}
+
+	
 	// MARK: - Private methods
 	/**
 	If Fill information from `userManager.currentUser` else if he's optionnal
@@ -112,19 +129,38 @@ class UserViewController: UIViewController, UIGestureRecognizerDelegate{
 	}
 	
 	/**
-	Call the phone number inside `mobileLabel` if exist else nothing happen.
+	Purpose two choice with action sheet:
+		1. Call the phone number inside `mobileLabel` if exist else nothing happen.
+		2.
 	*/
 	@objc private func clicPhoneNumber(){
 		if (!user.currentIsProfil){
-			if var phoneNumber = mobileLabel.text {
+			if var phoneNumber = self.mobileLabel.text {
 				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("(", withString: "")
 				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(")", withString: "")
 				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString("-", withString: "")
 				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(".", withString: "")
 				phoneNumber = phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: "")
-				if let phoneNumberURL = NSURL(string: "tel://\(phoneNumber)"){
-					UIApplication.sharedApplication().openURL(phoneNumberURL)
-				}
+					
+				let alert = UIAlertController(title: "\(self.user.currentUser!.surname)'s Contacts", message: "What do you want to do with the number phone of \(self.user.currentUser!.surname) ?", preferredStyle: .ActionSheet)
+				
+				alert.addAction(UIAlertAction(title: "Call", style: .Default, handler: { (alertAction) in
+					if let phoneNumberURL = NSURL(string: "tel://\(phoneNumber)"){
+						UIApplication.sharedApplication().openURL(phoneNumberURL)
+					}
+				}))
+				
+				alert.addAction(UIAlertAction(title: "Sms", style: .Default, handler: { (alertAction) in
+						let messageVC = MFMessageComposeViewController()
+						messageVC.body = "Salutation \(self.user.currentUser!.surname),";
+						messageVC.recipients = [phoneNumber]
+						messageVC.messageComposeDelegate = self;
+						
+						self.presentViewController(messageVC, animated: false, completion: nil)
+				}))
+				
+				alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+				self.presentViewController(alert, animated: true, completion: nil)
 			}
 		}
 	}

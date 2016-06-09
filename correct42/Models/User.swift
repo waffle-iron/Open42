@@ -52,6 +52,17 @@ class User : SuperModel {
 		return (self.jsonData["displayname"].stringValue)
 	}()
 	
+	/// Surname 
+	var surname:String {
+		get{
+			let surname = displayName.componentsSeparatedByString(" ")[0]
+			if surname != "" {
+				return (surname)
+			}
+			return ""
+		}
+	}
+	
 	/// Url of the profil image.
 	lazy var imageUrl:String = {
 		return (self.jsonData["image_url"].stringValue)
