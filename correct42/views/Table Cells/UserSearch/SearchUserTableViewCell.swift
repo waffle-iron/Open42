@@ -8,8 +8,12 @@
 
 import UIKit
 
+/**
+`UITableViewCell` inheritance for a User search cell
+*/
 class SearchUserTableViewCell: UITableViewCell {
 
+	/// Login of an user 
 	@IBOutlet weak var loginUser: UILabel!
 
 }

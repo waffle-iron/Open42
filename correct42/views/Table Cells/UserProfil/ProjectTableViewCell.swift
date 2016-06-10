@@ -8,9 +8,15 @@
 
 import UIKit
 
+/**
+`UITableViewCell` inheritance for a Project cell
+*/
 class ProjectTableViewCell: UITableViewCell {
 
+	/// Slug name of a project
 	@IBOutlet weak var projectNameLabel: UILabel!
+	
+	/// Final mark of a project
 	@IBOutlet weak var markLabel: UILabel!
 
 }

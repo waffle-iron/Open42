@@ -8,9 +8,15 @@
 
 import UIKit
 
+/**
+`UITableViewCell` inheritance for a Skill cell
+*/
 class SkillTableViewCell: UITableViewCell {
 
+	/// Name label of a skill
 	@IBOutlet weak var skillNameLabel: UILabel!
+	
+	/// Level label of a skill
 	@IBOutlet weak var levelLabel: UILabel!
 
 }
