@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+Display the list of all 42 School students in a tableView `usersTable`
+*/
 class SearchUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
 	// MARK: - IBOutlets

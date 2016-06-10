@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+View who display `UserViewController` in a container from `UserManager.loginUser`
+*/
 class ProfilViewController: UIViewController {
 	
 	// MARK: - Default Styles definitions

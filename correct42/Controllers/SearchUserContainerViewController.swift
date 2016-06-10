@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+Show an user profil. he's call Search because this is the first needed of 
+a container profil. Now, the scaleTeamViewController perform segue to it too.
+*/
 class SearchUserContainerViewController: UIViewController {
 
 	// MARK: - Singletons

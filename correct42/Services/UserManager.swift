@@ -7,6 +7,16 @@
 //
 import Foundation
 
+/**
+Organize users tab view :
+- `loginUser` is the token owner profil,
+- `searchUser` is the clicked search user profil and
+- `correctionUser` is the clicked scale team corrector/corrected user
+
+The `UserViewController` will display every time the `currentUser`
+
+This manager allow to fetch token owner's profil and an user by id.
+*/
 class UserManager {
 	// MARK: Singleton
 	/// Static Instance of the UserManager

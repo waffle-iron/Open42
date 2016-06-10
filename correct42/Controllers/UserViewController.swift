@@ -9,6 +9,12 @@
 import UIKit
 import MessageUI
 
+/**
+Container content of an displayed user
+Display all public informations
+Implementation of click on `mobileLabel` and `emailLabel`
+to interpret and do the correspondant action
+*/
 class UserViewController: UIViewController, UIGestureRecognizerDelegate, MFMessageComposeViewControllerDelegate{
 
 	// MARK: - Singletons

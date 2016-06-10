@@ -8,6 +8,16 @@
 
 import UIKit
 
+/**
+Implement because we need to switch `UserManager.currentUser` to the switched display user tab.
+1. Item : `UserManager.loginUser`
+2. Item : `UserManager.searchUser`
+3. Item : `UserManager.correctionUser`
+
+Default: `UserManager.loginUser`
+
+viewDidLoad: `UserManager.loginUser`
+*/
 class TabBarViewController: UITabBarController{
 
 	// MARK: - Singletons

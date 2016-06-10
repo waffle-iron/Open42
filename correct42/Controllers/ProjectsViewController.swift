@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+View display projects of the `currentUser` inside `UserManager`
+*/
 class ProjectsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	// MARK: - Singletons

@@ -10,6 +10,7 @@ import OAuthSwift
 import SwiftyJSON
 import SafariServices
 
+/// Permit request something to API 42 with the help of `ApiRouter`
 class ApiRequester {
 	
 	// MARK: - Singleton
@@ -35,8 +36,10 @@ class ApiRequester {
 	
 	
 	// MARK: - Proprieties
-	private let clientID = "a94a2723cbc81403ded70bb83444030dd15f47f3c0469bfe9b576cf648739291"
-	private let secretKey = "e8011d26fe85872ae11016065a01aa41274740b2ee0f6fb9f962b2c8eb74ba2f"
+	/// Client id of Api 42
+	private let clientID = ""//"<Your Client ID>"
+	/// Secret key of Api 42
+	private let secretKey = ""//"<Your Secret Key>"
 	
 	// MARK: - Methods
 	/**
@@ -139,6 +142,12 @@ class ApiRequester {
 		)
 	}
 	
+	/**
+	Refresh api Token and execute callback.
+	
+	- Parameters:
+	- onCompletion: CallBack execute with nil error if the completion succeeded
+	*/
 	func refreshToken(onCompletion:(NSError?)->Void){
 		if apiCredential.refrechToken != "" {
 			Alamofire.request(.POST, "https://api.intra.42.fr/oauth/token?grant_type=refresh_token&client_id=\(clientID)&client_secret=\(secretKey)&refresh_token=\(apiCredential.refrechToken)&redirect_uri=localhost")

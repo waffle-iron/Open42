@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+View display skills of the `currentUser` inside `UserManager`
+*/
 class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
 	// MARK: - Singletons

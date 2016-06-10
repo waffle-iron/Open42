@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
+/// Permit to centralize `apiRequester` errors
 class ApiGeneral {
 	// MARK: - Singletons
 	/// Singleton of `ApiRequester`
@@ -28,7 +29,7 @@ class ApiGeneral {
 	/**
 	 Check if the error is known
 	- Parameter nsError: NSError with a status code
-	- Parameter animate: if change view on error
+	- Parameter animate: if change view on error, use for login page auto-login.
 	*/
 	func check(nsError:NSError, animate:Bool){
 		switch nsError.code {
@@ -52,7 +53,9 @@ class ApiGeneral {
 			break
 		default:
 			showAlertWithTitle(title, message: "Please check your internet connection and try again.", view: view)
-			goToLogin()
+			if (animate){
+				self.goToLogin()
+			}
 			break
 		}
 	}

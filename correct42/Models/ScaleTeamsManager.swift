@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+Contain the list of scaleTeams.
+Permit to save scaleTeams to IOS Calendar.
+*/
 class ScaleTeamsManager {
 	// MARK: Singleton
 	/// Static Instance of the ScaleTeamsManager
@@ -194,7 +198,4 @@ class ScaleTeamsManager {
 		}
 		return false
 	}
-	
-	
-	
 }

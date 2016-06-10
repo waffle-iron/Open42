@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+Organize user list file to array of user `list` and allow computed array `userListGroupByFirstLetter` to group users by first letter for the table view headers and index title.
+Permit to fetch an user list file from API 42 to update the last one.
+*/
 class SearchManager {
 	// MARK: - Singleton
 	/// Static Instance of the Search Manager

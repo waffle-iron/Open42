@@ -9,6 +9,9 @@
 import UIKit
 import EventKit
 
+/**
+Display scale teams of the token owner in a tableView named `scaleTeamsTable`
+*/
 class ScaleTeamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	// MARK: - IBOutlets

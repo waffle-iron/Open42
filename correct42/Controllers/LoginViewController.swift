@@ -9,6 +9,9 @@
 import UIKit
 import SafariServices
 
+/**
+Display the login view with a button who launch oauth to API42
+*/
 class LoginViewController: UIViewController, SFSafariViewControllerDelegate, SearchManagerDelegation{
 
 	// MARK: - Singletons
